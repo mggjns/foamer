@@ -9,6 +9,10 @@
       <ul>
         <% @calendars.items.each do |calendar| %>
             <li><%= calendar["summary"] %></li>
+            <% calendar["defaultReminders"].each do |reminder| %>
+                <li>Method: <%= reminder.method %></li>
+                <li>Time: <%= reminder.minutes %></li>
+            <% end %>
         <% end %>
       </ul>
     <% else %>

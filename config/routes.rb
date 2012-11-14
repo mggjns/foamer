@@ -1,4 +1,6 @@
 Foamer::Application.routes.draw do
+  resources :places
+
   root :to => 'home#index'
 
   match '/auth/failure' => 'sessions#failure'
