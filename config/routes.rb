@@ -1,4 +1,13 @@
 Foamer::Application.routes.draw do
+
+
+  get "mockup/index"
+  get "mockup/home"
+  get "mockup/preferences"
+  get "mockup/event"
+  get "mockup/transit"
+  get "mockup/alert"
+
   resources :places
 
   root :to => 'home#index'
