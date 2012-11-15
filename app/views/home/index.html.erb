@@ -3,10 +3,8 @@
 <%= request.env["omniauth.auth"] %>
 
 <p>
-    <%- if user_signed_in? %>
-        Greetings <%= current_user.name %>
-        [<%= link_to "sign out", signout_path %>]
-      <ul>
+  <ul>
+    <% if user_signed_in? %>
         <% @calendars.items.each do |calendar| %>
             <li><%= calendar["summary"] %></li>
             <% calendar["defaultReminders"].each do |reminder| %>
@@ -14,10 +12,6 @@
                 <li>Time: <%= reminder.minutes %></li>
             <% end %>
         <% end %>
-      </ul>
-    <% else %>
-        [<%= link_to "sign in", signin_path %>]
     <% end %>
-
-    <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+  </ul>
 </p>
