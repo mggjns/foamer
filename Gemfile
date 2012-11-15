@@ -39,6 +39,11 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+group :development, :test do
+	gem "rails-pry"
+	gem "seed_dump"
+end
+
 gem "omniauth", ">= 1.0.3"
 gem "omniauth-google-oauth2"
 gem "google-api-client"
