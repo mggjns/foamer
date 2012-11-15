@@ -1,17 +1,21 @@
 <h1>Home</h1>
 
-<%= request.env["omniauth.auth"] %>
+<%= debug @calendars %>
 
-<p>
-  <ul>
-    <% if user_signed_in? %>
-        <% @calendars.items.each do |calendar| %>
-            <li><%= calendar["summary"] %></li>
-            <% calendar["defaultReminders"].each do |reminder| %>
-                <li>Method: <%= reminder.method %></li>
-                <li>Time: <%= reminder.minutes %></li>
-            <% end %>
-        <% end %>
-    <% end %>
+<%#= @calendars %>
+
+<!-- This code only works with the calendar_list.list resource. -->
+<!-- You gotta change it to use other resources like events. -->
+<!-- <ul>
+    <%# if user_signed_in? %>
+        <%# @calendars.items.each do |calendar| %>
+            <li><%#= calendar["summary"] %></li>
+            <%# calendar["defaultReminders"].each do |reminder| %>
+                <li>Method: <%#= reminder.method %></li>
+                <li>Time: <%#= reminder.minutes %></li>
+            <%# end %>
+        <%# end %>
+    <%# end %>
   </ul>
-</p>
+</p><p> -->
+
