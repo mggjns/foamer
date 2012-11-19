@@ -12,15 +12,13 @@
         <% if user_signed_in? %>
             <% @events.items.each do |item| %>
                 <% if item["start"] && item["start"]["dateTime"] %>
-                    <% if item["start"]["dateTime"].to_date.today? %>
                         <h3><%= item["start"]["dateTime"].to_date %></h3>
                         <%# if item["start"] %>
                         <strong>What:</strong> <%= item["summary"]%><br>
                         <!-- <strong>Location:</strong> <%= item["location"] %><br><br> -->
-                            Begins: <%#= item["start"]["dateTime"] %><br>
-                            Ends: <%#= item["end"]["dateTime"] %>
+                            Begins: <%= item["start"]["dateTime"] %><br>
+                            Ends: <%= item["end"]["dateTime"] %>
                         <%# end %>
-                    <% end %>
                 <% end %>
             <% end %>
         <% end %>
