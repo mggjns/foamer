@@ -1,3 +1,4 @@
 class Place < ActiveRecord::Base
-  attr_accessible :city, :desc, :name, :state, :street, :user_id, :zip
+  attr_accessible :desc, :name, :address, :user_id
+  belongs_to :user
 end
