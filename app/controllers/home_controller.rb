@@ -1,3 +1,4 @@
+# TODO: Can we cache the API query to Google somehow, so to speed things up?
 class HomeController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
