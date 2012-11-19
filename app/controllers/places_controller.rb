@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+
   # GET /places
   # GET /places.json
   def index

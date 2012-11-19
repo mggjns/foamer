@@ -1,7 +1,7 @@
 <h1>Home</h1>
 
 
-<%= debug @events %>
+<%#= debug @events %>
 
 <!-- This code only works with the calendar_list.list resource. -->
 <!-- You gotta change it to use other resources like events. -->
@@ -9,20 +9,26 @@
 
 <% #TODO: Optimize the if logic to be cleaner here. %>
 <p>
-    <ul>
-        <% if user_signed_in? %>
-            <h3><%= Date.today %></h3>
-            <% @events.each do |event| %>
-                <p><strong>What:</strong> <%= event[:summary]%><br>
-                    <% if event[:location] %>
-                        Where: <%= event[:location] %>
-                    <% else %>
-                        Where: <em>No location yet!</em>
-                    <% end %><br>
-                    Begins: <%= event[:start] %><br>
-                    Ends: <%= event[:end] %>
-                </p>
-            <% end %>
-        <% end %>
-    </ul>
+  <ul>
+    <% if user_signed_in? %>
+      <h3><%= Date.today %></h3>
+      <% @events.each do |event| %>
+        <p><strong>What:</strong> <%= event[:summary]%><br>
+        <% if event[:location] %>
+            Where: <%= event[:location] %>
+        <% else %>
+            Where: <em>No location yet!</em>
+        <% end %><br>
+        Begins: <%= event[:start] %><br>
+        Ends: <%= event[:end] %>
+        </p>
+      <% end %>
+      <h2><em>My Saved Places</em></h2>
+      <% current_user.places.each do |place| %>
+        <em><%= place.name %></em> - <%= place.address %> [<%= link_to 'Edit', edit_place_path(place) %>] [<%= link_to 'Delete', place, method: :delete, data: { confirm: 'Are you sure?' } %>]<br>
+      <% end %><br>
+      <% #TODO: Have Place form return to home page instead of /places %>
+      [<%= link_to 'Add new saved place', new_place_path %>]
+    <% end %>
+  </ul>
 </p>

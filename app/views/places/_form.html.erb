@@ -29,11 +29,12 @@
     <%= f.label :longitude %><br />
     <%= f.text_field :longitude %>
   </div>
-
+  
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.collection_select :user_id, User.all, :id, :name %>
+    <% #TODO: Why doesn't the current_user helper method work here? %>
+    <%= f.hidden_field 'user_id', :value => session[:user_id] %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
