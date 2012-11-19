@@ -3,8 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Desc</th>
     <th>Address</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
     <th>User</th>
     <th></th>
     <th></th>
@@ -14,9 +15,10 @@
 <% @places.each do |place| %>
   <tr>
     <td><%= place.name %></td>
-    <td><%= place.desc %></td>
     <td><%= place.address %></td>
-    <td><%= place.user_id %></td>
+    <td><%= place.latitude %></td>
+    <td><%= place.longitude %></td>
+    <td><%= place.user.name %></td>
     <td><%= link_to 'Show', place %></td>
     <td><%= link_to 'Edit', edit_place_path(place) %></td>
     <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>

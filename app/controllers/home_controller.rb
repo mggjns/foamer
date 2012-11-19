@@ -1,3 +1,4 @@
+# TODO: Can we cache the API query to Google somehow, so to speed things up?
 class HomeController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
@@ -21,7 +22,32 @@ class HomeController < ApplicationController
                                   'timeMin' => today_start,
                                   'timeMax' => today_end
                                   }) 
-      @events = resource.data
+    
+      @events = []
+      
+      # TODO: Consider creating an event class to work with our event data
+
+      resource.data.items.each do |item|
+        hash = Hash.new
+        hash[:summary] = item["summary"]
+        if item["location"]
+          hash[:location] = item["location"]
+        end
+        if item["start"]["dateTime"]
+          hash[:start] = item["start"]["dateTime"]
+          hash[:end] = item["end"]["dateTime"]
+        else
+          hash[:start] = item["start"]["date"]
+          hash[:end] = item["end"]["date"]
+        end
+        @events.push(hash)
+      end
+
+
+
+
+
+
       # @events = resource.data.as_json
     end
 
