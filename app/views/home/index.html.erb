@@ -1,25 +1,27 @@
 <h1>Home</h1>
 
 
-
+<%= debug @events %>
 
 <!-- This code only works with the calendar_list.list resource. -->
 <!-- You gotta change it to use other resources like events. -->
 
 
+<% #TODO: Optimize the if logic to be cleaner here. %>
 <p>
     <ul>
         <% if user_signed_in? %>
-            <% @events.items.each do |item| %>
-                <% if item["start"] && item["start"]["dateTime"] %>
-                        <h3><%= item["start"]["dateTime"].to_date %></h3>
-                        <%# if item["start"] %>
-                        <strong>What:</strong> <%= item["summary"]%><br>
-                        <!-- <strong>Location:</strong> <%= item["location"] %><br><br> -->
-                            Begins: <%= item["start"]["dateTime"] %><br>
-                            Ends: <%= item["end"]["dateTime"] %>
-                        <%# end %>
-                <% end %>
+            <h3><%= Date.today %></h3>
+            <% @events.each do |event| %>
+                <p><strong>What:</strong> <%= event[:summary]%><br>
+                    <% if event[:location] %>
+                        Where: <%= event[:location] %>
+                    <% else %>
+                        Where: <em>No location yet!</em>
+                    <% end %><br>
+                    Begins: <%= event[:start] %><br>
+                    Ends: <%= event[:end] %>
+                </p>
             <% end %>
         <% end %>
     </ul>
