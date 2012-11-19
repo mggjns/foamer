@@ -16,10 +16,10 @@ class HomeController < ApplicationController
                                   'calendarId' => 'primary', 
                                   'orderBy' => 'startTime', 
                                   'singleEvents' => 'true',
-                                  'timeMin' => '2012-11-05T00:00:00-06:00',
-                                  'timeMax' => '2012-11-05T23:59:59-06:00'
-                                  # 'timeMin' => today_start,
-                                  # 'timeMax' => today_end
+                                  # 'timeMin' => '2012-11-05T00:00:00-06:00',
+                                  # 'timeMax' => '2012-11-05T23:59:59-06:00'
+                                  'timeMin' => today_start,
+                                  'timeMax' => today_end
                                   }) 
       @events = resource.data
       # @events = resource.data.as_json
