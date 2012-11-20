@@ -1,6 +1,8 @@
 Foamer::Application.routes.draw do
 
 
+  resources :events
+
   get "mockup/index"
   get "mockup/home"
   get "mockup/preferences"

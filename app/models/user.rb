@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :provider, :refresh_token, :token, :token_expires_at, :uid
   has_many :places
+  has_many :events
 
   def self.create_with_omniauth(auth)
     create! do |user|
