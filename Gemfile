@@ -7,9 +7,18 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'geocoder' 
-gem 'sqlite3'
-# gem 'pg'
 
+
+# for deployment on Heroku
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
+
+# Use Thin webserver instead of Webrick. 
+gem 'thin'
 
 # Gems used only for assets and not required
 # in production environments by default.

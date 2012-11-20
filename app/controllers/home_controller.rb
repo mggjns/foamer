@@ -22,7 +22,7 @@ class HomeController < ApplicationController
                                   'timeMin' => today_start,
                                   'timeMax' => today_end
                                   }) 
-    
+      @api_data = resource.data
       @events = []
       
       # TODO: Consider creating an event class to work with our event data
