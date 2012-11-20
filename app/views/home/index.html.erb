@@ -81,7 +81,7 @@
             <% if user_signed_in? %>
               <% @events.each do |event| %>
                 <div class="span4">
-                  <h2><%= event[:summary] %></h2>
+                  <h3><%= truncate(event[:summary], :length => 19,  :separator => ' ') %></h3>
                   <!-- <h2>Event</h2> -->
                   <p>Donec id elit non mi porta gravida at eget metus.</br><% if event[:location] %>
                         Where: <%= event[:location] %>

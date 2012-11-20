@@ -2,6 +2,7 @@
 class HomeController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
+
   def index
 
     # Get start and end times (today) and account for timezones, and 
