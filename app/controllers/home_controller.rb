@@ -6,6 +6,7 @@ class HomeController < ApplicationController
 
     # Get start and end times (today) and account for timezones, and 
     # return in RFC3339 format which the API uses 
+    # TODO: Get current datetime from user's browser. This relies on the server
     today_start = Date.today.to_time.to_datetime.rfc3339
     today_end = (Date.today.next.to_time - 1.second).to_datetime.rfc3339
 
