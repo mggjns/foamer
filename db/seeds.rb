@@ -3,13 +3,14 @@
 # Do not hesitate to tweak this to your needs
 
 Place.create([
-  { :name => nil, :desc => nil, :street => nil, :city => nil, :state => nil, :zip => nil, :user_id => nil, :created_at => nil, :updated_at => nil }
+  { :name => "Home", :desc => nil, :user_id => 1, :created_at => "2012-11-20 00:39:34", :updated_at => "2012-11-20 00:39:34", :address => "4426 N Hermitage Chicago", :latitude => 41.96235739999999, :longitude => -87.6724344 },
+  { :name => "Work", :desc => nil, :user_id => 1, :created_at => "2012-11-20 00:39:57", :updated_at => "2012-11-20 00:39:57", :address => "Merchandise Mart Chicago, IL", :latitude => 41.888969, :longitude => -87.633924 }
 ], :without_protection => true )
 
 
 
 User.create([
-  { :created_at => "2012-11-15 02:59:49", :updated_at => "2012-11-15 03:11:24", :provider => "foam_auth", :uid => nil, :name => "Foamy McFoamerson", :email => "foamy@gmail.com", :token => nil, :token_expires_at => nil, :refresh_token => nil }
+  { :created_at => "2012-11-20 00:31:48", :updated_at => "2012-11-20 00:31:48", :provider => "google_oauth2", :uid => "106571246688662386958", :name => "Weary Transit", :email => "", :token => "ya29.AHES6ZRPrSFPDopUn4C1pRMA9XpPmaH5HjK01fSmLfKHmKQ", :token_expires_at => "2000-01-01 01:31:48", :refresh_token => "1/XoPiprKpUjQFSvARzisfmkESBGzM0jr8ID-HfqEW-K8" }
 ], :without_protection => true )
 
 
