@@ -12,20 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :google_id %><br />
+    <%= f.text_field :google_id %>
   </div>
   <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
+    <%= f.label :g_created %><br />
+    <%= f.text_field :g_created %>
   </div>
   <div class="field">
-    <%= f.label :begins %><br />
-    <%= f.datetime_select :begins %>
+    <%= f.label :g_updated %><br />
+    <%= f.text_field :g_updated %>
   </div>
   <div class="field">
-    <%= f.label :ends %><br />
-    <%= f.datetime_select :ends %>
+    <%= f.label :summary %><br />
+    <%= f.text_field :summary %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br />
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br />
+    <%= f.datetime_select :end %>
+  </div>
+  <div class="field">
+    <%= f.label :timezone %><br />
+    <%= f.text_field :timezone %>
   </div>
   <div class="field">
     <%= f.label :latitude %><br />
@@ -34,9 +50,6 @@
   <div class="field">
     <%= f.label :longitude %><br />
     <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field 'user_id', :value => session[:user_id] %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -2,10 +2,14 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>Begins</th>
-    <th>Ends</th>
+    <th>Google</th>
+    <th>G created</th>
+    <th>G updated</th>
+    <th>Summary</th>
+    <th>Location</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Timezone</th>
     <th>Latitude</th>
     <th>Longitude</th>
     <th>User</th>
@@ -16,13 +20,17 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.name %></td>
-    <td><%= event.address %></td>
-    <td><%= event.begins %></td>
-    <td><%= event.ends %></td>
+    <td><%= event.google_id %></td>
+    <td><%= event.g_created %></td>
+    <td><%= event.g_updated %></td>
+    <td><%= event.summary %></td>
+    <td><%= event.location %></td>
+    <td><%= event.start %></td>
+    <td><%= event.end %></td>
+    <td><%= event.timezone %></td>
     <td><%= event.latitude %></td>
     <td><%= event.longitude %></td>
-    <td><%= event.user.name %></td>
+    <td><%= event.user_id %></td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

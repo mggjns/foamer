@@ -1,19 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  address: MyString
-  begins: 2012-11-19 20:25:21
-  ends: 2012-11-19 20:25:21
+  google_id: MyString
+  g_created: MyString
+  g_updated: MyString
+  summary: MyString
+  location: MyString
+  start: 2012-11-21 14:45:59
+  end: 2012-11-21 14:45:59
+  timezone: MyString
   latitude: 1.5
   longitude: 1.5
   user_id: 1
 
 two:
-  name: MyString
-  address: MyString
-  begins: 2012-11-19 20:25:21
-  ends: 2012-11-19 20:25:21
+  google_id: MyString
+  g_created: MyString
+  g_updated: MyString
+  summary: MyString
+  location: MyString
+  start: 2012-11-21 14:45:59
+  end: 2012-11-21 14:45:59
+  timezone: MyString
   latitude: 1.5
   longitude: 1.5
   user_id: 1
