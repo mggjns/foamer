@@ -12,45 +12,55 @@ class HomeController < ApplicationController
     today_end = (Date.today.next.to_time - 1.second).to_datetime.rfc3339
 
     if (user_signed_in? )
-      client =  ClientBuilder.get_client(current_user)
-      service = client.discovered_api('calendar', 'v3')
-      resource = client.execute(:api_method => service.events.list, 
-                                :parameters => {
-                                  'calendarId' => 'primary', 
-                                  'orderBy' => 'startTime', 
-                                  'singleEvents' => 'true',
-                                  # 'timeMin' => '2012-11-05T00:00:00-06:00',
-                                  # 'timeMax' => '2012-11-05T23:59:59-06:00'
-                                  'timeMin' => today_start,
-                                  'timeMax' => today_end
-                                  }) 
-      @api_data = resource.data
-      @events = []
-      
-      # TODO: Consider creating an event class to work with our event data
+      # Only query Google Calendar API if we don't have any events in the DB
+      if current_user.events.size == 0
+        # turning off Google for debugging
+        client =  ClientBuilder.get_client(current_user)
+        service = client.discovered_api('calendar', 'v3')
+        resource = client.execute(:api_method => service.events.list, 
+                                  :parameters => {
+                                    'calendarId' => 'primary', 
+                                    'orderBy' => 'startTime', 
+                                    'singleEvents' => 'true',
+                                    # 'timeMin' => '2012-11-05T00:00:00-06:00',
+                                    # 'timeMax' => '2012-11-05T23:59:59-06:00'
+                                    'timeMin' => today_start,
+                                    'timeMax' => today_end
+                                    }) 
+        @api_data = resource.data
 
-      resource.data.items.each do |item|
-        hash = Hash.new
-        hash[:summary] = item["summary"]
-        if item["location"]
-          hash[:location] = item["location"]
-        end
-        if item["start"]["dateTime"]
-          hash[:start] = item["start"]["dateTime"]
-          hash[:end] = item["end"]["dateTime"]
-        else
-          hash[:start] = item["start"]["date"]
-          hash[:end] = item["end"]["date"]
-        end
-        @events.push(hash)
+        # fake google data for debugging
+        # items = [
+        #   {"summary"=>"San Diego"}, 
+        #   {"location"=>"San Diego"}, 
+        #   {"start"=> {"dateTime" => "2012-11-21T00:00:00-06:00"}}, 
+        #   {"end" => {"dateTime" => (Date.today.next.to_time - 1.second).to_datetime.rfc3339}}
+        # ]
+        
+        resource.data.items.each do |item|
+          event_hash = Hash.new
+          event_hash[:summary] = item["summary"]
+          if item["location"]
+            event_hash[:location] = item["location"]
+          end
+          if item["start"]["dateTime"]
+            event_hash[:start] = item["start"]["dateTime"]
+            event_hash[:end] = item["end"]["dateTime"]
+          else
+            event_hash[:start] = item["start"]["date"]
+            event_hash[:end] = item["end"]["date"]
+          end
+          event = current_user.events.new(event_hash)
+          event.save 
+
+        end 
+
       end
 
+      # Fetch user's events from the DB
+      @events = current_user.events
 
 
-
-
-
-      # @events = resource.data.as_json
     end
 
   end

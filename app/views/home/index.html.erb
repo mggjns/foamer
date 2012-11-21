@@ -66,7 +66,9 @@
         <div class="span9">
         <% if user_signed_in? %>
 
-          <div class="hero-unit" id="mapContainer">
+          <% #TODO: Restore mapContainer (out for non-inet testing) %>
+          <!-- <div class="hero-unit" id="mapContainer"> -->
+          <div class="hero-unit">
             <!-- <p><a class="btn btn-primary btn-large">Route My Day &raquo;</a></p> -->
         <% else %>
           <div class="hero-unit">
@@ -77,7 +79,7 @@
           </div>
 
           <div class="row-fluid">
-
+            <%= flash[:notice] %>
             <% if user_signed_in? %>
               <% @events.each do |event| %>
                 <div class="span4">
