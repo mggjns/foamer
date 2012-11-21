@@ -1,23 +1,43 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @event.name %>
+  <b>Google:</b>
+  <%= @event.google_id %>
 </p>
 
 <p>
-  <b>Address:</b>
-  <%= @event.address %>
+  <b>G created:</b>
+  <%= @event.g_created %>
 </p>
 
 <p>
-  <b>Begins:</b>
-  <%= @event.begins %>
+  <b>G updated:</b>
+  <%= @event.g_updated %>
 </p>
 
 <p>
-  <b>Ends:</b>
-  <%= @event.ends %>
+  <b>Summary:</b>
+  <%= @event.summary %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @event.location %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @event.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @event.end %>
+</p>
+
+<p>
+  <b>Timezone:</b>
+  <%= @event.timezone %>
 </p>
 
 <p>
@@ -28,11 +48,6 @@
 <p>
   <b>Longitude:</b>
   <%= @event.longitude %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @event.user.name %>
 </p>
 
 
