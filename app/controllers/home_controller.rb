@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 
     if (user_signed_in? )
       # Only query Google Calendar API if we don't have any events in the DB
-      if current_user.events.size == 0
+      if current_user.events.where("start >= ?", Date.today).size == 0
         # turning off Google for debugging
         client =  ClientBuilder.get_client(current_user)
         service = client.discovered_api('calendar', 'v3')
@@ -37,9 +37,15 @@ class HomeController < ApplicationController
         #   {"end" => {"dateTime" => (Date.today.next.to_time - 1.second).to_datetime.rfc3339}}
         # ]
         
+        timezone = resource.data["timeZone"]
+
         resource.data.items.each do |item|
           event_hash = Hash.new
           event_hash[:summary] = item["summary"]
+          event_hash[:google_id] = item["id"]
+          event_hash[:g_created] = item["created"]
+          event_hash[:g_updated] = item["updated"]
+          event_hash[:timezone] = timezone
           if item["location"]
             event_hash[:location] = item["location"]
           end
@@ -57,8 +63,8 @@ class HomeController < ApplicationController
 
       end
 
-      # Fetch user's events from the DB
-      @events = current_user.events
+      # Fetch today's events from the DB
+      @events = current_user.events.where("start >= ?", Date.today)
 
 
     end
