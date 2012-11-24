@@ -14,5 +14,11 @@ class HomeController < ApplicationController
       @events = current_user.events.where("start >= ?", Date.today)
     end
   end
+
+  def refresh
+    # TODO: Make this destroy events for the current_user, then run index again
+    current_user.events.destroy_all
+  end
+
 end
 

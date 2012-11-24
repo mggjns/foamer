@@ -14,6 +14,8 @@ Foamer::Application.routes.draw do
 
   root :to => 'home#index'
 
+  get "/refresh" => "home#refresh", :as => :refresh_events
+
   match '/auth/failure' => 'sessions#failure'
 
   match '/signout' => 'sessions#destroy', :as => :signout
