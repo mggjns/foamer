@@ -49,6 +49,9 @@ class HomeController < ApplicationController
           if item["location"]
             event_hash[:location] = item["location"]
           end
+          if item["description"]
+            event_hash[:description] = item["description"]
+          end
           if item["start"]["dateTime"]
             event_hash[:start] = item["start"]["dateTime"]
             event_hash[:end] = item["end"]["dateTime"]

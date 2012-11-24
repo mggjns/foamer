@@ -2,6 +2,7 @@ require 'google/api_client'
 
 class ClientBuilder
 
+# TODO: need to handle Google Calendar/Internet connection errors
   def self.get_client(user)
     client = Google::APIClient.new
     client.authorization.scope = 'https://www.googleapis.com/auth/calendar'
