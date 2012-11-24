@@ -8,4 +8,10 @@ module ApplicationHelper
     end
 	end
 
+	def description_for(event)
+    if event[:description]
+        "#{event[:description]}"
+    end
+	end
+
 end

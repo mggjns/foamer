@@ -83,11 +83,11 @@
             <% if user_signed_in? %>
               <% @events.each do |event| %>
                 <div class="span4">
-                  <h3><%= truncate(event[:summary], :length => 19,  :separator => ' ') %></h3>
+                  <!-- <h3><%#= truncate(event[:summary], :length => 25,  :separator => ' ') %></h3> -->
+                  <h3><%= event[:summary] %></h3>
                   <!-- <h2>Event</h2> -->
-                  <p>Donec id elit non mi porta gravida at eget metus.</br>
-
-                  <%= location_for(event) %>
+                  <p><%= description_for(event) %></p>
+                  <p><%= location_for(event) %>
 
                 </br>
                   Begins: <%= event[:start] %></br>
