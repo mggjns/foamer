@@ -80,7 +80,9 @@
           </div>
 
           <div class="row-fluid">
-            <%= flash[:notice] %>
+            <% if flash[:notice] %>
+              <p class="notice"><em><%= flash[:notice] %></em></p>
+            <% end %>
             <% if user_signed_in? %>
               <% @events.each do |event| %>
                 <div class="span4">

@@ -73,8 +73,8 @@ class HomeController < ApplicationController
   end
 
   def refresh
-    # TODO: Make this destroy events for the current_user, then run index again
     current_user.events.destroy_all
+    redirect_to root_url, :notice => 'Events refreshed from Google Calendar!'
   end
 
 end
