@@ -21,7 +21,7 @@
   }
 	</style>
 </head>
-<body>
+<body onLoad="initialize()">
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -30,7 +30,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Route My Day</a>
+          <a class="brand" href="<%= root_path %>">Route My Day</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
             	<% if user_signed_in? %>

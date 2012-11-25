@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  # TODO: Edit so that controller logs a user in or signs them up, depending on the case.
+  
   def new
     redirect_to '/auth/google_oauth2'
   end
