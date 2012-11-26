@@ -142,19 +142,19 @@ function calcRoute() {
 
           <div class="hero-unit" id="mapContainer">
             <!-- <p><a class="btn btn-primary btn-large">Route My Day &raquo;</a></p> -->
+          </div>
+          <%= render 'form' %>        
+    
+          <div id="directionsPanel">
+            Enter a destination and click "Calculate route".
+          </div>
         <% else %>
           <div class="hero-unit">
             <h1>Hello, maps!</h1>
             <p>Map out your entire day with a single click. Sign in with your Google account to start.</p>
             <p><a href="/signin" class="btn btn-primary btn-large">Sign In &raquo;</a></p>
-        <% end %>  
           </div>
-
-    <%= render 'form' %>        
-    
-    <div id="directionsPanel">
-        Enter a destination and click "Calculate route".
-    </div>
+        <% end %>  
 
           <div class="row-fluid">
             <% if flash[:notice] %>
