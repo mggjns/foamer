@@ -141,7 +141,6 @@ function calcRoute() {
         <% if user_signed_in? %>
 
           <div class="hero-unit" id="mapContainer">
-           <!-- <div class="hero-unit" id="map_canvas" style="width:50%; height:250px"></div>   -->
             <!-- <p><a class="btn btn-primary btn-large">Route My Day &raquo;</a></p> -->
         <% else %>
           <div class="hero-unit">
@@ -151,33 +150,8 @@ function calcRoute() {
         <% end %>  
           </div>
 
-            
-    <form action="/foamer" onSubmit="calcRoute();return false;" id="routeForm">
-        <div style="overflow: hidden; width: 500px; margin: 0 auto;">
-            <div style="width: 350px; float: left; text-align: left;">
-                <label>
-                    From: </br><em>This doesn't do anything, hard set to geolocation</em><br />
-                    <input type="text" id="routeStart" value=<%= @lat_lng[0] + "," + @lat_lng[1] %>
-                </label>
-                <label>
-                    To: <br />
-                    <input type="text" id="routeVia" value="">
-                </label>
-                <label>
-                    Time to Arrive: <br />
-                    <input type="text" id="arrivalTime" value="">
-                </label>
-            </div>
-            <div style="width: 150px; float: left; text-align: left;">
-                <label>Travel mode:</label>
-                <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
-                <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
-                <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
-                <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
-            </div>
-        </div>
-        <input type="submit" value="Calculate route">
-    </form>
+    <%= render 'form' %>        
+    
     <div id="directionsPanel">
         Enter a destination and click "Calculate route".
     </div>
