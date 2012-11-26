@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121124224436) do
+ActiveRecord::Schema.define(:version => 20121126192323) do
 
   create_table "events", :force => true do |t|
     t.string   "google_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20121124224436) do
     t.string   "token"
     t.time     "token_expires_at"
     t.string   "refresh_token"
+    t.string   "timezone"
   end
 
 end

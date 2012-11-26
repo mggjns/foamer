@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :provider, :refresh_token, :token, :token_expires_at, :uid
+  attr_accessible :email, :name, :provider, :refresh_token, :token, :token_expires_at, :uid, :timezone
   has_many :places
   has_many :events
 
