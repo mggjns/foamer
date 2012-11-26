@@ -13,17 +13,21 @@
 
 <script type="text/javascript">
 
-var lat=41.850033;
-var lng=-87.6500523;
+var lat = "";
+var lng = "";
 
-function coords(lat,lng) {
+function coords() {
     return navigator.geolocation.getCurrentPosition(function(position){
         lat = position.coords.latitude;
         lng = position.coords.longitude;
         
     });
-    
-};
+
+}
+
+
+var latitude=41.850033
+var longitude=-87.6500523
 
 
 var directionDisplay;
@@ -121,10 +125,8 @@ function calcRoute() {
 
 
 
-<script type="text/javascript">
-    initialize()
-</script>
-    <div class="container-fluid" onLoad="initialize()">
+
+    <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
@@ -163,8 +165,33 @@ function calcRoute() {
         <% end %>  
           </div>
 
-        <%= render 'form' %>    
-    
+            
+    <form action="/foamer" onSubmit="calcRoute();return false;" id="routeForm">
+        <div style="overflow: hidden; width: 500px; margin: 0 auto;">
+            <div style="width: 350px; float: left; text-align: left;">
+                <label>
+                    From: <br />
+                    <input type="text" id="routeStart" value="">
+                </label>
+                <label>
+                    To: <br />
+                    <input type="text" id="routeVia" value="">
+                </label>
+                <label>
+                    Time to Arrive: <br />
+                    <input type="text" id="arrivalTime" value="">
+                </label>
+            </div>
+            <div style="width: 150px; float: left; text-align: left;">
+                <label>Travel mode:</label>
+                <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
+                <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
+                <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
+                <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
+            </div>
+        </div>
+        <input type="submit" value="Calculate route">
+    </form>
     <div id="directionsPanel">
         Enter a destination and click "Calculate route".
     </div>
@@ -198,12 +225,6 @@ function calcRoute() {
      
 
     </div><!--/.fluid-container-->
-
-<script type="text/javascript">
-
-    // alert(lat)
-
-</script>
 
 
 <!-- <script type="text/javascript">

@@ -2,13 +2,12 @@
 
 <p>
   <b>Name:</b>
-  <%= best_in_place @place, :name, :type => :input, :nil => "Click me to add content!" %>
+  <%= @place.name %>
 </p>
 
 <p>
   <b>Address:</b>
-  <%= best_in_place @place, :address %>
-
+  <%= @place.address %>
 </p>
 
 <p>
