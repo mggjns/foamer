@@ -27,4 +27,5 @@ class ClientBuilder
       end
       user.token
   end
+
 end
