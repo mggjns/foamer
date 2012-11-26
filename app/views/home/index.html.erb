@@ -12,61 +12,59 @@
 </script>
 
 <script type="text/javascript">
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position){
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        var coords = new google.maps.LatLng(latitude, longitude);
-        var mapOptions = {
-            zoom: 15,
-            center: coords,
-            mapTypeControl: true,
-            navigationControlOptions: {
-                style: google.maps.NavigationControlStyle.SMALL
-            },
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(
-                document.getElementById("mapContainer"), mapOptions
-                );
-            var marker = new google.maps.Marker({
-                    position: coords,
-                    map: map,
-                    title: "Your current location!"
-            });
- 
-        });
-    }else {
-        alert("Geolocation API is not supported in your browser.");
-    }
 
+var lat = "";
+var lng = "";
+
+function coords() {
+    return navigator.geolocation.getCurrentPosition(function(position){
+        lat = position.coords.latitude;
+        lng = position.coords.longitude;
+        
+    });
+
+}
+
+
+var latitude=41.850033
+var longitude=-87.6500523
 
 
 var directionDisplay;
 var directionsService = new google.maps.DirectionsService();
 function initialize() {
-    // this positions the map on Chicago
-    var latlng = new google.maps.LatLng(41.850033,-87.6500523);
-    // set direction render options
-    var rendererOptions = { draggable: true };
-    directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
-    var myOptions = {
-        zoom: 14,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapTypeControl: false
-    };
-    // add the map to the map placeholder
-        var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
-        directionsDisplay.setMap(map);
-        directionsDisplay.setPanel(document.getElementById("directionsPanel"));
-    // Add a marker to the map for the end-point of the directions.
-    var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Chicago, IL"
-    }); 
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            // this positions the map on Chicago
+            var latlng = new google.maps.LatLng(latitude,longitude);
+            // set direction render options
+            var rendererOptions = { draggable: true };
+            directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+            var myOptions = {
+                zoom: 14,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false
+            };
+            // add the map to the map placeholder
+                var map = new google.maps.Map(document.getElementById("mapContainer"),myOptions);
+                directionsDisplay.setMap(map);
+                directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+            // Add a marker to the map for the end-point of the directions.
+            var marker = new google.maps.Marker({
+                position: latlng, 
+                map: map, 
+                title:"Chicago, IL"
+            }); 
+        });
+    // }else {
+        // alert("Geolocation API is not supported in your browser.");
+    }
+    // alert(latitude) 
 }
+
 function calcRoute() {
     // get the travelmode, startpoint and end point from the form       
     var travelMode = $('input[name="travelMode"]:checked').val();
@@ -128,7 +126,6 @@ function calcRoute() {
 
 
 
-
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
@@ -157,8 +154,8 @@ function calcRoute() {
         <div class="span9">
         <% if user_signed_in? %>
 
-          <!-- <div class="hero-unit" id="mapContainer"> -->
-           <div class="hero-unit" id="map_canvas" style="width:50%; height:250px"></div>  
+          <div class="hero-unit" id="mapContainer">
+           <!-- <div class="hero-unit" id="map_canvas" style="width:50%; height:250px"></div>   -->
             <!-- <p><a class="btn btn-primary btn-large">Route My Day &raquo;</a></p> -->
         <% else %>
           <div class="hero-unit">
@@ -229,6 +226,12 @@ function calcRoute() {
 
     </div><!--/.fluid-container-->
 
+
+<!-- <script type="text/javascript">
+for ( var i in window ) {
+    console.log(i, typeof window[i], window[i]);
+}
+</script> -->
     <%= debug @api_data %>
     <!-- Le javascript
     ================================================== -->
