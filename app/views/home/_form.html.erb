@@ -1,29 +1,24 @@
-<!-- #TODO: form_for this  -->
 <!-- #TODO: Allow From: to be current location, manual, or from saved place  -->
+<!-- #TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form -->
 
-<form action="/foamer" onSubmit="calcRoute();return false;" id="routeForm">
-        <div style="overflow: hidden; width: 500px; margin: 0 auto;">
-            <div style="width: 350px; float: left; text-align: left;">
-                <label>
-                    From: </br><em>This doesn't do anything, hard set to geolocation</em><br />
-                    <input type="text" id="routeStart" value=<%= @lat_lng[0] + "," + @lat_lng[1] %>
-                </label>
-                <label>
-                    To: <br />
-                    <input type="text" id="routeVia" value="">
-                </label>
-                <label>
-                    Time to Arrive: <br />
-                    <input type="text" id="arrivalTime" value="">
-                </label>
-            </div>
-            <div style="width: 150px; float: left; text-align: left;">
-                <label>Travel mode:</label>
-                <label><input type="radio" name="travelMode" value="DRIVING"/> Driving</label>
-                <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
-                <label><input type="radio" name="travelMode" value="TRANSIT" checked/> Public transport</label>
-                <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
-            </div>
-        </div>
-        <input type="submit" value="Calculate route">
-    </form>
+<%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
+            <%= label_tag(:routeStart, "Starting Place:") %>
+            <%= text_field_tag :routeStart, @lat_lng[0] + "," + @lat_lng[1] %>
+
+            <%= label_tag(:routeVia, "To:") %>
+            <%= text_field_tag :routeVia, @events.first.location %>
+
+            <%= label_tag(:arrivalTime, "Arrive by time:") %>
+            <%= label_tag("Travel Mode:") %>
+            <%= radio_button_tag(:travelMode, "DRIVING") %>
+            <%= label_tag(:travelModeDriving, "Driving", :style => "display:inline") %>
+            <%= radio_button_tag(:travelMode, "BICYCLING") %>
+            <%= label_tag(:travelModeBicycle, "Bicylcing", :style => "display:inline") %>
+            <%= radio_button_tag(:travelMode, "TRANSIT", true) %>
+            <%= label_tag(:travelModeTransit, "Public Transit", :style => "display:inline") %>
+            <%= radio_button_tag(:travelMode, "WALKING") %>
+            <%= label_tag(:travelModeWalking, "Walking", :style => "display:inline") %>
+
+    <%= submit_tag("Calculate Route") %>
+
+<% end %>

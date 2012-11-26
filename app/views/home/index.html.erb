@@ -25,7 +25,7 @@ function initialize() {
             longitude = position.coords.longitude;
             var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
             document.cookie = "lat_lng=" + escape(cookie_val);
-            // this positions the map on Chicago
+            // this positions the map on current location
             var latlng = new google.maps.LatLng(latitude,longitude);
             // set direction render options
             var rendererOptions = { draggable: true };
@@ -59,7 +59,6 @@ function calcRoute() {
     // Look ma I'm getting the lat + long from outside this f'ing function
     var start = latitude + ',' + longitude
     var via = $("#routeVia").val();
-    var time = $("#arrivalTime").val();
     if (travelMode == 'TRANSIT') {
         via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
     }
@@ -123,17 +122,6 @@ function calcRoute() {
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
               <li><a href="#">Link</a></li>
-              <!-- <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li> -->
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -162,6 +150,7 @@ function calcRoute() {
             <% end %>
             <% if user_signed_in? %>
               <% @events.each do |event| %>
+              <p>
                 <div class="span4">
                   <!-- <h3><%#= truncate(event[:summary], :length => 25,  :separator => ' ') %></h3> -->
                   <h3><%= event[:summary] %></h3>
@@ -174,10 +163,9 @@ function calcRoute() {
                   Ends: <%= event[:end] %></p>
                   <p><a class="btn" href="#">View details &raquo;</a></p>
                 </div><!--/span-->
+              </p>
               <% end %>
             <% end %>
-
-            
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
@@ -198,20 +186,4 @@ for ( var i in window ) {
 }
 </script> -->
     <%= debug @api_data %>
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--
-    <script src="../assets/jquery.js"></script>
-    <script src="../assets/bootstrap-transition.js"></script>
-    <script src="../assets/bootstrap-alert.js"></script>
-    <script src="../assets/bootstrap-modal.js"></script>
-    <script src="../assets/bootstrap-dropdown.js"></script>
-    <script src="../assets/bootstrap-scrollspy.js"></script>
-    <script src="../assets/bootstrap-tab.js"></script>
-    <script src="../assets/bootstrap-tooltip.js"></script>
-    <script src="../assets/bootstrap-popover.js"></script>
-    <script src="../assets/bootstrap-button.js"></script>
-    <script src="../assets/bootstrap-collapse.js"></script>
-    <script src="../assets/bootstrap-carousel.js"></script>
-    <script src="../assets/bootstrap-typeahead.js"></script> -->
+    
