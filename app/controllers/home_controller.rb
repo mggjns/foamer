@@ -62,6 +62,7 @@ class HomeController < ApplicationController
   def index
 
     if (user_signed_in? )
+      @lat_lng = cookies[:lat_lng].split("|")
       # Only query Google Calendar API if we don't have any events in the DB
       if current_user.events.where("start >= ?", Date.today).size == 0
         # Find me in home_helper.rb

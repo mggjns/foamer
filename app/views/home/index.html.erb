@@ -23,6 +23,8 @@ function initialize() {
         navigator.geolocation.getCurrentPosition(function(position){
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
+            var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+            document.cookie = "lat_lng=" + escape(cookie_val);
             // this positions the map on Chicago
             var latlng = new google.maps.LatLng(latitude,longitude);
             // set direction render options
@@ -155,7 +157,7 @@ function calcRoute() {
             <div style="width: 350px; float: left; text-align: left;">
                 <label>
                     From: </br><em>This doesn't do anything, hard set to geolocation</em><br />
-                    <input type="text" id="routeStart" value="">
+                    <input type="text" id="routeStart" value=<%= @lat_lng[0] + "," + @lat_lng[1] %>
                 </label>
                 <label>
                     To: <br />
@@ -213,6 +215,8 @@ function calcRoute() {
 <script type="text/javascript">
     initialize();
 </script>
+
+
 
 <!-- <script type="text/javascript">
 for ( var i in window ) {
