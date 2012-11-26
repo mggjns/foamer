@@ -6,7 +6,7 @@
             <div style="width: 350px; float: left; text-align: left;">
                 <label>
                     From: </br><em>This doesn't do anything, hard set to geolocation</em><br />
-                    <input type="text" id="routeStart" value=<%= :lat_lng[0] + "," + :lat_lng[1] %>
+                    <input type="text" id="routeStart" value=<%= @lat_lng[0] + "," + @lat_lng[1] %>
                 </label>
                 <label>
                     To: <br />
@@ -19,9 +19,9 @@
             </div>
             <div style="width: 150px; float: left; text-align: left;">
                 <label>Travel mode:</label>
-                <label><input type="radio" name="travelMode" value="DRIVING" checked /> Driving</label>
+                <label><input type="radio" name="travelMode" value="DRIVING" /> Driving</label>
                 <label><input type="radio" name="travelMode" value="BICYCLING" /> Bicylcing</label>
-                <label><input type="radio" name="travelMode" value="TRANSIT" /> Public transport</label>
+                <label><input type="radio" name="travelMode" value="TRANSIT" checked /> Train or Bus</label>
                 <label><input type="radio" name="travelMode" value="WALKING" /> Walking</label>
             </div>
         </div>
