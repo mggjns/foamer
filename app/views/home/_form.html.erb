@@ -9,6 +9,8 @@
             <%= text_field_tag :routeVia, @events.first.location %>
 
             <%= label_tag(:arrivalTime, "Arrive by time:") %>
+            <%= text_field_tag :arrivalTime %>
+
             <%= label_tag("Travel Mode:") %>
             <%= radio_button_tag(:travelMode, "DRIVING") %>
             <%= label_tag(:travelModeDriving, "Driving", :style => "display:inline") %>
