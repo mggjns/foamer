@@ -3,8 +3,12 @@
 
 <%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
             <%= label_tag(:routeStart, "Starting Place:") %>
-            <%= text_field_tag :routeStart, @lat_lng[0] + "," + @lat_lng[1] %>
-
+            <!-- #TODO: This feels kludgy. Better way to check if @lat_lng is set? -->
+            <% if @lat_lng %>
+                  <%= text_field_tag :routeStart, @lat_lng[0] + "," + @lat_lng[1] %>
+            <% else %>
+                  <%= text_field_tag :routeStart %>
+            <% end %>
             <%= label_tag(:routeVia, "To:") %>
             <%= text_field_tag :routeVia, @events.first.location %>
 
