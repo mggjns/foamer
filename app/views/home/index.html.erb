@@ -12,6 +12,11 @@
 </script>
 
 <script type="text/javascript" src=/assets/mapinit.js></script>
+<script type="text/javascript" src=/assets/jstz.min.js></script>
+
+<script type="text/javascript">
+  var timezone = jstz.determine();
+</script>
 
     <div class="container-fluid">
       <div class="row-fluid">
@@ -33,11 +38,10 @@
           <div class="hero-unit" id="mapContainer">
             <!-- <p><a class="btn btn-primary btn-large">Route My Day &raquo;</a></p> -->
           </div>
+          <div class="row-fluid">
+            <button>Detect Timezone</button>
+          </div></br> 
           <%= render 'form' %>        
-    
-          <div id="directionsPanel">
-            Enter a destination and click "Calculate route".
-          </div>
         <% else %>
           <div class="hero-unit">
             <h1>Hello, maps!</h1>
@@ -80,7 +84,12 @@
     initialize();
 </script>
 
+<script type="text/javascript">
+          $("button").click(function () {
+            $(this).replaceWith( "<div>" + "Likely Timezone: " + timezone.name() + "</div>");
 
+          });
+        </script>
 
 <!-- <script type="text/javascript">
 for ( var i in window ) {
