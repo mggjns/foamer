@@ -3,11 +3,16 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
   helper_method :google_query
+  helper_method :start_home
 
   private
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
+
+    # def start_home
+    #   @places.first.address
+    # end
 
     def user_signed_in?
       return true if current_user

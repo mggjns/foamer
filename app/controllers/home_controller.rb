@@ -16,6 +16,7 @@ class HomeController < ApplicationController
       end
       # Fetch today's events from the DB to display in view
       @events = current_user.events.where("start >= ?", Date.today)
+      @places = current_user.places
     end
   end
 

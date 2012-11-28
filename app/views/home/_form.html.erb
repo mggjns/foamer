@@ -2,13 +2,30 @@
 <!-- #TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form -->
 
 <%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
-            <%= label_tag(:routeStart, "Starting Place:") %>
+            
+                  <%= label_tag(:routeStart, "Starting Place:") %>
+                  <%= collection_select :routeStart, :place_id, Place.all, :id, :address%>
+                  <%= text_field_tag :routeStart, @lat_lng[0] + "," + @lat_lng[1] %>
+            
+
+
+<!-- Sean's Code: -->
+
             <!-- #TODO: This feels kludgy. Better way to check if @lat_lng is set? -->
-            <% if @lat_lng %>
+           <!--  <% if @lat_lng %>
                   <%= text_field_tag :routeStart, @lat_lng[0] + "," + @lat_lng[1] %>
             <% else %>
                   <%= text_field_tag :routeStart %>
+                  <%= label_tag(:routeStart, "Starting Place:") %>
+            <%= collection_select :routeStart, :place_id, Place.all, :id, :address%>
             <% end %>
+
+            <%= label_tag(:routeStart, "Starting Place:") %>
+            <%= collection_select :routeStart, :place_id, Place.all, :id, :address%> -->
+<!-- end Sean's Code -->
+
+
+            
             <%= label_tag(:routeVia, "To:") %>
             <%= text_field_tag :routeVia, @events.first.location %>
 
