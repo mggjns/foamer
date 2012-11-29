@@ -103,3 +103,12 @@ function calcRoute() {
         }
     });
 }
+
+// placeholder for unobtrusive JS to catch form routecalc form submit
+// $(function() {
+//     $('routeForm'.submit(function(event) {
+//         // ...
+//         event.preventDefault();
+//         calcRoute();
+//     })
+// })
