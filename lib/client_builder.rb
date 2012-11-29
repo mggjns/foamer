@@ -5,6 +5,7 @@ class ClientBuilder
 # TODO: need to handle Google Calendar/Internet connection errors
   def self.get_client(user)
     client = Google::APIClient.new
+    # Scope doesn't appear to actually get set here; scope is set in omniauth.rb
     # client.authorization.scope = 'https://www.googleapis.com/auth/calendar'
     client.authorization.access_token = get_current_token(user)
     client
