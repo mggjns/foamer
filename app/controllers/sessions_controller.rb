@@ -13,6 +13,8 @@ class SessionsController < ApplicationController
     user.token = auth[:credentials][:token];
     user.token_expires_at = Time.at(auth[:credentials][:expires_at])
     user.refresh_token = auth[:credentials][:refresh_token]
+    # binding.pry
+    # user.timezone = auth[:profile][:timezone]
     user.save
 
     session[:user_id] = user.id
