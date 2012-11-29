@@ -6,7 +6,9 @@ class HomeController < ApplicationController
 
     if (user_signed_in? )
       # Get the user's timezone from their primary Google Calendar.
-      # Oh god this is hacky!
+      # Supposedly you can pull the user timezone when you first authorize via Oauth2,
+      # but the response doesn't actually provide the timezone, despite what the docs
+      # say here: https://developers.google.com/accounts/docs/OAuth2Login#userinfocall
       if !current_user.timezone
         get_user_timezone
       end
@@ -14,6 +16,17 @@ class HomeController < ApplicationController
       # TODO: Is this the best way to check if we have the lat_lng cookie set?
       if (cookies[:lat_lng])
         @lat_lng = cookies[:lat_lng].split("|")
+        # See if we have a Current Location in Place, and update coordinates if so. Otherwise, create.
+        if location = current_user.places.find_by_name("Current Location")
+           location.update_attributes(:address => "#{@lat_lng[0]}, #{@lat_lng[1]}", 
+                                      :latitude => @lat_lng[0], 
+                                      :longitude => @lat_lng[1])
+        else
+          current_user.places.create(:name => "Current Location",
+                                      :address => "#{@lat_lng[0]}, #{@lat_lng[1]}", 
+                                      :latitude => @lat_lng[0], 
+                                      :longitude => @lat_lng[1])
+        end
       end
       # Only query Google Calendar API if we don't have any events in the DB
       if current_user.events.where("start >= ?", Date.today).size == 0
