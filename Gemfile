@@ -59,3 +59,4 @@ gem "google-api-client"
 gem "gcal4ruby"
 gem 'pry'
 gem "rails-pry"
+gem "chosen-rails"

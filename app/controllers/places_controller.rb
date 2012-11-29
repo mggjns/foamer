@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = current_user.places
 
     respond_to do |format|
       format.html # index.html.erb
