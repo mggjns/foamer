@@ -40,7 +40,8 @@ function initialize() {
 function calcRoute() {
     // get the travelmode, startpoint and end point from the form       
     var travelMode = $('input[name="travelMode"]:checked').val();
-    var start = $("#routeStart_place_id").val();
+    var start = $("#routeStart_place").val();
+    // var start = $("#routeStart").val();
     var via = $("#routeVia").val();
     if (travelMode == 'TRANSIT') {
         via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work

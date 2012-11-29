@@ -4,9 +4,9 @@
 <%= form_tag("/calcroute", :id => "routeForm") do %>
             
             <%= label_tag(:routeStart, "Starting Place:") %>
-            <!-- #TODO: The form tries to submit to /calcroute when this collection_select is used. Fix this. -->
-            <%= collection_select :routeStart, :place_id, current_user.places, :address, :name %>
-            <%#= text_field_tag :routeStart, @lat_lng[0] + "," + @lat_lng[1] %>
+            <%= collection_select :routeStart, :place, current_user.places, :address, :name %>
+
+
             <%= label_tag(:routeVia, "To:") %>
             <%= text_field_tag :routeVia, @events.first.location %>
 
