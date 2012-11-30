@@ -1,0 +1,22 @@
+<div class="row-fluid">
+    <% if flash[:notice] %>
+      <p class="notice"><em><%= flash[:notice] %></em></p>
+    <% end %>
+
+      <% @events.each do |event| %>
+      <p>
+        <div class="span4">
+          <!-- <h3><%#= truncate(event[:summary], :length => 25,  :separator => ' ') %></h3> -->
+          <h3><%= event[:summary] %></h3>
+          <!-- <h2>Event</h2> -->
+          <p><%= description_for(event) %></p>
+          <p><%= location_for(event) %>
+
+        </br>
+          Begins: <%= event[:start] %></br>
+          Ends: <%= event[:end] %></p>
+          <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div><!--/span-->
+      </p>
+      <% end %>
+</div><!--/row-->
