@@ -13,7 +13,7 @@ class HomeController < ApplicationController
         get_user_timezone
       end
 
-      # TODO: Is this the best way to check if we have the lat_lng cookie set?
+      # TODO: We have a problem of stale cookie here.
       if (cookies[:lat_lng])
         @lat_lng = cookies[:lat_lng].split("|")
         # See if we have a Current Location in Place, and update coordinates if so. Otherwise, create.
@@ -30,8 +30,9 @@ class HomeController < ApplicationController
       end
 
       # Only query Google Calendar API if we don't have any events in the DB
+      # TODO: What if a user doesn't have any events today in their Google Calendar?
       if current_user.events.where("start >= ?", Date.today).size == 0
-        # Find me in application_controller.rb (as a helper method)
+        # Find me at the bottom of HomeController
         google_query
       end
 

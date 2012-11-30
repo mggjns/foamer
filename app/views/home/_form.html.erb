@@ -6,11 +6,13 @@
             <%= label_tag(:routeStart, "Starting Place:") %>
             <%= collection_select :routeStart, :place, current_user.places, :address, :name %>
 
-            <%= label_tag(:routeVia, "To:") %>
-            <%= text_field_tag :routeVia %>
-
-            <%= label_tag(:routeEnd, "End Day At:") %>
+            <!-- We're not using waypoints. We have to build our own. Saving here as reference -->
+            <%#= label_tag(:routeVia, "Waypoint:") %>
+            <%#= text_field_tag :routeVia %>
+            <br><br>
+            <%= label_tag(:routeEnd, "Final Destination:") %>
             <%= text_field_tag :routeEnd, @events.first.location %>
+            
 
 
             <%= label_tag("Travel Mode:") %>
@@ -26,4 +28,3 @@
     <%= submit_tag("Calculate Route") %>
 
 <% end %>
-
