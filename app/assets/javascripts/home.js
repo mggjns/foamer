@@ -16,15 +16,15 @@ function initialize() {
             var rendererOptions = { draggable: true };
             directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
             var myOptions = {
-                zoom: 14,
+                zoom: 15,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
-                mapTypeControl: false
+                scrollwheel: false
             };
             // add the map to the map placeholder
-                var map = new google.maps.Map(document.getElementById("mapContainer"),myOptions);
-                directionsDisplay.setMap(map);
-                directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+            var map = new google.maps.Map(document.getElementById("mapContainer"),myOptions);
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById("directionsPanel"));
             // Add a marker to the map for the end-point of the directions.
             var marker = new google.maps.Marker({
                 position: latlng, 
