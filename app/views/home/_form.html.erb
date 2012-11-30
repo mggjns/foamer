@@ -6,12 +6,12 @@
             <%= label_tag(:routeStart, "Starting Place:") %>
             <%= collection_select :routeStart, :place, current_user.places, :address, :name %>
 
-
             <%= label_tag(:routeVia, "To:") %>
-            <%= text_field_tag :routeVia, @events.first.location %>
+            <%= text_field_tag :routeVia %>
 
-            <%= label_tag(:arrivalTime, "Arrive by time:") %>
-            <%= text_field_tag :arrivalTime %>
+            <%= label_tag(:routeEnd, "End Day At:") %>
+            <%= text_field_tag :routeEnd, @events.first.location %>
+
 
             <%= label_tag("Travel Mode:") %>
             <%= radio_button_tag(:travelMode, "DRIVING") %>

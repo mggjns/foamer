@@ -28,14 +28,25 @@ class HomeController < ApplicationController
                                       :longitude => @lat_lng[1])
         end
       end
+
       # Only query Google Calendar API if we don't have any events in the DB
       if current_user.events.where("start >= ?", Date.today).size == 0
         # Find me in application_controller.rb (as a helper method)
         google_query
       end
+
       # Fetch today's events from the DB to display in view
       @events = current_user.events.where("start >= ?", Date.today)
       @places = current_user.places
+
+      # if event_locations_need_address = u.events.where(:location => nil)
+        # redirect to page add addresses to events with some event edit form
+        ## -> form then redirects back here
+        ## -> find next location that is blank, go back to event form
+        # once there are no more nil locations, render the view
+
+      # end
+
     end
   end
 
