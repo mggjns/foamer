@@ -1,12 +1,12 @@
-<!-- #TODO: Allow From: to be current location, manual, or from saved place  -->
-<!-- #TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form -->
+<!-- <% #TODO: Allow From: to be current location, manual, or from saved place %>  -->
+<!-- <% #TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form %> -->
 
 <%= form_tag("/calcroute", :id => "routeForm") do %>
             
             <%= label_tag(:routeStart, "Starting Place:") %>
             <%= collection_select :routeStart, :place, current_user.places, :address, :name %>
 
-            <!-- We're not using waypoints. We have to build our own. Saving here as reference -->
+            <!-- <% #TODO: We're not using waypoints. We have to build our own. Saving here as reference %> -->
             <%#= label_tag(:routeVia, "Waypoint:") %>
             <%#= text_field_tag :routeVia %>
             <br><br>
