@@ -60,3 +60,4 @@ gem "gcal4ruby"
 gem 'pry'
 gem "rails-pry"
 gem "chosen-rails"
+gem "gon"

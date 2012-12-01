@@ -26,13 +26,12 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
+        <div class="span5">
         <% if user_signed_in? %>
 
           <div class="hero-unit" id="mapContainer">
             <!-- <p><a class="btn btn-primary btn-large">Route My Day &raquo;</a></p> -->
           </div> 
-          <%= render 'events' %>
           <%= render 'form' %>
           <div id="directionsPanel">
             Enter a destination and click "Calculate route".
@@ -45,10 +44,14 @@
           </div>
         <% end %>  
         </div><!--/span-->
+        <% if user_signed_in? %>
+          <div class="span4">
+            <div class="well sidebar-nav">
+              <%= render 'events' %>
+            </div><!--/.well -->
+          </div><!--/span-->
+        <% end %>
       </div><!--/row-->
-
-     
-
     </div><!--/.fluid-container-->
 
 <!-- These all have to be done here  -->
@@ -69,9 +72,13 @@
 
   // calcRoute();
 });
-
-
 </script>
+
+<!-- <script type="text/javascript">
+  for (var e=0; e < gon.addresses.length; e++){
+    alert('Hi! #' + e );
+}
+</script> -->
 
 
 

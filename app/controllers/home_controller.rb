@@ -2,7 +2,10 @@ class HomeController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
 
+
+
   def index
+
 
     if (user_signed_in? )
       # Get the user's timezone from their primary Google Calendar.
@@ -39,6 +42,9 @@ class HomeController < ApplicationController
       # Fetch today's events from the DB to display in view
       @events = current_user.events.where("start >= ?", Date.today)
       @places = current_user.places
+
+      @addresses = ["1047 W. Webster Avenue", "222 Merchandise Mart Plaza", "Midway International Airport"]
+      gon.addresses = @addresses
 
       # if event_locations_need_address = u.events.where(:location => nil)
         # redirect to page add addresses to events with some event edit form

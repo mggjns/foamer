@@ -1,5 +1,6 @@
 var latitude = null;
 var longitude = null;
+var latlng = null;
 
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -38,13 +39,20 @@ function initialize() {
     }
 }
 
+
+
+
 function calcRoute() {
     "use strict";
     // get the travelmode, startpoint and via point from the form 
     var travelMode = $('input[name="travelMode"]:checked').val();
     var start = $("#routeStart_place").val();
+    // var start = gon.addresses[0]
     // var via = $("#routeVia").val();
     var end = $("#routeEnd").val(); // endpoint is a geolocation
+    // var end = gon.addresses[0] // endpoint is a geolocation
+
+
 
 
     // if (travelMode == 'TRANSIT') {

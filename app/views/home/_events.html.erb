@@ -2,10 +2,10 @@
     <% if flash[:notice] %>
       <p class="notice"><em><%= flash[:notice] %></em></p>
     <% end %>
-
+    <ul class="nav nav-list">
+      <li class="nav-header">Today's Events</li>
       <% @events.each do |event| %>
-      <p>
-        <div class="span4">
+        <li class="active">
           <!-- <h3><%#= truncate(event[:summary], :length => 25,  :separator => ' ') %></h3> -->
           <h3><%= event[:summary] %></h3>
           <!-- <h2>Event</h2> -->
@@ -16,7 +16,7 @@
           Begins: <%= event[:start] %></br>
           Ends: <%= event[:end] %></p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div><!--/span-->
-      </p>
+        </li>
       <% end %>
+    </ul>
 </div><!--/row-->
