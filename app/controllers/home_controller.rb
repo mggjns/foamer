@@ -41,7 +41,7 @@ class HomeController < ApplicationController
 
       # Fetch today's events from the DB to display in view
       # from this time forward 
-      @events = current_user.events.where("start >= ?", Time.zone.now)
+      @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
       @places = current_user.places
 
       @addresses = ["1047 W. Webster Avenue", "222 Merchandise Mart Plaza", "Midway International Airport"]
