@@ -51,7 +51,7 @@ function calcRoute() {
     // var via = $("#routeVia").val();
     var end = $("#routeEnd").val(); // endpoint is a geolocation
     // var end = gon.addresses[0] // endpoint is a geolocation
-
+    // var arrive = $(#routeArrive).val();
 
 
 

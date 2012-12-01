@@ -57,6 +57,9 @@ class HomeController < ApplicationController
     end
   end
 
+
+
+
   def refresh
     current_user.events.destroy_all
     redirect_to root_url, :notice => 'Events refreshed from Google Calendar!'
@@ -103,6 +106,9 @@ class HomeController < ApplicationController
       # ]
     
       timezone = resource.data["timeZone"]
+
+      
+ # eh?  
 
       resource.data.items.each do |item|
         event_hash = Hash.new
