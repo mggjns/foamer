@@ -12,8 +12,11 @@
             <br><br>
             <%= label_tag(:routeEnd, "Final Destination:") %>
             <%= text_field_tag :routeEnd, @events.first.location %>
-            
+            <!-- Add in the arrive by time
+            <%= text_field_tag :routeEnd, @events.first.location %>   -->
 
+
+            
 
             <%= label_tag("Travel Mode:") %>
             <%= radio_button_tag(:travelMode, "DRIVING") %>

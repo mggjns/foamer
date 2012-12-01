@@ -13,8 +13,9 @@
           <p><%= location_for(event) %>
 
         </br>
-          Begins: <%= event[:start] %></br>
-          Ends: <%= event[:end] %></p>
+        
+          Begins: <%= event[:start].in_time_zone(event.timezone).strftime("%l:%M%P")  %></br>
+          Ends: <%= event[:end].in_time_zone(event.timezone).strftime("%l:%M%P") %></p>
           <p><a class="btn" href="#">View details &raquo;</a></p>
         </li>
       <% end %>

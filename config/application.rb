@@ -72,5 +72,7 @@ module Foamer
     # While precompiling assets prevent initializing your application and connecting to the database
     config.assets.initialize_on_precompile = false
 
+
+
   end
 end

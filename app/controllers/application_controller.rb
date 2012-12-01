@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
   helper_method :start_home
 
+  
+
   private
     def current_user
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -16,6 +18,7 @@ class ApplicationController < ActionController::Base
     def user_signed_in?
       return true if current_user
     end
+
 
     def correct_user?
       @user = User.find(params[:id])
