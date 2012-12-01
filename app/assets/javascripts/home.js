@@ -25,7 +25,7 @@ function initialize() {
             };
             // add the map to the map placeholder
             var map = new google.maps.Map(document.getElementById("mapContainer"),myOptions);
-            directionsDisplay.setMap(map);
+            directionsDisplay.setMap(map); // comment this out to not update the map with directions
             directionsDisplay.setPanel(document.getElementById("directionsPanel"));
             // Add a marker to the map for the end-point of the directions.
             var marker = new google.maps.Marker({
@@ -48,28 +48,28 @@ function calcRoute() {
     var travelMode = $('input[name="travelMode"]:checked').val();
     var start = $("#routeStart_place").val();
     // var start = gon.addresses[0]
-    // var via = $("#routeVia").val();
+    var via = $("#routeVia").val();
     var end = $("#routeEnd").val(); // endpoint is a geolocation
     // var end = gon.addresses[0] // endpoint is a geolocation
     // var arrive = $(#routeArrive).val();
 
 
 
-    // if (travelMode == 'TRANSIT') {
-    //   via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
-    // }
-    // var waypoints = [] // init an empty waypoints array
-    // if (via != '') {
-    //   // if waypoints (via) are set, add them to the waypoints array
-    //   waypoints.push({
-    //     location: via,
-    //     stopover: true
-    //   });
-    // }
+    if (travelMode == 'TRANSIT') {
+      via = ''; // if the travel mode is transit, don't use the via waypoint because that will not work
+    }
+    var waypoints = [] // init an empty waypoints array
+    if (via != '') {
+      // if waypoints (via) are set, add them to the waypoints array
+      waypoints.push({
+        location: via,
+        stopover: true
+      });
+    }
     var request = {
       origin: start,
       destination: end,
-      // waypoints: waypoints,
+      waypoints: waypoints,
       unitSystem: google.maps.UnitSystem.IMPERIAL,
       travelMode: google.maps.DirectionsTravelMode[travelMode]
     };
