@@ -1,0 +1,277 @@
+
+
+
+
+/* General Site CSS */
+
+body {
+background-color: #EBEBEB;
+}
+
+.wrapper {
+	width: 318px;
+	min-height: 640px; 
+	margin: 0 auto;
+	background: white;
+	border-radius: 10px;
+	border: 1px solid #d0d2d5;
+	position: relative;
+}
+
+.content {
+	width: 280px;
+	min-height: 640px; 
+	margin: 0 auto;
+	/* overflow-y: scroll;
+	overflow-x: none; */
+}
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-size: 46px;
+	font-style: bold;
+	text-align: center;
+	line-height: 1em;
+}
+
+h2 {
+font-family: 'Lato', sans-serif;
+font-weight: 100;
+text-align: center;
+font-size: 16px;
+line-height: 19px;
+padding: 0px;
+}
+
+/* direction arrows */
+
+.arrowleft {
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	border-right: 13px solid red;
+	top: 205px;
+	left: 3px;
+	position: absolute;
+}
+
+.arrowright {
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	border-left: 13px solid red;
+	top: 205px;
+	right: 3px;	
+	position: absolute;
+}
+
+
+/* top navigation  and progress */
+
+.daynav  { 
+width: 280px;
+height: 43px;
+margin: 5px 0 0 0;
+}
+
+.daynav ul {
+display: inline;
+list-style: none;
+padding: 0;
+}
+
+.daynav li {
+height: 38px;
+width: 48px;
+float: right;
+margin: 1px;
+font-size: 12px;
+color: white;
+text-align: center;
+background: #A8A8A8;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+
+
+.navarrow {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid white;
+	margin: 0 auto;
+}
+
+.progress {
+	height:45px;
+	width: 280px;
+} 
+
+.tofrom {
+	height:45px;
+	width: 280px;
+} 
+
+
+.tofrom ul {
+list-style: none;
+padding: 0;
+}
+
+.tofrom li {
+height: 44px;
+width: 130px;
+display: inline-block;
+font-weight: bold;
+font-family: 'Lato', sans-serif;
+}
+
+.tofrom li span {
+	text-transform: capitalize;
+	font-weight: normal;
+}
+
+
+/* agenda view - item and map */
+
+.agendaview  ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 280px;
+} 
+
+
+.agendaview  li {
+	height: 45px;
+	text-transform: uppercase;
+	width: 280px;
+	font-family: 'Lato', sans-serif;
+	margin: 2.5px 0 2.5px 0;
+	position: relative;
+	: 	
+
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #C7EAFB), color-stop(1, #8ED8FF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom, #C7EAFB 0%, #8ED8FF 100%);
+
+}
+
+
+
+.icon img{
+height: 45px;
+width: 45px;
+
+}
+
+.icon {
+height: 45px;
+width: 50px;
+float: left;
+}
+
+.time {
+font-size: 12px;
+}
+
+.eventTitle {
+font-size: 18px;
+font-weight: bold;
+}
+
+/* full day view */
+ 
+
+.map img {
+	width: 280px;
+	height: 280px;
+}
+
+.map {
+height: 280px;
+}
+
+/* directions */
+
+.directions ol {
+	padding: 0;
+	margin: 0 auto;
+	width: 280px;
+}
+
+.directions li {
+	list-style: decimal inside;
+	border-bottom: 1px solid red;   
+	font-family: 'Lato', sans-serif;
+	padding: 5px 0 5px 0;
+	margin: 5px 0 5px 0;
+}
+
+li::first-word {
+font-weight: bold;
+}
+
+
+/* intro login page */
+
+img #intro {
+	margin: 0 auto;
+}
+
+.intro {
+	width: 280px;
+}
+
+.introtext {
+width: 140px;
+}
+
+.introtext p {
+color: red;
+font-family: 'Lato', sans-serif;
+font-size: 24px;
+float: left;
+}
+
+.loginbutton {
+	float: right;	
+  color: #a7a7a7;
+  width: 72px;
+  height: 72px;
+  position: relative;
+  text-align: center;
+  line-height: 72px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+
+}
+
+
+
+
+
+
+
+
+
+
