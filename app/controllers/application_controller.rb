@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
   helper_method :start_home
 
+  around_filter :user_time_zone, if: :current_user
+
 
 
   private
@@ -31,6 +33,9 @@ class ApplicationController < ActionController::Base
       if !current_user
         redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
+    end
+    def user_time_zone(&block)
+      Time.use_zone(current_user.timezone, &block)
     end
   protect_from_forgery
 end
