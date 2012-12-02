@@ -1,18 +1,16 @@
+
+
+
+
 /* General Site CSS */
 
 body {
-background-color: #63afd0;
-}
-
-.header-container {
-	width: 320px;
-	margin: 0 auto;
-	background: white;
+background-color: #EBEBEB;
 }
 
 .wrapper {
-	width: 320px;
-	min-height: 480px; 
+	width: 318px;
+	min-height: 640px; 
 	margin: 0 auto;
 	background: white;
 	border-radius: 10px;
@@ -22,8 +20,10 @@ background-color: #63afd0;
 
 .content {
 	width: 280px;
-	min-height: 480px; 
+	min-height: 640px; 
 	margin: 0 auto;
+	/* overflow-y: scroll;
+	overflow-x: none; */
 }
 
 h1 {
@@ -58,8 +58,6 @@ padding: 0px;
 	position: absolute;
 }
 
-
-
 .arrowright {
 	width: 0; 
 	height: 0; 
@@ -71,15 +69,14 @@ padding: 0px;
 	position: absolute;
 }
 
-/* agenda view */
+
+/* top navigation  and progress */
 
 .daynav  { 
 width: 280px;
 height: 43px;
-position: relative;
-display: inline;
+margin: 5px 0 0 0;
 }
-
 
 .daynav ul {
 display: inline;
@@ -88,21 +85,59 @@ padding: 0;
 }
 
 .daynav li {
-height: 40px;
-width: 52px;
+height: 38px;
+width: 48px;
 float: right;
-background: gray;
+margin: 1px;
+font-size: 12px;
+color: white;
+text-align: center;
+background: #A8A8A8;
+border-bottom-right-radius: 3px;
+border-bottom-left-radius: 3px;
 }
 
+
+.navarrow {
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid white;
+	margin: 0 auto;
+}
 
 .progress {
-	height: 45px;
+	height:45px;
 	width: 280px;
+} 
+
+.tofrom {
+	height:45px;
+	width: 280px;
+} 
+
+
+.tofrom ul {
+list-style: none;
+padding: 0;
+}
+
+.tofrom li {
+height: 44px;
+width: 130px;
+display: inline-block;
+font-weight: bold;
+font-family: 'Lato', sans-serif;
+}
+
+.tofrom li span {
+	text-transform: capitalize;
+	font-weight: normal;
 }
 
 
-/* agenda view*/
-
+/* agenda view - item and map */
 
 .agendaview  ul {
 	list-style: none;
@@ -116,10 +151,10 @@ background: gray;
 	height: 45px;
 	text-transform: uppercase;
 	width: 280px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
 	margin: 2.5px 0 2.5px 0;
-	display: inline;
-}
+	position: relative;
+	: 	
 
 /* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
@@ -140,6 +175,7 @@ background-image: -webkit-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
 background-image: linear-gradient(to bottom, #C7EAFB 0%, #8ED8FF 100%);
 
 }
+
 
 
 .icon img{
@@ -150,7 +186,7 @@ width: 45px;
 
 .icon {
 height: 45px;
-width: 60px;
+width: 50px;
 float: left;
 }
 
@@ -160,67 +196,75 @@ font-size: 12px;
 
 .eventTitle {
 font-size: 18px;
-
+font-weight: bold;
 }
-
-.arrow {
-	width: 0; 
-	height: 0; 
-	border-top: 20px solid transparent;
-	border-bottom: 0px solid transparent;
-	border-right: 20px solid black;
-	position: absolute;
-	right: 3px;
-	bottom: 3px;
-}
-
 
 /* full day view */
  
 
-.fullday img {
+.map img {
 	width: 280px;
+	height: 280px;
 }
 
-.fulldayview  li {
-	height: 45px;
-	width: 280px;
-	text-transform: uppercase;
-	font-family: 'Open Sans', sans-serif;
+.map {
+height: 280px;
+}
+
+/* directions */
+
+.directions ol {
+	padding: 0;
 	margin: 0 auto;
-	/*background-color: rgb(199, 234, 251);*/
-	position: relative;
-}	
+	width: 280px;
+}
 
-/* IE10 Consumer Preview */ 
-background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+.directions li {
+	list-style: decimal inside;
+	border-bottom: 1px solid red;   
+	font-family: 'Lato', sans-serif;
+	padding: 5px 0 5px 0;
+	margin: 5px 0 5px 0;
+}
 
-/* Mozilla Firefox */ 
-background-image: -moz-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
-
-/* Opera */ 
-background-image: -o-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
-
-/* Webkit (Safari/Chrome 10) */ 
-background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #C7EAFB), color-stop(1, #8ED8FF));
-
-/* Webkit (Chrome 11+) */ 
-background-image: -webkit-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
-
-/* W3C Markup, IE10 Release Preview */ 
-background-image: linear-gradient(to bottom, #C7EAFB 0%, #8ED8FF 100%);
-
+li::first-word {
+font-weight: bold;
 }
 
 
-.fulldayview #fullday {
-margin: 5px 10px 5px 10px;
-text-indent: 0;
-text-transform: none;
+/* intro login page */
 
+img #intro {
+	margin: 0 auto;
 }
 
+.intro {
+	width: 280px;
+}
 
+.introtext {
+width: 140px;
+}
+
+.introtext p {
+color: red;
+font-family: 'Lato', sans-serif;
+font-size: 24px;
+float: left;
+}
+
+.loginbutton {
+	float: right;	
+  color: #a7a7a7;
+  width: 72px;
+  height: 72px;
+  position: relative;
+  text-align: center;
+  line-height: 72px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+
+}
 
 
 
