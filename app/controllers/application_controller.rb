@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :correct_user?
   helper_method :start_home
 
-  
+
 
   private
     def current_user

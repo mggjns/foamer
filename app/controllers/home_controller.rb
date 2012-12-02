@@ -81,8 +81,8 @@ class HomeController < ApplicationController
       # TODO: get the google API query code out of the controller to somewhere else?
     def google_query
       # TODO: Get current datetime from user's browser. Current code relies on the server
-      today_start = Date.today.to_time.to_datetime.rfc3339
-      today_end = (Date.today.next.to_time - 1.second).to_datetime.rfc3339
+      today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
+      today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
 
       client =  ClientBuilder.get_client(current_user)
       service = client.discovered_api('calendar', 'v3')
@@ -106,10 +106,8 @@ class HomeController < ApplicationController
       #   {"end" => {"dateTime" => (Date.today.next.to_time - 1.second).to_datetime.rfc3339}}
       # ]
     
-      timezone = resource.data["timeZone"]
-
       
- # eh?  
+ # eh?  EH!
 
       resource.data.items.each do |item|
         event_hash = Hash.new
@@ -117,7 +115,7 @@ class HomeController < ApplicationController
         event_hash[:google_id] = item["id"]
         event_hash[:g_created] = item["created"]
         event_hash[:g_updated] = item["updated"]
-        event_hash[:timezone] = timezone
+        # event_hash[:timezone] = timezone
         if item["location"]
           event_hash[:location] = item["location"]
         end
