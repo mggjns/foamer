@@ -61,3 +61,4 @@ gem 'pry'
 gem "rails-pry"
 gem "chosen-rails"
 gem "gon"
+gem "kaminari"

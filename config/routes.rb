@@ -12,6 +12,8 @@ Foamer::Application.routes.draw do
 
   resources :places
 
+  resources :home
+
   root :to => 'home#index'
   get "/mockup" => "home#mockup", :as => :mockup
 
