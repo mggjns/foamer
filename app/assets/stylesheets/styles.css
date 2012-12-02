@@ -130,6 +130,7 @@ border-radius: 3px 0 0 3px;
 .tofrom {
 	height:68px;
 	width: 280px;
+
 } 
 
 
@@ -146,7 +147,7 @@ height: 63px;
 width: 138px;
 font-size: 12px;
 display: inline-block;
-font-weight: bold;
+font-weight: 400;
 font-family: 'Lato', sans-serif;
 overflow: hidden;
 vertical-align: text-top;
