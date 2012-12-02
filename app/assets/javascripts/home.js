@@ -17,12 +17,37 @@ function initialize() {
             // set direction render options
             var rendererOptions = { draggable: true };
             directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+            var styles = [
+              {
+                stylers: [
+                  { hue: "#00ffe6" },
+                  { saturation: -20 }
+                ]
+              },{
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [
+                  { lightness: 100 },
+                  { visibility: "simplified" }
+                ]
+              },{
+                featureType: "road",
+                elementType: "labels",
+                stylers: [
+                  // { visibility: "off" }
+                ]
+              }
+            ];
+
             var myOptions = {
                 zoom: 15,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
-                scrollwheel: false
+                scrollwheel: false,
+                styles: styles 
+
             };
+
             // add the map to the map placeholder
             var map = new google.maps.Map(document.getElementById("mapContainer"),myOptions);
             directionsDisplay.setMap(map); // comment this out to not update the map with directions

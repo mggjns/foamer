@@ -37,7 +37,7 @@
                 // var end = $("#routeEnd").val(); // endpoint is a geolocation
                 // var end = "<%= @events[0][:latitude] %>, <%= @events[0][:longitude] %>";
                 // var end = "1047 W. Webster Avenue, Chicago, IL";
-                var end = "Floriole cafe, Chicago, IL";
+                var end = "Midway International Airport";
                 // var arrive = $(#routeArrive).val();
 
 
@@ -121,9 +121,7 @@
     $(calcRoute());
 </script>
 
-<%= debug @events %>
-<%#= debug current_user %>
+<%#= debug @events %>
+<%#= debug @api_data %>
+<%#= debug current_user.timezone if current_user %>
 <%#= debug params[:id] %>
-
-
-
