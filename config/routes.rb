@@ -1,21 +1,13 @@
 Foamer::Application.routes.draw do
 
+  root :to => 'events#home'
 
   resources :events
-
-  get "mockup/index"
-  get "mockup/home"
-  get "mockup/preferences"
-  get "mockup/event"
-  get "mockup/transit"
-  get "mockup/alert"
-
   resources :places
+  resources :users
 
-  root :to => 'events#home'
-  get "/mockup" => "home#mockup", :as => :mockup
 
-  get "/refresh" => "home#refresh", :as => :refresh_events
+  get "/refresh" => "events#refresh", :as => :refresh_events
 
   match '/auth/failure' => 'sessions#failure'
 
@@ -27,7 +19,6 @@ Foamer::Application.routes.draw do
 
 
 
-  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

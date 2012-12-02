@@ -4,7 +4,7 @@
 <%= form_tag("/calcroute", :id => "routeForm") do %>
             
             <%= label_tag(:routeStart, "Starting Place:") %>
-            <%= collection_select :routeStart, :place, xcurrent_user.places, :address, :name %>
+            <%= collection_select :routeStart, :place, current_user.places, :address, :name %>
 
             <!-- <%# TODO: We're not using waypoints. We have to build our own. Saving here as reference %> -->
             <%= label_tag(:routeVia, "Waypoint: ") %>
