@@ -27,8 +27,8 @@
 
   <div class="tofrom">
     <ul>
-          <li><span>from</span><br><%#= current_user.places.find_by_name("Current Location").name %></li>
-          <li><span>to</span><br><%#= @events[0][:location] %></li>
+          <li><span>from</span><br><%= current_user.places.find_by_name("Current Location").name %></li>
+          <li><span>to</span><br><%= @events[0][:location] %></li>
     </ul>
 
 
