@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_signed_in?
   helper_method :correct_user?
   helper_method :start_home
+  helper_method :current_location
 
   around_filter :user_time_zone, if: :current_user
 
@@ -36,6 +37,9 @@ class ApplicationController < ActionController::Base
     end
     def user_time_zone(&block)
       Time.use_zone(current_user.timezone, &block)
+    end
+    def current_location
+      @current_location = current_user.places.find_by_name("Current Location")   
     end
   protect_from_forgery
 end
