@@ -1,0 +1,233 @@
+/* General Site CSS */
+
+body {
+background-color: #63afd0;
+}
+
+.header-container {
+	width: 320px;
+	margin: 0 auto;
+	background: white;
+}
+
+.wrapper {
+	width: 320px;
+	min-height: 480px; 
+	margin: 0 auto;
+	background: white;
+	border-radius: 10px;
+	border: 1px solid #d0d2d5;
+	position: relative;
+}
+
+.content {
+	width: 280px;
+	min-height: 480px; 
+	margin: 0 auto;
+}
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-size: 46px;
+	font-style: bold;
+	text-align: center;
+	line-height: 1em;
+}
+
+h2 {
+font-family: 'Lato', sans-serif;
+font-weight: 100;
+text-align: center;
+font-size: 16px;
+line-height: 19px;
+padding: 0px;
+}
+
+* direction arrows */
+
+.arrowleft {
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	border-right: 13px solid red;
+	top: 205px;
+	left: 3px;
+	position: absolute;
+}
+
+
+
+.arrowright {
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	border-left: 13px solid red;
+	top: 205px;
+	right: 3px;	
+	position: absolute;
+}
+
+/* agenda view */
+
+.daynav  { 
+width: 280px;
+height: 43px;
+position: relative;
+display: inline;
+}
+
+
+.daynav ul {
+display: inline;
+list-style: none;
+padding: 0;
+}
+
+.daynav li {
+height: 40px;
+width: 52px;
+float: right;
+background: gray;
+}
+
+
+.progress {
+	height: 45px;
+	width: 280px;
+}
+
+
+/* agenda view*/
+
+
+.agendaview  ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	width: 280px;
+} 
+
+
+.agendaview  li {
+	height: 45px;
+	text-transform: uppercase;
+	width: 280px;
+	font-family: 'Open Sans', sans-serif;
+	margin: 2.5px 0 2.5px 0;
+	display: inline;
+}
+
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #C7EAFB), color-stop(1, #8ED8FF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom, #C7EAFB 0%, #8ED8FF 100%);
+
+}
+
+
+.icon img{
+height: 45px;
+width: 45px;
+
+}
+
+.icon {
+height: 45px;
+width: 60px;
+float: left;
+}
+
+.time {
+font-size: 12px;
+}
+
+.eventTitle {
+font-size: 18px;
+
+}
+
+.arrow {
+	width: 0; 
+	height: 0; 
+	border-top: 20px solid transparent;
+	border-bottom: 0px solid transparent;
+	border-right: 20px solid black;
+	position: absolute;
+	right: 3px;
+	bottom: 3px;
+}
+
+
+/* full day view */
+ 
+
+.fullday img {
+	width: 280px;
+}
+
+.fulldayview  li {
+	height: 45px;
+	width: 280px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 auto;
+	/*background-color: rgb(199, 234, 251);*/
+	position: relative;
+	: 	
+
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #C7EAFB), color-stop(1, #8ED8FF));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom, #C7EAFB 0%, #8ED8FF 100%);
+
+}
+
+
+.fulldayview #fullday {
+margin: 5px 10px 5px 10px;
+text-indent: 0;
+text-transform: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

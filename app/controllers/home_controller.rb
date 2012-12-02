@@ -39,9 +39,9 @@ class HomeController < ApplicationController
         google_query
       end
 
-      # Fetch today's events from the DB to display in view
-      # from this time forward 
-      @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+      # Grab user's events starting at the current time
+      # @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+      @events = current_user.events.where("start >= ?", Date.today)
       @places = current_user.places
 
       @addresses = ["1047 W. Webster Avenue", "222 Merchandise Mart Plaza", "Midway International Airport"]

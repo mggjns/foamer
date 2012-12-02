@@ -13,6 +13,7 @@ Foamer::Application.routes.draw do
   resources :places
 
   root :to => 'home#index'
+  get "/mockup" => "home#mockup", :as => :mockup
 
   get "/refresh" => "home#refresh", :as => :refresh_events
 

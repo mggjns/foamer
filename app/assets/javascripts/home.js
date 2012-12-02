@@ -45,12 +45,13 @@ function initialize() {
 function calcRoute() {
     "use strict";
     // get the travelmode, startpoint and via point from the form 
-    var travelMode = $('input[name="travelMode"]:checked').val();
-    var start = $("#routeStart_place").val();
-    // var start = gon.addresses[0]
+    // var travelMode = $('input[name="travelMode"]:checked').val();
+    var travelMode = "TRANSIT";
+    // var start = $("#routeStart_place").val();
+    var start = "41.8887004, -87.63675429999999";
     var via = $("#routeVia").val();
-    var end = $("#routeEnd").val(); // endpoint is a geolocation
-    // var end = gon.addresses[0] // endpoint is a geolocation
+    // var end = $("#routeEnd").val(); // endpoint is a geolocation
+    var end = "1047 W. Webster Avenue, Chicago, IL";
     // var arrive = $(#routeArrive).val();
 
 
