@@ -112,32 +112,39 @@ border-bottom-left-radius: 3px;
 }
 
 .progress {
-	height:45px;
+	height:20px;
 	width: 280px;
 } 
 
 .tofrom {
-	height:45px;
+	height:68px;
 	width: 280px;
 } 
 
 
 .tofrom ul {
 list-style: none;
+margin: 0 auto;
 padding: 0;
+height: 63px;
+float: left;
 }
 
 .tofrom li {
-height: 44px;
-width: 130px;
+height: 63px;
+width: 138px;
+font-size: 12px;
 display: inline-block;
 font-weight: bold;
 font-family: 'Lato', sans-serif;
+overflow: hidden;
+vertical-align: text-top;
 }
 
 .tofrom li span {
 	text-transform: capitalize;
 	font-weight: normal;
+	font-size: 12px;
 }
 
 
@@ -195,12 +202,14 @@ float: left;
 }
 
 .time {
-font-size: 12px;
+font-size: 10px;
 }
 
 .eventTitle {
-font-size: 18px;
+font-size: 12px;
 font-weight: bold;
+overflow: hidden;
+height: 30px;
 }
 
 /* full day view */
