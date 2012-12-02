@@ -69,6 +69,10 @@ padding: 0px;
 	position: absolute;
 }
 
+.daynav #refresh {
+	width: 15px;
+}
+
 
 /* top navigation  and progress */
 
