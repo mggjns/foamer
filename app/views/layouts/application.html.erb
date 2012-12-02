@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!-- <head> starts here -->
 <head>
 	<meta charset="utf-8">
   <title>DayTrippr</title>
@@ -17,16 +18,9 @@
     <meta name="author" content="">
 
     <%= include_gon %>
-  <style type="text/css">
-	body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-  }
-	</style>
-</head>
+</head> 
+
+<!-- <body> starts here -->
 <body>
 
 <header>
@@ -49,8 +43,9 @@
 
 </header>
 
+<!-- HTML for the page in question emitted here (e.g. index.html.erb) -->
 <%= yield %>
-
+<!-- HTML for page in question done -->
  <hr>
 
       <footer>
