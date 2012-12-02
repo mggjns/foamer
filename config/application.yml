@@ -1,3 +1,7 @@
-GOOGLE_CLIENT_SECRET: "7Gh8zcaFYJ1EyPYcMD-QDhy_"
-GOOGLE_CLIENT_ID: "519608785063.apps.googleusercontent.com"
+# GOOGLE_CLIENT_SECRET: "7Gh8zcaFYJ1EyPYcMD-QDhy_"
+# GOOGLE_CLIENT_ID: "519608785063.apps.googleusercontent.com"
+
+# heroku
+GOOGLE_CLIENT_SECRET: "_E3BZRK0ysaWnkWBLUdyKg3W"
+GOOGLE_CLIENT_ID: "519608785063-vjuifml7uihqa8lk960dmbce51gbjjjt.apps.googleusercontent.com"
 
