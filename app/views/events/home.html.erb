@@ -17,6 +17,7 @@
 
 
         <% if user_signed_in? %>
+          <% @events.each do |event| %>
 
             <div class="arrowleft"></div>
             <div class="content">
@@ -24,9 +25,8 @@
             <%= render 'calcroute.js' %>
           
 
-            <%= render 'events' %>
+            <%= render 'events', :event => event %>
             <%= paginate @events %>
-
 
             <div class="map" id="mapContainer">
               <!-- <img src="direction.png"> -->
@@ -38,17 +38,16 @@
 
         </div><!--/content-->
 
-    <div class="arrowright">
-        
-    </div>
+        <div class="arrowright"></div>
 
-    <script type="text/javascript">
-        $(initialize());
-    </script>
-      
-    <script type="text/javascript">
-        $(calcRoute());
-    </script>
+        <script type="text/javascript">
+            $(initialize());
+        </script>
+          
+        <script type="text/javascript">
+            $(calcRoute());
+        </script>
+    <% end %>  
 
     <% else %>
         <div class="hero-unit">
@@ -60,8 +59,8 @@
 
 </div><!--/wrapper-->
 
-<%#= debug @events %>
+<%#= debug event %>
 <%#= binding.pry %>
 <%#= debug @api_data %>
 <%#= debug current_user.timezone if current_user %>
-<%= debug params[:page] %>
+<%#= debug params[:page] %>
