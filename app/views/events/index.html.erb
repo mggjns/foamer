@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Google</th>
+    <th>ID</th>
+    <th>Google_ID</th>
     <th>G created</th>
     <th>G updated</th>
     <th>Summary</th>
@@ -20,6 +21,7 @@
 
 <% @events.each do |event| %>
   <tr>
+    <td><%= event.id %></td>
     <td><%= event.google_id %></td>
     <td><%= event.g_created %></td>
     <td><%= event.g_updated %></td>

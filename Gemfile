@@ -1,13 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'google_oauth_calendar'
 
 gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'geocoder' 
-
 
 # for deployment on Heroku
 group :development, :test do
@@ -17,8 +14,7 @@ group :production do
   gem 'pg'
 end
 
-# Use Thin webserver instead of Webrick. 
-gem 'thin'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -55,6 +51,7 @@ end
 
 gem "omniauth", ">= 1.0.3"
 gem "omniauth-google-oauth2"
+gem 'google_oauth_calendar'
 gem "google-api-client"
 gem "gcal4ruby"
 gem 'pry'
@@ -62,3 +59,7 @@ gem "rails-pry"
 gem "chosen-rails"
 gem "gon"
 gem "kaminari"
+# Use Thin webserver instead of Webrick. 
+gem 'thin'
+gem 'geocoder' 
+
