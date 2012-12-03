@@ -3,7 +3,9 @@
           <img src="/assets/logo.png">
          <ul>
           <li id="nextbutton"><div class="navarrow"></div>Next Day</li>
-          <li is "refreshbutton"><img src="/assets/refresh.png" id="refresh"><%= link_to 'Refresh',refresh_events_path %> </li> 
+          <%= link_to refresh_events_path do %>
+            <li is "refreshbutton"><img src="/assets/refresh.png" id="refresh">Refresh</li> 
+          <% end %>
         </ul>
 
     </div>
