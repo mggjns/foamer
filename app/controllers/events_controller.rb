@@ -38,7 +38,8 @@ class EventsController < ApplicationController
 
       # Grab user's events starting at the current time
       # @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
-      @events = current_user.events.where("start >= ?", Date.today)
+      @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
+      @event = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
       # @event = current_user.events.find(params[:id])
       @places = current_user.places
 
@@ -60,7 +61,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = current_user.events
+    @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(3)
 
     respond_to do |format|
       format.html # index.html.erb

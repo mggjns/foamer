@@ -1,8 +1,4 @@
-<%#= paginate @event %>
-
-<% if params[:id].nil? %>
-<% params[:id] = 0 %>
-<% end %>
+<%= paginate @event %>
 
 <style type="text/css">
 #mapContainer {
@@ -122,6 +118,7 @@
 </script>
 
 <%#= debug @events %>
+<%#= binding.pry %>
 <%#= debug @api_data %>
 <%#= debug current_user.timezone if current_user %>
 <%#= debug params[:id] %>
