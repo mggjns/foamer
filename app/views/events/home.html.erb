@@ -14,10 +14,15 @@
 
 <div class="wrapper">
     
-
-
         <% if user_signed_in? %>
           <% @events.each do |event| %>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $(initialize());
+                    $(calcRoute());
+                });
+            </script>
 
             <div class="arrowleft"></div>
             <div class="content">
@@ -39,14 +44,7 @@
         </div><!--/content-->
 
         <div class="arrowright"></div>
-
-        <script type="text/javascript">
-            $(initialize());
-        </script>
-          
-        <script type="text/javascript">
-            $(calcRoute());
-        </script>
+        
     <% end %>  
 
     <% else %>
