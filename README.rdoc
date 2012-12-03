@@ -1,4 +1,4 @@
-== DayTrippr
+== DayTrippr (formerly called Foamer)
 
 DayTrippr connects to your Google Calendar and provides directions between all of your events for the day. 
 
