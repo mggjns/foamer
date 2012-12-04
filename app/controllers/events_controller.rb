@@ -1,3 +1,5 @@
+# TODO: gotta handle situations where events from user's calendar doesn't have an address.
+
 class EventsController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
