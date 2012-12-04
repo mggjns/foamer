@@ -2,10 +2,11 @@ class EventsController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
 
+  before_filter :authenticate_user!, :except => [:default]
+
   # root url
   def home
-    if (user_signed_in? )
-      # Get the user's timezone from their primary Google Calendar.
+        # Get the user's timezone from their primary Google Calendar.
       # Supposedly you can pull the user timezone when you first authorize via Oauth2,
       # but the response doesn't actually provide the timezone, despite what the docs
       # say here: https://developers.google.com/accounts/docs/OAuth2Login#userinfocall
@@ -52,7 +53,7 @@ class EventsController < ApplicationController
 
       # end
 
-    end
+    
   end
 
 
@@ -140,7 +141,7 @@ class EventsController < ApplicationController
 
   def refresh
     current_user.events.destroy_all
-    redirect_to root_url, :notice => 'Events refreshed from Google Calendar!'
+    redirect_to home_url, :notice => 'Events refreshed from Google Calendar!'
   end
 
   private

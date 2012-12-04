@@ -14,46 +14,37 @@
 
 <div class="wrapper">
     
-        <% if user_signed_in? %>
-          <% @events.each do |event| %>
+    <% @events.each do |event| %>
 
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $(initialize());
-                    $(calcRoute());
-                });
-            </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(initialize());
+                $(calcRoute());
+            });
+        </script>
 
-            <div class="arrowleft"></div>
-            <div class="content">
-            
-            <%= render 'calcroute.js', :event => event %>
-          
+        <div class="arrowleft"></div>
+        <div class="content">
+        
+        <%= render 'calcroute.js', :event => event %>
+      
 
-            <%= render 'events', :event => event %>
-            <%= paginate @events %>
+        <%= render 'events', :event => event %>
+        <%= paginate @events %>
 
-            <div class="map" id="mapContainer">
-              <!-- <img src="direction.png"> -->
-            </div><!--/fullday-->
-            
-            <div id="directionsPanel">
-            
-            </div>
+        <div class="map" id="mapContainer">
+          <!-- <img src="direction.png"> -->
+        </div><!--/fullday-->
+        
+        <div id="directionsPanel">
+        
+        </div>
 
         </div><!--/content-->
 
         <div class="arrowright"></div>
-        
+    
     <% end %>  
-
-    <% else %>
-        <div class="hero-unit">
-            <h1>Calendar, meet maps!</h1>
-            <h2>Map out your entire day with a single click. Sign in with your Google account to start.</h2>
-            <h2><a href="/signin" class="zocial google">Sign In &raquo;</a></h2>    
-        </div>
-    <% end %>
 
 </div><!--/wrapper-->
 
