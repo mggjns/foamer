@@ -14,7 +14,7 @@ class EventsController < ApplicationController
         get_user_timezone_from_google_calendar
       end
 
-      # TODO: We have a problem of stale cookie here.
+      # TODO: We have a problem of stale cookie here, among other things
       if (cookies[:lat_lng])
         @lat_lng = cookies[:lat_lng].split("|")
         # See if we have a Current Location in Place, and update coordinates if so. Otherwise, create.
@@ -33,15 +33,14 @@ class EventsController < ApplicationController
       # Only query Google Calendar API if we don't have any events in the DB
       # TODO: What if a user doesn't have any events today in their Google Calendar?
       if current_user.events.where("start >= ?", Date.today).size == 0
-        # Find me at the bottom of HomeController
         google_query
       end
 
-      # Grab user's events starting at the current time
-      # @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+      # Grab user's events starting at the current time, then paginate with Kaminari
       @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
       @places = current_user.places
 
+      # TODO: testing gon, comment this out soon.
       @addresses = ["1047 W. Webster Avenue", "222 Merchandise Mart Plaza", "Midway International Airport"]
       gon.addresses = @addresses
 
@@ -140,6 +139,7 @@ class EventsController < ApplicationController
   end
 
   def refresh
+    # TODO: Instead of destroying all, compare events at Google to what we grabbed and if changed, update
     current_user.events.destroy_all
     redirect_to home_url, :notice => 'Events refreshed from Google Calendar!'
   end
@@ -156,7 +156,7 @@ class EventsController < ApplicationController
       current_user.save
     end
 
-      # TODO: get the google API query code out of the controller to somewhere else?
+    # TODO: refactor this into general purpose API query method where we can pass which google API/resources/params
     def google_query
       # TODO: Get current datetime from user's browser. Current code relies on the server
       today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
@@ -184,9 +184,6 @@ class EventsController < ApplicationController
       #   {"end" => {"dateTime" => (Date.today.next.to_time - 1.second).to_datetime.rfc3339}}
       # ]
     
-      
- # eh?  EH!
-
       resource.data.items.each do |item|
         event_hash = Hash.new
         event_hash[:summary] = item["summary"]
