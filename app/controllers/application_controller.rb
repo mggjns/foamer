@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   private
     def current_user
+      # TODO: this breaks if we have a stale session (bad user_id stored in user's browser )
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     end
 
