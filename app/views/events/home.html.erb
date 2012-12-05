@@ -23,11 +23,11 @@
 
         <div class="arrowleft"></div>
         <div class="content">
-        
+
         <%= render 'events', :event => event %>
         <%= render 'calcroute.js', :event => event %>
-        <%= paginate @events %>
-
+        
+        <%= render 'mapform' %>
         <div class="map" id="mapContainer">
           <!-- <img src="direction.png"> -->
         </div><!--/fullday-->

@@ -1,31 +1,31 @@
 <!-- <%# TODO: Allow From: to be current location, manual, or from saved place %>  -->
 <!-- <%# TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form %> -->
 
-<%= form_tag("/calcroute", :id => "routeForm") do %>
+<%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
             
-            <%= label_tag(:routeStart, "Starting Place:") %>
-            <%= collection_select :routeStart, :place, current_user.places, :address, :name %>
+            <%#= label_tag(:routeStart, "Starting Place:") %>
+            <%#= collection_select :routeStart, :place, current_user.places, :address, :name %>
 
             <!-- <%# TODO: We're not using waypoints. We have to build our own. Saving here as reference %> -->
-            <%= label_tag(:routeVia, "Waypoint: ") %>
-            <%= text_field_tag :routeVia, nil, :placeholder => "Addresses in between" %>
-            <br><br>
-            <%= label_tag(:routeEnd, "Final Destination:") %>
-            <%= text_field_tag :routeEnd, nil, :placeholder => "Where you'll end the day..." %>
+            <%#= label_tag(:routeVia, "Waypoint: ") %>
+            <%#= text_field_tag :routeVia, nil, :placeholder => "Addresses in between" %>
+            <!-- <br><br> -->
+            <%#= label_tag(:routeEnd, "Final Destination:") %>
+            <%#= text_field_tag :routeEnd, nil, :placeholder => "Where you'll end the day..." %>
             <!-- Add in the arrive by time
             <%#= text_field_tag :routeEnd, @events.first.location %>   -->
 
 
             <%= label_tag("Travel Mode:") %>
-            <%= radio_button_tag(:travelMode, "DRIVING", true) %>
+            <%= radio_button_tag(:travelMode, "DRIVING") %>
             <%= label_tag(:travelModeDriving, "Driving", :style => "display:inline") %>
             <%= radio_button_tag(:travelMode, "BICYCLING") %>
             <%= label_tag(:travelModeBicycle, "Bicycling", :style => "display:inline") %>
-            <%= radio_button_tag(:travelMode, "TRANSIT") %>
+            <%= radio_button_tag(:travelMode, "TRANSIT", true) %>
             <%= label_tag(:travelModeTransit, "Public Transit", :style => "display:inline") %>
             <%= radio_button_tag(:travelMode, "WALKING") %>
             <%= label_tag(:travelModeWalking, "Walking", :style => "display:inline") %>
 
-    <%= submit_tag("Calculate Route") %>
+    <%= submit_tag("Change travel mode") %>
 
 <% end %>

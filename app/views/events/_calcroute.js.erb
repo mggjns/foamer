@@ -3,7 +3,12 @@
       "use strict";
       // get the travelmode, startpoint and via point from the form 
       // var travelMode = $('input[name="travelMode"]:checked').val();
-      var travelMode = "TRANSIT";
+      if ($('input[name="travelMode"]:checked')) {
+        var travelMode = $('input[name="travelMode"]:checked').val();
+      } else {
+        console.log('No travelMode elements found');
+        var travelMode = "TRANSIT";
+      }
       // var start = $("#routeStart_place").val();
         var start = "<%= current_location.address %>";
         var via = $("#routeVia").val();
