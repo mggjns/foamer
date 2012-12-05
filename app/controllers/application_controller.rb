@@ -7,9 +7,14 @@ class ApplicationController < ActionController::Base
 
   around_filter :user_time_zone, if: :current_user
 
+  # rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
 
   private
+    def record_not_found
+      render 'default'
+    end
+
     def current_user
       # TODO: this breaks if we have a stale session (bad user_id stored in user's browser )
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -33,12 +38,14 @@ class ApplicationController < ActionController::Base
 
     def authenticate_user!
       if !current_user
-        redirect_to default_url, :alert => 'You need to sign in for access to this page.'
+        redirect_to root_url, :alert => 'You need to sign in for access to this page.'
       end
     end
+
     def user_time_zone(&block)
       Time.use_zone(current_user.timezone, &block)
     end
+    
     def current_location
       @current_location = current_user.places.find_by_name("Current Location")   
     end

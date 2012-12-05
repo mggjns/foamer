@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
 
-  before_filter :authenticate_user!, :except => [:default]
+  # before_filter :authenticate_user!, :except => [:default]
 
   # root url
   def home
