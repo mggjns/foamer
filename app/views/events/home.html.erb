@@ -10,7 +10,9 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript" src="/assets/home.js"></script>
 
-
+<script type="text/javascript">
+    $(initialize());
+</script>
 
 <div class="wrapper">
     
@@ -18,7 +20,6 @@
 
         <script type="text/javascript">
             $(document).ready(function() {
-                $(initialize());
                 $(calcRoute());
             });
         </script>
@@ -26,10 +27,8 @@
         <div class="arrowleft"></div>
         <div class="content">
         
-        <%= render 'calcroute.js', :event => event %>
-      
-
         <%= render 'events', :event => event %>
+        <%= render 'calcroute.js', :event => event %>
         <%= paginate @events %>
 
         <div class="map" id="mapContainer">
