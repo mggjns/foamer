@@ -193,13 +193,13 @@ class EventsController < ApplicationController
         event_hash[:g_created] = item["created"]
         event_hash[:g_updated] = item["updated"]
         # event_hash[:timezone] = timezone
-        if item["location"]
+        if item["location"].present?
           event_hash[:location] = item["location"]
         end
-        if item["description"]
+        if item["description"].present?
           event_hash[:description] = item["description"]
         end
-        if item["start"]["dateTime"]
+        if item["start"]["dateTime"].present?
           event_hash[:start] = item["start"]["dateTime"]
           event_hash[:end] = item["end"]["dateTime"]
         else
