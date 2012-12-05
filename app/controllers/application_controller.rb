@@ -7,11 +7,12 @@ class ApplicationController < ActionController::Base
 
   around_filter :user_time_zone, if: :current_user
 
-  # rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
 
   private
     def record_not_found
+      reset_session
       render 'default'
     end
 

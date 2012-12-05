@@ -40,11 +40,9 @@ class EventsController < ApplicationController
 
       # Grab user's events starting at the current time, then paginate with Kaminari
       @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
-      @places = current_user.places
+      session[:event] = @events[0]
 
-      # TODO: testing gon, comment this out soon.
-      @addresses = ["1047 W. Webster Avenue", "222 Merchandise Mart Plaza", "Midway International Airport"]
-      gon.addresses = @addresses
+      @places = current_user.places
 
       # if event_locations_need_address = u.events.where(:location => nil)
         # redirect to page add addresses to events with some event edit form

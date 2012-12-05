@@ -28,7 +28,11 @@
 
   <div class="tofrom">
     <ul>
+        <% if params[:page].nil? %>
           <li><span>from</span><br><%= current_user.places.find_by_name("Current Location").name %></li>
+        <% else %>
+          <li><span>from</span><br><%= session[:event][:summary] %></li>
+        <% end %>
           <li><span>to</span><br><%= event[:location] %></li>
     </ul>
 
