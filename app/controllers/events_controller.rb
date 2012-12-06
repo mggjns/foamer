@@ -32,11 +32,12 @@ class EventsController < ApplicationController
         end
       end
 
+      if current_user.calendars.size == 0
+        google_query_allcalendars
+      end
+
       # Only query Google Calendar API if we don't have any events in the DB
       # TODO: What if a user doesn't have any events today in their Google Calendar?
-
-      # google_query_allcalendars
-
 
       if current_user.events.where("start >= ?", Date.today).size == 0
         google_query
@@ -169,26 +170,27 @@ def google_query_allcalendars
       client =  ClientBuilder.get_client(current_user)
       service = client.discovered_api('calendar', 'v3')
       resource = client.execute(:api_method => service.calendar_list.list)
-      all_calendars = resource.data 
+      @all_calendars = resource.data 
 
-      #       all_calendars.items.each do |item|
-      #   calendar_hash = Hash.new
-      #   calendar_hash[:kind] = item["kind"]
-      #   calendar_hash[:google_id] = item["id"]
-      #   calendar_hash[:etag] = item["etag"]
-      #   calendar_hash[:summary] = item["summary"]
-      #   calendar_hash[:description] = item["description"]
-      #   calendar_hash[:time_zone] = item["time_zone"]
-      #   calendar_hash[:color_id] = item["color_id"]
-      #   calendar_hash[:background_color] = item["background_color"]
-      #   calendar_hash[:foreground_color] = item["foreground_color"]
-      #   calendar_hash[:selected] = item["selected"]
-      #   calendar_hash[:access_role] = item["access_role"]
-      #   calendar_hash[:active] = item["active"]
-       
-      #   calendar = current_user.calendar(calendar_hash)
-      #   calendar.save 
-      # end                                                         
+      resource.data.items.each do |item|
+        calendar_hash = Hash.new
+        calendar_hash[:kind] = item["kind"]
+        calendar_hash[:google_id] = item["id"]
+        calendar_hash[:etag] = item["etag"]
+        calendar_hash[:summary] = item["summary"]
+        calendar_hash[:description] = item["description"]
+        calendar_hash[:time_zone] = item["time_zone"]
+        calendar_hash[:color_id] = item["color_id"]
+        calendar_hash[:background_color] = item["background_color"]
+        calendar_hash[:foreground_color] = item["foreground_color"]
+        calendar_hash[:selected] = item["selected"]
+        calendar_hash[:access_role] = item["access_role"]
+        calendar_hash[:active] = item["active"]
+  
+        calendar = current_user.calendars.new(calendar_hash)
+        calendar.save
+        
+      end                                                        
 end
 
 
