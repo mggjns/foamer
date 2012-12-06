@@ -43,8 +43,10 @@ class EventsController < ApplicationController
       end
 
       # Grab user's events starting at the current time, then paginate with Kaminari
-      @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
-      session[:event] = @events[0]
+      # @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
+      # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
+      @events = current_user.events.where("start >= ?", Date.today)
+      # session[:event] = @events[0]
 
       @places = current_user.places
 

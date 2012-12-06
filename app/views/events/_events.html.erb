@@ -11,17 +11,20 @@
     </div>
 
       <div class="progress">
-        <p>
-          <%= paginate @events %>  
-        </p>
+        
       </div>
 
 <div class="agendaview">  
   <ul>
       <li>
           <div class="icon"><img src="/assets/train.png"></div> 
-            <div class="time"><%= event[:start].strftime("%l:%M%P") %></div>
-            <div class="eventTitle"><%= event[:summary] %></div>   
+            <% if params[:page].nil? %>
+              <div class="time"><%= @events[0][:start].strftime("%l:%M%P") %></div>
+              <div class="eventTitle"><%= @events[0][:summary] %></div>   
+            <% else %>
+              <div class="time"><%= @events[params[:page].to_i][:start].strftime("%l:%M%P") %></div>
+              <div class="eventTitle"><%= @events[params[:page].to_i][:summary] %></div>   
+            <% end %>
                  
 
       </li>
@@ -33,9 +36,9 @@
         <% if params[:page].nil? %>
           <li><span>from</span><br>Current Location</li>
         <% else %>
-          <li><span>from</span><br><%= session[:event][:summary] %></li>
+          <li><span>from</span><br><%= @events[params[:page].to_i - 1][:summary] %></li>
         <% end %>
-          <li><span>to</span><br><%= event[:location] %></li>
+          <li><span>to</span><br><%= @events[params[:page].to_i][:location] %></li>
     </ul>
 
 

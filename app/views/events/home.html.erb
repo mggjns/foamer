@@ -12,7 +12,7 @@
 
 <div class="wrapper">
     
-    <% @events.each do |event| %>
+    <%# @events.each do |event| %>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -24,8 +24,8 @@
         <div class="arrowleft"></div>
         <div class="content">
 
-        <%= render 'events', :event => event %>
-        <%= render 'calcroute.js', :event => event %>
+        <%= render 'events', :events => @events %>
+        <%#= render 'calcroute.js', :event => event %>
         
         <%= render 'mapform' %>
         <div class="map" id="mapContainer">
@@ -40,7 +40,7 @@
 
         <div class="arrowright"></div>
     
-    <% end %>  
+    <%# end %>  
 
 </div><!--/wrapper-->
 
@@ -48,6 +48,6 @@
 <%#= binding.pry %>
 <%#= debug @api_data %>
 <%#= debug current_user.timezone if current_user %>
-<%#= debug params[:page] %>
+<%= debug params[:page] %>
 <%# binding.pry %>
 <%#= debug session %>

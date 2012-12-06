@@ -20,6 +20,8 @@ Foamer::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'sessions#create'
 
+  get "/home/:page" => "events#home"
+
 
 
 
