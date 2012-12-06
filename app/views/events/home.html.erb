@@ -38,7 +38,9 @@
 
         </div><!--/content-->
 
+        <% if params[:page].to_i + 1 <= @events.length.to_i - 1 %>
         <div class="arrowright"></div>
+        <% end %>
     
     <%# end %>  
 
