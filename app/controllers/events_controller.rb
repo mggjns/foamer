@@ -156,6 +156,17 @@ class EventsController < ApplicationController
       current_user.save
     end
 
+def google_query_allcalendars
+   
+      client =  ClientBuilder.get_client(current_user)
+      service = client.discovered_api('calendar', 'v3')
+      @resource = client.execute(:api_method => service.calendar_list.list)
+      @all_calendars = resource.data                          
+                                 
+end
+
+
+
     # TODO: refactor this into general purpose API query method where we can pass which google API/resources/params
     def google_query
       # TODO: Get current datetime from user's browser. Current code relies on the server
