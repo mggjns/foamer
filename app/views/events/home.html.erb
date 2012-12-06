@@ -13,7 +13,12 @@
     
     <%# @events.each do |event| %>
 
-        <div class="arrowleft"></div>
+        <% if params[:page].to_i + - 1 >= 1 %>
+            <a href="/home/<%= params[:page].to_i - 1 %>"><div class="arrowleft"></div></a>
+        <% end %>
+        <% if params[:page].to_i + - 1 == 0 %>
+            <a href="/home/"><div class="arrowleft"></div></a>
+        <% end %>
         <div class="content">
 
         <%= render 'events', :events => @events %>
@@ -34,7 +39,7 @@
         </div><!--/content-->
 
         <% if params[:page].to_i + 1 <= @events.length.to_i - 1 %>
-        <div class="arrowright"></div>
+            <a href="/home/<%= params[:page].to_i + 1 %>"><div class="arrowright"></div></a>
         <% end %>
     
     <%# end %>  
