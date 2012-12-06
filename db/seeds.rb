@@ -9,19 +9,19 @@
 
 
 
-Place.create([
-  { :name => "Home", :user_id => 1, :created_at => "2012-11-20 00:39:34", :updated_at => "2012-11-20 00:39:34", :address => "4426 N Hermitage Chicago", :latitude => 41.96235739999999, :longitude => -87.6724344 },
-  { :name => "Work", :user_id => 1, :created_at => "2012-11-20 00:39:57", :updated_at => "2012-11-20 00:39:57", :address => "Merchandise Mart Chicago, IL", :latitude => 41.888969, :longitude => -87.633924 },
-  { :name => "Fullstack House", :user_id => 2, :created_at => "2012-11-20 01:55:16", :updated_at => "2012-11-20 01:55:16", :address => "1047 W. Webster Avenue, Chicago, IL", :latitude => 41.921452, :longitude => -87.65529599999999 },
-  { :name => "1871", :user_id => 2, :created_at => "2012-11-20 01:55:47", :updated_at => "2012-11-20 01:55:47", :address => "222 Merchandise Mart Plaza, Chicago, IL", :latitude => 41.8883776, :longitude => -87.6365131 },
-  { :name => "Work", :user_id => 2, :created_at => "2012-11-20 18:39:57", :updated_at => "2012-11-20 18:39:57", :address => "1047 W. Webster Ave", :latitude => 41.921452, :longitude => -87.65529599999999 }
-], :without_protection => true )
+# Place.create([
+#   { :name => "Home", :user_id => 1, :created_at => "2012-11-20 00:39:34", :updated_at => "2012-11-20 00:39:34", :address => "4426 N Hermitage Chicago", :latitude => 41.96235739999999, :longitude => -87.6724344 },
+#   { :name => "Work", :user_id => 1, :created_at => "2012-11-20 00:39:57", :updated_at => "2012-11-20 00:39:57", :address => "Merchandise Mart Chicago, IL", :latitude => 41.888969, :longitude => -87.633924 },
+#   { :name => "Fullstack House", :user_id => 2, :created_at => "2012-11-20 01:55:16", :updated_at => "2012-11-20 01:55:16", :address => "1047 W. Webster Avenue, Chicago, IL", :latitude => 41.921452, :longitude => -87.65529599999999 },
+#   { :name => "1871", :user_id => 2, :created_at => "2012-11-20 01:55:47", :updated_at => "2012-11-20 01:55:47", :address => "222 Merchandise Mart Plaza, Chicago, IL", :latitude => 41.8883776, :longitude => -87.6365131 },
+#   { :name => "Work", :user_id => 2, :created_at => "2012-11-20 18:39:57", :updated_at => "2012-11-20 18:39:57", :address => "1047 W. Webster Ave", :latitude => 41.921452, :longitude => -87.65529599999999 }
+# ], :without_protection => true )
 
 
 
-User.create([
-  { :created_at => "2012-11-20 00:31:48", :updated_at => "2012-11-20 00:31:48", :provider => "google_oauth2", :uid => "106571246688662386958", :name => "Weary Transit", :email => "", :token => "ya29.AHES6ZRPrSFPDopUn4C1pRMA9XpPmaH5HjK01fSmLfKHmKQ", :token_expires_at => "2000-01-01 01:31:48", :refresh_token => "1/XoPiprKpUjQFSvARzisfmkESBGzM0jr8ID-HfqEW-K8" },
-  { :created_at => "2012-11-20 01:54:48", :updated_at => "2012-11-23 22:43:49", :provider => "google_oauth2", :uid => "108081943824305544848", :name => "Sean Knox", :email => "", :token => "ya29.AHES6ZQLRS35fe5eWyybC1vh3fzwXCD9qKCMbQnXeipNDSBJ", :token_expires_at => "2000-01-01 23:43:49", :refresh_token => "1/LMZQFj1eRPSGqsZBGssU2EgIwoJ8ZKrpJ3A_29jrmaA" }
-], :without_protection => true )
+# User.create([
+#   { :created_at => "2012-11-20 00:31:48", :updated_at => "2012-11-20 00:31:48", :provider => "google_oauth2", :uid => "106571246688662386958", :name => "Weary Transit", :email => "", :token => "ya29.AHES6ZRPrSFPDopUn4C1pRMA9XpPmaH5HjK01fSmLfKHmKQ", :token_expires_at => "2000-01-01 01:31:48", :refresh_token => "1/XoPiprKpUjQFSvARzisfmkESBGzM0jr8ID-HfqEW-K8" },
+#   { :created_at => "2012-11-20 01:54:48", :updated_at => "2012-11-23 22:43:49", :provider => "google_oauth2", :uid => "108081943824305544848", :name => "Sean Knox", :email => "", :token => "ya29.AHES6ZQLRS35fe5eWyybC1vh3fzwXCD9qKCMbQnXeipNDSBJ", :token_expires_at => "2000-01-01 23:43:49", :refresh_token => "1/LMZQFj1eRPSGqsZBGssU2EgIwoJ8ZKrpJ3A_29jrmaA" }
+# ], :without_protection => true )
 
 
