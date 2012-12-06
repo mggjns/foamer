@@ -58,7 +58,6 @@ gem 'pry'
 gem "rails-pry"
 gem "chosen-rails"
 gem "gon"
-gem "kaminari"
 # Use Thin webserver instead of Webrick. 
 gem 'thin'
 gem 'geocoder' 
