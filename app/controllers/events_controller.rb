@@ -167,25 +167,24 @@ def google_query_allcalendars
       resource = client.execute(:api_method => service.calendar_list.list)
       all_calendars = resource.data 
 
-      #       resource.data.items.each do |item|
-      #   event_hash = Hash.new
-      #   event_hash[:kind] = item["kind"]
-      #   event_hash[:google_id] = item["id"]
-      #   event_hash[:etag] = item["etag"]
-      #   event_hash[:summary] = item["summary"]
-      #   event_hash[:description] = item["description"]
-      #   event_hash[:time_zone] = item["time_zone"]
-      #   event_hash[:color_id] = item["color_id"]
-      #   event_hash[:background_color] = item["background_color"]
-      #   event_hash[:foreground_color] = item["foreground_color"]
-      #   event_hash[:selected] = item["selected"]
-      #   event_hash[:access_role] = item["access_role"]
-      #   event_hash[:active] = item["active"]
+      #       all_calendars.items.each do |item|
+      #   calendar_hash = Hash.new
+      #   calendar_hash[:kind] = item["kind"]
+      #   calendar_hash[:google_id] = item["id"]
+      #   calendar_hash[:etag] = item["etag"]
+      #   calendar_hash[:summary] = item["summary"]
+      #   calendar_hash[:description] = item["description"]
+      #   calendar_hash[:time_zone] = item["time_zone"]
+      #   calendar_hash[:color_id] = item["color_id"]
+      #   calendar_hash[:background_color] = item["background_color"]
+      #   calendar_hash[:foreground_color] = item["foreground_color"]
+      #   calendar_hash[:selected] = item["selected"]
+      #   calendar_hash[:access_role] = item["access_role"]
+      #   calendar_hash[:active] = item["active"]
        
-      #   calendar = current_user.calendar.new(calendar_hash)
+      #   calendar = current_user.calendar(calendar_hash)
       #   calendar.save 
-      # end                          
-                                 
+      # end                                                         
 end
 
 
@@ -209,7 +208,6 @@ end
                                   'timeMax' => today_end
                                   }) 
       @api_data = resource.data
-
       # fake google data for debugging
       # items = [
       #   {"summary"=>"San Diego"}, 
@@ -240,7 +238,7 @@ end
         end
         event = current_user.events.new(event_hash)
         event.save 
-      end 
-    end
+    end 
+  end
 
-end
+ end
