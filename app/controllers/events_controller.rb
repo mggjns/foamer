@@ -45,7 +45,8 @@ class EventsController < ApplicationController
       # Grab user's events starting at the current time, then paginate with Kaminari
       # @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
       # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
-      @events = current_user.events.where("start >= ?", Date.today)
+      # @events = current_user.events.where("start >= ?", Date.today)
+      @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
       # session[:event] = @events[0]
 
       @places = current_user.places
@@ -147,6 +148,7 @@ class EventsController < ApplicationController
   def refresh
     # TODO: Instead of destroying all, compare events at Google to what we grabbed and if changed, update
     current_user.events.destroy_all
+    google_query
     redirect_to home_url, :notice => 'Events refreshed from Google Calendar!'
   end
 
