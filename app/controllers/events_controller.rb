@@ -34,6 +34,10 @@ class EventsController < ApplicationController
 
       # Only query Google Calendar API if we don't have any events in the DB
       # TODO: What if a user doesn't have any events today in their Google Calendar?
+
+      google_query_allcalendars
+
+
       if current_user.events.where("start >= ?", Date.today).size == 0
         google_query
       end

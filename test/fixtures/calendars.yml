@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  kind: MyString
+  etag: MyString
+  google_id: MyString
+  summary: MyString
+  description: MyString
+  time_zone: MyString
+  color_id: 1
+  background_color: MyString
+  foreground_color: MyString
+  selected: false
+  access_role: MyString
+  active: false
+
+two:
+  kind: MyString
+  etag: MyString
+  google_id: MyString
+  summary: MyString
+  description: MyString
+  time_zone: MyString
+  color_id: 1
+  background_color: MyString
+  foreground_color: MyString
+  selected: false
+  access_role: MyString
+  active: false

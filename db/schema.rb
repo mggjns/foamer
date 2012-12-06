@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126192323) do
+ActiveRecord::Schema.define(:version => 20121206072731) do
+
+  create_table "calendars", :force => true do |t|
+    t.string   "kind"
+    t.string   "etag"
+    t.string   "google_id"
+    t.string   "summary"
+    t.string   "description"
+    t.string   "time_zone"
+    t.integer  "color_id"
+    t.string   "background_color"
+    t.string   "foreground_color"
+    t.boolean  "selected"
+    t.string   "access_role"
+    t.boolean  "active"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "events", :force => true do |t|
     t.string   "google_id"
@@ -28,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121126192323) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "description"
+    t.integer  "calendar_id"
   end
 
   create_table "places", :force => true do |t|

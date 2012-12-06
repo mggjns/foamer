@@ -3,4 +3,5 @@ class Event < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
   belongs_to :user
+  belong_to :user
 end
