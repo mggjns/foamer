@@ -164,8 +164,27 @@ def google_query_allcalendars
    
       client =  ClientBuilder.get_client(current_user)
       service = client.discovered_api('calendar', 'v3')
-      @resource = client.execute(:api_method => service.calendar_list.list)
-      @all_calendars = resource.data                          
+      resource = client.execute(:api_method => service.calendar_list.list)
+      all_calendars = resource.data 
+
+      #       resource.data.items.each do |item|
+      #   event_hash = Hash.new
+      #   event_hash[:kind] = item["kind"]
+      #   event_hash[:google_id] = item["id"]
+      #   event_hash[:etag] = item["etag"]
+      #   event_hash[:summary] = item["summary"]
+      #   event_hash[:description] = item["description"]
+      #   event_hash[:time_zone] = item["time_zone"]
+      #   event_hash[:color_id] = item["color_id"]
+      #   event_hash[:background_color] = item["background_color"]
+      #   event_hash[:foreground_color] = item["foreground_color"]
+      #   event_hash[:selected] = item["selected"]
+      #   event_hash[:access_role] = item["access_role"]
+      #   event_hash[:active] = item["active"]
+       
+      #   calendar = current_user.calendar.new(calendar_hash)
+      #   calendar.save 
+      # end                          
                                  
 end
 
