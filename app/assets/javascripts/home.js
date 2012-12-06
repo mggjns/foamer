@@ -97,6 +97,9 @@ function calcRoute() {
     var request = {
       origin: start,
       destination: end,
+      transitOptions: {
+        arrivalTime: new Date(arrive)
+      },
       unitSystem: google.maps.UnitSystem.IMPERIAL,
       travelMode: google.maps.DirectionsTravelMode[travelMode]
     };

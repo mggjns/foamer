@@ -227,6 +227,9 @@ end
         event_hash[:g_created] = item["created"]
         event_hash[:g_updated] = item["updated"]
         # event_hash[:timezone] = timezone
+        if item["recurringEventId"].present?
+          event_hash[:recurringEventId] = item["recurringEventId"]
+        end
         if item["location"].present?
           event_hash[:location] = item["location"]
         end
