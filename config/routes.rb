@@ -10,6 +10,8 @@ Foamer::Application.routes.draw do
   resources :places
   resources :users
 
+  match '/get_calendars' => 'welcome#get_calendars', :as => :get_calendars
+  match '/calendars' => 'welcome#calendars', :as => :calendars
 
   match '/get_calendars' => 'welcome#get_calendars'
   match '/calendars' => 'welcome#calendars', :as => :calendars
