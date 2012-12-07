@@ -12,11 +12,10 @@ Foamer::Application.routes.draw do
 
   match '/get_calendars' => 'welcome#get_calendars', :as => :get_calendars
   match '/calendars' => 'welcome#calendars', :as => :calendars
+  match "/refresh" => "events#refresh", :as => :refresh_events
+  match "/got_nothing" => "events#got_nothing", :as => :got_nothing
 
-  match '/get_calendars' => 'welcome#get_calendars'
-  match '/calendars' => 'welcome#calendars', :as => :calendars
 
-  get "/refresh" => "events#refresh", :as => :refresh_events
 
   match '/auth/failure' => 'sessions#failure'
   match '/signout' => 'sessions#destroy', :as => :signout
