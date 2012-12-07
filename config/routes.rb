@@ -10,6 +10,12 @@ Foamer::Application.routes.draw do
   resources :users
 
 
+<<<<<<< Updated upstream
+=======
+  match '/get_calendars' => 'welcome#get_calendars', :as => :get_calendars
+  match '/calendars' => 'welcome#calendars', :as => :calendars
+
+>>>>>>> Stashed changes
   get "/refresh" => "events#refresh", :as => :refresh_events
 
   match '/auth/failure' => 'sessions#failure'

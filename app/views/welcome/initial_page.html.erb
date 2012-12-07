@@ -1,0 +1,20 @@
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="/assets/home.js"></script>
+
+<!-- #TODO: This is a hack to capture latlng which is used immediately in the home view. Move this to welcome screen once we have them. -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(initialize());
+    });
+</script>
+
+<div class="wrapper">
+    
+        
+        <div class="hero-unit">
+            <h1>Locked, now let's load.</p></h1>
+            <h2>We've signed you in with your Google account. Now we're going to grab your calendars and events. If you're cool with that, click "Go" to get started.</h2>
+            <h2><%= link_to "Get Calendars", get_calendars_path, :class => "zocial google" %></h2>    
+        </div>
+
+</div><!--/wrapper-->

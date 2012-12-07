@@ -1,0 +1,16 @@
+
+<div class="wrapper">
+    
+        
+        <div class="hero-unit">
+            <h2>We've found these calendars: </h2>
+            <ul>
+            <% @calendars.each do |calendar| %>
+            	<li><%= calendar.summary %> - <em><%= calendar.description %></em>
+          	<% end %>
+          	</ul>
+	          <h2><%= link_to "Let's Trip!", home_path, :class => "zocial google" %></h2>
+		        
+        </div>
+
+</div><!--/wrapper-->
