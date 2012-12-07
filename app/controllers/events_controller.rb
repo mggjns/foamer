@@ -163,6 +163,20 @@ class EventsController < ApplicationController
     redirect_to home_url, :notice => 'Events refreshed from Google Calendar!'
   end
 
+  def gimme_locations
+    events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+    # Cycle through events and see if lat/long are missing, which means we don't have an address.
+    @events_no_address = []
+    events.each do |event|
+      if event.latitude.nil? || event.longitude.nil?
+        @events_no_address.push(event)
+      end
+    # binding.pry
+      # If we have any missing addresses, redirect to page to provide/skip
+      # redirect_to gimme_locations_url
+    end
+  end
+
   private
     def get_user_timezone_from_google_calendar
       client =  ClientBuilder.get_client(current_user)

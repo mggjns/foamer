@@ -1,0 +1,28 @@
+<div class="wrapper">
+    
+        
+        <div class="hero-unit">
+
+          <% @events_no_address.each do |event| %>
+          <li><%= event.summary %>
+            <%= form_for(event) do |f| %>
+              <div class="field">
+                <%= f.label :summary %><br />
+                <%= f.text_field :summary %>
+              </div>
+              <div class="field">
+                <%= f.label :location %><br />
+                <%= f.text_field :location %>
+              </div>
+              <div class="actions">
+                <%= f.submit %>
+              </div>
+            <% end %></li>
+          <% end %>
+
+	          <h2>Entered your addresses? Let's Trip!<p>
+              <%= link_to "Go", home_path, :class => "zocial google" %></p></h2>
+		        
+        </div>
+
+</div><!--/wrapper-->
