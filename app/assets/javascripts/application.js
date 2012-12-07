@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require chosen-jquery
 //= require_tree .
+
+$('.submittable').live('change', function() {
+  $(this).parents('form:first').submit();
+});
+
+$(document).ready(function() {
+  $(".edit_li").slideDown();
+});

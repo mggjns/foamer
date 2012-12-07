@@ -4,15 +4,14 @@
         <div class="hero-unit">
 
           <% @events_no_address.each do |event| %>
-          <li><%= event.summary %>
-            <%= form_for(event) do |f| %>
+          <li class="edit_li"><%= event.summary %>
+            <%= form_for(event, :remote => true) do |f| %>
               <div class="field">
-                <%= f.label :summary %><br />
-                <%= f.text_field :summary %>
+                <%= f.text_field :location %>
               </div>
               <div class="field">
-                <%= f.label :location %><br />
-                <%= f.text_field :location %>
+                <%= f.check_box :skip, :class => 'submittable' %> 
+                <%= f.label "Skip this trip" %>
               </div>
               <div class="actions">
                 <%= f.submit %>

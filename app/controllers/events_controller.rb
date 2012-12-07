@@ -164,7 +164,9 @@ class EventsController < ApplicationController
   end
 
   def gimme_locations
-    events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+    # TODO: utilize existing @events instance variable
+    # events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+    events = current_user.events.where("start >= ?", Date.today)
     # Cycle through events and see if lat/long are missing, which means we don't have an address.
     @events_no_address = []
     events.each do |event|
