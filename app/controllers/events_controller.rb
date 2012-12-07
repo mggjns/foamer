@@ -10,6 +10,10 @@ class EventsController < ApplicationController
     
   end
 
+  def got_nothing
+    
+  end
+
   # root url
   def home
         # Get the user's timezone from their primary Google Calendar.
@@ -46,23 +50,25 @@ class EventsController < ApplicationController
       if current_user.events.where("start >= ?", Date.today).size == 0
         google_query
       end
+      
+      # TODO: Hack alert! Redirect if we still didn't get any events
+      if current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone)).size == 0
+        redirect_to got_nothing_url
+      else
+        # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
+        # @events = current_user.events.where("start >= ?", Date.today)
+        @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+        # session[:event] = @events[0]
 
-      # Grab user's events starting at the current time, then paginate with Kaminari
-      # @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(1)
-      # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
-      # @events = current_user.events.where("start >= ?", Date.today)
-      @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
-      # session[:event] = @events[0]
+        @places = current_user.places
 
-      @places = current_user.places
+        # if event_locations_need_address = u.events.where(:location => nil)
+          # redirect to page add addresses to events with some event edit form
+          ## -> form then redirects back here
+          ## -> find next location that is blank, go back to event form
+          # once there are no more nil locations, render the view
 
-      # if event_locations_need_address = u.events.where(:location => nil)
-        # redirect to page add addresses to events with some event edit form
-        ## -> form then redirects back here
-        ## -> find next location that is blank, go back to event form
-        # once there are no more nil locations, render the view
-
-      # end
+      end
 
     
   end
