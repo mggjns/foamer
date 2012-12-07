@@ -18,7 +18,12 @@ class SessionsController < ApplicationController
     user.save
 
     session[:user_id] = user.id
-    redirect_to root_url, :notice => 'Signed in!'
+    if current_user.calendars.size == 0
+      redirect_to welcome_url, :notice => 'Signed in!'
+    else
+      redirect_to home_url, :notice => 'Signed in!'
+    end
+    
   end
 
   def destroy

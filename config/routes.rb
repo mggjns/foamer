@@ -4,21 +4,21 @@ Foamer::Application.routes.draw do
   
   get "/default" => 'events#default', :as => :default
   get "/home" => "events#home", :as => :home
-  get "/welcome" => "events#welcome", :as => :welcome
+  get "/welcome" => "welcome#initial_page", :as => :welcome
 
   resources :events
   resources :places
   resources :users
 
 
+  match '/get_calendars' => 'welcome#get_calendars'
+  match '/calendars' => 'welcome#calendars', :as => :calendars
+
   get "/refresh" => "events#refresh", :as => :refresh_events
 
   match '/auth/failure' => 'sessions#failure'
-
   match '/signout' => 'sessions#destroy', :as => :signout
-
   match '/signin' => 'sessions#new', :as => :signin
-
   match '/auth/:provider/callback' => 'sessions#create'
 
   get "/home/:page" => "events#home"
