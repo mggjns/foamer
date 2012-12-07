@@ -4,6 +4,7 @@ Foamer::Application.routes.draw do
   
   get "/default" => 'events#default', :as => :default
   get "/home" => "events#home", :as => :home
+  get "/welcome" => "events#welcome", :as => :welcome
 
   resources :events
   resources :places

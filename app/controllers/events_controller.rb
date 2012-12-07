@@ -6,6 +6,10 @@ class EventsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:default]
 
+  def welcome
+    
+  end
+
   # root url
   def home
         # Get the user's timezone from their primary Google Calendar.
@@ -67,7 +71,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = current_user.events.where("start >= ?", Date.today).page(params[:page]).per(3)
+    @events = current_user.events.where("start >= ?", Date.today)
 
     respond_to do |format|
       format.html # index.html.erb
