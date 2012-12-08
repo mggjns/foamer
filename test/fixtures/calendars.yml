@@ -1,29 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  kind: MyString
-  etag: MyString
-  google_id: MyString
-  summary: MyString
-  description: MyString
-  time_zone: MyString
-  color_id: 1
-  background_color: MyString
-  foreground_color: MyString
-  selected: false
-  access_role: MyString
-  active: false
-
-two:
-  kind: MyString
-  etag: MyString
-  google_id: MyString
-  summary: MyString
-  description: MyString
-  time_zone: MyString
-  color_id: 1
-  background_color: MyString
-  foreground_color: MyString
-  selected: false
-  access_role: MyString
-  active: false
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

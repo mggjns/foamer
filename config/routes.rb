@@ -1,20 +1,22 @@
 Foamer::Application.routes.draw do
 
+  resources :calendars
+
   root :to => 'events#home'
   
   get "/default" => 'events#default', :as => :default
   get "/home" => "events#home", :as => :home
   match "/refresh" => "events#refresh", :as => :refresh_events
   get "/got_nothing" => "events#got_nothing", :as => :got_nothing
-  get "/gimme_locations" => "events#gimme_locations", :as => :gimme_locations
+  get "/event_review" => "events#event_review", :as => :event_review
+  get "/travelmode" => "events#travel_mode", :as => :travelmode
 
   resources :events
   resources :places
   resources :users
 
-  get "/welcome" => "welcome#initial_page", :as => :welcome
-  get '/get_calendars' => 'welcome#get_calendars', :as => :get_calendars
-  get '/calendars' => 'welcome#calendars', :as => :calendars
+  get "/welcome" => "welcome#greeting", :as => :welcome
+  get '/calendar_review' => 'calendars#calendar_review', :as => :calendars
   
   match '/auth/failure' => 'sessions#failure'
   match '/signout' => 'sessions#destroy', :as => :signout
