@@ -203,6 +203,7 @@ class EventsController < ApplicationController
               event_hash[:start] = item["start"]["date"]
               event_hash[:end] = item["end"]["date"]
             end
+            event_hash[:skip] = false
             event = calendar.events.new(event_hash)
             event.save 
           end
