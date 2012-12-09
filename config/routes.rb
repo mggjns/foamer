@@ -9,7 +9,7 @@ Foamer::Application.routes.draw do
   match "/refresh" => "events#refresh", :as => :refresh_events
   get "/got_nothing" => "events#got_nothing", :as => :got_nothing
   get "/event_review" => "events#event_review", :as => :event_review
-  get "/travelmode" => "events#travel_mode", :as => :travelmode
+  get "/travel_mode" => "events#travel_mode", :as => :travelmode
 
   resources :events
   resources :places
