@@ -69,6 +69,19 @@ padding: 0px;
 	position: absolute;
 }
 
+.arrowevent {
+	width: 0; 
+	height: 0; 
+	border-top: 13px solid transparent;
+	border-bottom: 13px solid transparent;
+	border-left: 13px solid red;
+	top: 15px;
+	right: 3px;	
+	position: absolute;
+}
+
+
+
 .daynav #refresh {
 	width: 15px;
 }
@@ -290,7 +303,7 @@ margin-top: -4px;
 	list-style: none;
 	padding: 0;
 	width: 280px;
-	height: 43px;
+	height: 56px;
 	margin: 5px 0 0 0;
 	font-family: 'Lato', sans-serif;
 
@@ -304,7 +317,7 @@ margin-top: -4px;
 	display: inline;
 	float: left;
 	margin: 0 2px;
-	height: 43px;
+	height: 56px;
 	width: 56px;
 	background: gray;
 }
@@ -314,11 +327,59 @@ margin-top: -4px;
 	width: 36px;
 	margin: 0 2px 0 0;
 	padding: 2px;
-	height: 39px;
+	height: 52px;
 }
 
 .modes li:nth-child(5) {
 	margin: 0 0 0 2px;
+}
+
+
+
+
+
+a.skip {
+text-decoration: none;
+border-radius: 6px;
+font-family: 'Lato', sans-serif;
+text-transform: uppercase;
+color: red;
+height: 15px;
+background: rgb(24,0,33); 
+padding: 1px;
+text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+font-size: 12px;
+float: right;
+}
+
+
+a.skip:active {
+background: rgb(24,0,33); 
+
+}
+
+
+a.skip:visited {
+background: rgb(24,0,33); 
+}
+
+
+#geo-location {
+	background-image: url('images/geolocation.png');
+	position: absolute;
+	left: 165px;
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	padding: 1px;
+	border: none;
+	background-color: transparent;
+	color: white;
+}
+
+#geo-locationimage {
+	position: absolute;
+	left: 165px;
 }
 
 
@@ -375,6 +436,7 @@ float: left;
 
 .time {
 font-size: 10px;
+margin: 0 0 0 5px;
 }
 
 .eventTitle {
@@ -382,6 +444,7 @@ font-size: 12px;
 font-weight: bold;
 overflow: hidden;
 height: 15px;
+margin: 0 0 0 5px;
 }
 
 .event-location  {
@@ -390,16 +453,8 @@ height: 15px;
 	width: 175px;
 	float: left;
 	border: none;
-}
-
-#skip {
-
-
-}
-
-#geo-location {
-
-	
+	border-radius: 6px;
+	margin: 0 0 0 5px;
 }
 
 
@@ -559,47 +614,8 @@ background-image: linear-gradient(top bottom, #C7EAFB 0%, #8ED8FF 100%);
 
 
 
-.skip {
-position: absolute;
-right: 5px;
-
 }
 
-/*
-.skip {
-   border-top: 1px solid #97c5f7;
-   background: #65a9d7;
-   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
-   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
-   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
-   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
-   background: -o-linear-gradient(top, #3e779d, #65a9d7);
-   padding: 2px;
-   -webkit-border-radius: 3px;
-   -moz-border-radius: 3px;
-   border-radius: 3px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
-   font-size: 10px;
-   font-family: Helvetica, Arial, Sans-Serif;
-   text-decoration: none;
-   text-align: right;
-}
-
-.button:hover {
-   border-top-color: #28597a;
-   background: #28597a;
-   color: #ccc;
-   }
-.button:active {
-   border-top-color: #221b5c;
-   background: #221b5c;
-   }
-
-*/
 
 
 
