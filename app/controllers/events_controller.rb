@@ -37,20 +37,16 @@ class EventsController < ApplicationController
         end
       end
 
+      # If no calendars for some reason, take the user to CalendarController#calendar_review
       if current_user.calendars.size == 0
-        google_query_allcalendars
+        redirect_to calendar_review_path
       end
 
-      # Only query Google Calendar API if we don't have any events in the DB
-      # TODO: What if a user doesn't have any events today in their Google Calendar?
+      # If no events found in our database, show got_nothing page where user can try refreshing from Google.
 
       if current_user.events.where("start >= ?", Date.today).size == 0
         redirect_to got_nothing_url
-      end
       
-      # TODO: Hack alert! Redirect if we still didn't get any events
-      if current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone)).size == 0
-        redirect_to got_nothing_url
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
         # @events = current_user.events.where("start >= ?", Date.today)
