@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20121209013007) do
   add_index "places", ["user_id"], :name => "user_id_ix"
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20121209013007) do
     t.time     "token_expires_at"
     t.string   "refresh_token"
     t.string   "timezone"
-    t.string   "travel_mode",      :default => "DRIVING"
+    t.string   "travel_mode"
   end
 
 end

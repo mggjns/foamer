@@ -1,5 +1,5 @@
 class AddTravelModeToUser < ActiveRecord::Migration
   def change
-    add_column :users, :travel_mode, :string, :default => "DRIVING"
+    add_column :users, :travel_mode, :string
   end
 end
