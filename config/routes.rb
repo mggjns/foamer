@@ -16,7 +16,7 @@ Foamer::Application.routes.draw do
   resources :users
 
   get "/welcome" => "welcome#greeting", :as => :welcome
-  get '/calendar_review' => 'calendars#calendar_review', :as => :calendars
+  get '/calendar_review' => 'calendars#calendar_review', :as => :calendar_review
   
   match '/auth/failure' => 'sessions#failure'
   match '/signout' => 'sessions#destroy', :as => :signout

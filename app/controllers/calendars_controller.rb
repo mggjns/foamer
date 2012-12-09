@@ -94,6 +94,7 @@ class CalendarsController < ApplicationController
   end
 
     private
+    
         def get_user_timezone
           client =  ClientBuilder.get_client(current_user)
           service = client.discovered_api('calendar', 'v3')
@@ -109,7 +110,10 @@ class CalendarsController < ApplicationController
           # delete any existing calendars (for when we refresh)
           current_user.calendars.destroy_all
 
-          # get user's timezone from their primary calendar
+          # Get the user's timezone from their primary Google Calendar.
+          # Supposedly you can pull the user timezone when you first authorize via Oauth2,
+          # but the response doesn't actually provide the timezone, despite what the docs
+          # say here: https://developers.google.com/accounts/docs/OAuth2Login#userinfocall
           if !current_user.timezone
               get_user_timezone
           end

@@ -21,15 +21,7 @@ class EventsController < ApplicationController
 
   # root url
   def home
-        # Get the user's timezone from their primary Google Calendar.
-      # Supposedly you can pull the user timezone when you first authorize via Oauth2,
-      # but the response doesn't actually provide the timezone, despite what the docs
-      # say here: https://developers.google.com/accounts/docs/OAuth2Login#userinfocall
-      if !current_user.timezone
-        get_user_timezone_from_google_calendar
-      end
 
-      # TODO: We have a problem of stale cookie here, among other things
       if (cookies[:lat_lng])
         @lat_lng = cookies[:lat_lng].split("|")
         # See if we have a Current Location in Place, and update coordinates if so. Otherwise, create.
