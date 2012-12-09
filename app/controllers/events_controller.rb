@@ -154,8 +154,8 @@ class EventsController < ApplicationController
 
       if current_user.events.size == 0
 
-        today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
-        today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
+        today_start = DateTime.now.at_beginning_of_day.rfc3339
+        today_end = DateTime.now.end_of_day.rfc3339
 
         current_user.calendars.where("skip IS NOT ?", true).each do |calendar|
 
