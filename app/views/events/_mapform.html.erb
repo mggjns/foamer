@@ -17,15 +17,13 @@
 
 
             <%= label_tag("Travel Mode:") %>
-            <%= radio_button_tag(:travelMode, "DRIVING") %>
-            <%= label_tag(:travelModeDriving, "Driving", :style => "display:inline") %>
-            <%= radio_button_tag(:travelMode, "BICYCLING") %>
+            <%= radio_button_tag(:travelMode, "DRIVING", false, :class => 'submittable') %>
+            <%= label_tag(:travelModeDriving, "Driving", :style => "display:inline",) %>
+            <%= radio_button_tag(:travelMode, "BICYCLING", false, :class => 'submittable') %>
             <%= label_tag(:travelModeBicycle, "Bicycling", :style => "display:inline") %>
-            <%= radio_button_tag(:travelMode, "TRANSIT", true) %>
+            <%= radio_button_tag(:travelMode, "TRANSIT", true, :class => 'submittable') %>
             <%= label_tag(:travelModeTransit, "Public Transit", :style => "display:inline") %>
-            <%= radio_button_tag(:travelMode, "WALKING") %>
+            <%= radio_button_tag(:travelMode, "WALKING", false, :class => 'submittable') %>
             <%= label_tag(:travelModeWalking, "Walking", :style => "display:inline") %>
-
-    <%= submit_tag("Change travel mode") %>
 
 <% end %>
