@@ -31,7 +31,7 @@ h1 {
 	font-weight: 100;
 	text-transform: uppercase;
 	font-size: 24px;
-	font-style: bold;
+	font-style: inherit;
 	text-align: center;
 	line-height: 1em;
 }
@@ -42,7 +42,7 @@ font-weight: 100;
 text-align: center;
 font-size: 20px;
 line-height: 19px;
-padding: 0px;
+padding: 0;
 }
 
 /* direction arrows */
@@ -82,7 +82,7 @@ padding: 0px;
 
 
 
-.daynav #refresh {
+.daynav .refresh {
 	width: 15px;
 }
 
@@ -115,17 +115,6 @@ background: #A8A8A8;
 	text-decoration: none;
 	color: white;
 }
-
-#nextbutton {
-border-radius: 0 3px 3px 0;
-}
-#refresh {
-	width: 15px;
-}
-
-#refreshbutton {
-border-radius: 3px 0 0 3px;
-} 
 
 .navarrow {
 	width: 0; 
@@ -175,7 +164,7 @@ vertical-align: text-top;
 
 
 
-#progressbar {
+.progressbar {
 	width: 75%;
     height: 15px;
     background-color: #eee;
@@ -187,10 +176,10 @@ vertical-align: text-top;
 }
 
 
-#prog {
+.prog {
 background: #4e6cf7; /*-- Color of the bar --*/
     height: 15px;
-    width: 0%;
+    width: 0;
     max-width: 100%;
     float: left;
     -webkit-animation: progress 2s 1 forwards;
@@ -200,7 +189,7 @@ background: #4e6cf7; /*-- Color of the bar --*/
 
 }
 
-#pbaranim {
+.pbaranim {
     height: 15px;
     width: 100%;
     overflow: hidden;
@@ -225,11 +214,6 @@ background: #4e6cf7; /*-- Color of the bar --*/
     to { width: 100% }
 }
 
-@-ms-keyframes progress { 
-    from { }
-
-    to { width: 100% }
-}
 
 @keyframes progress { 
     from { }
@@ -237,12 +221,9 @@ background: #4e6cf7; /*-- Color of the bar --*/
     to { width: 100% }
 }
 
-}
-
 .loading {
 	line-height: 30px;
 }
-
 
 .googlelogo {
 vertical-align:middle;
@@ -270,9 +251,9 @@ position:relative;
 content:"\00a0";
 display: block;
  border: solid 9px #000;
-border-radius: 9px;
 -moz-border-radius: 9px;
 -webkit-border-radius: 9px;
+border-radius: 9px;
 height: 0;
 width: 0;
 position: absolute;
@@ -295,6 +276,7 @@ margin-top: -4px;
 -webkit-transform: rotate(45deg);
 -moz-transform: rotate(45deg);
 -o-transform: rotate(45deg);
+transform: rotate(45deg);
 }
 
 
@@ -314,11 +296,7 @@ margin-top: -4px;
 }
 
 .modes li {
-	display: inline;
 	float: left;
-	margin: 0 2px;
-	height: 56px;
-	width: 56px;
 	background: gray;
 }
 
@@ -364,7 +342,7 @@ background: rgb(24,0,33);
 }
 
 
-#geo-location {
+.geo-location {
 	background-image: url('images/geolocation.png');
 	position: absolute;
 	left: 165px;
@@ -377,7 +355,7 @@ background: rgb(24,0,33);
 	color: white;
 }
 
-#geo-locationimage {
+.geo-locationimage {
 	position: absolute;
 	left: 165px;
 }
@@ -400,7 +378,7 @@ background: rgb(24,0,33);
 	font-family: 'Lato', sans-serif;
 	margin: 2.5px 0 2.5px 0;
 	position: relative;
-	: 	
+	
 
 /* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
@@ -493,10 +471,6 @@ font-weight: bold;
 
 /* intro login page */
 
-img #intro {
-	margin: 0 auto;
-}
-
 .intro {
 	width: 280px;
 	
@@ -507,13 +481,13 @@ width: 280px;
 text-align: center;
 font-family: 'Lato', sans-serif;
 font-size: 19px;
+font-weight: bold;
 }
 
-.introtext h1 {
-	font-weight: bold;
-	color: red;
-} 
+.red {
+color: red;
 
+}
 
 .demo {
 	width: 200px;
@@ -526,12 +500,12 @@ width: 280px;
 text-align: center;
 }
 
-#loginbutton::before{
+.loginbutton::before{
   content:url('google2.jpg') 
  }
 
 
-#loginbutton {	
+.loginbutton {	
 background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
 	background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
 	background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
@@ -556,7 +530,7 @@ background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.0
 	border-radius: 3px;
 }
 
-#loginbutton:hover {
+.loginbutton:hover {
 	background-image: -moz-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
 	background-image: -ms-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
 	background-image: -o-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
@@ -564,9 +538,6 @@ background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.0
 	background-image: -webkit-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
 	background-image: linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
 }
-
-}
-
 
 
 /* overview page */
@@ -588,7 +559,6 @@ background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.0
 	font-family: 'Lato', sans-serif;
 	margin: 2.5px 0 2.5px 0;
 	position: relative;
-	: 	
 
 /* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
@@ -614,7 +584,7 @@ background-image: linear-gradient(top bottom, #C7EAFB 0%, #8ED8FF 100%);
 
 
 
-}
+
 
 
 
