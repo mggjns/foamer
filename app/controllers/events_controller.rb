@@ -48,7 +48,7 @@ class EventsController < ApplicationController
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
         @events_today = current_user.events.where("start >= ? AND events.skip = ?", Date.today, false)
-        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now, false)
+        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false)
         # session[:event] = @events[0]
 
         @places = current_user.places
