@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209005041) do
+ActiveRecord::Schema.define(:version => 20121209013007) do
 
   create_table "calendars", :force => true do |t|
     t.string   "kind"
@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20121209005041) do
     t.string   "foreground_color"
     t.boolean  "selected"
     t.string   "access_role"
-    t.boolean  "active"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.boolean  "skip",           :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "user_id"
   end
 

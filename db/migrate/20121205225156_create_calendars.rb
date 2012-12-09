@@ -12,7 +12,7 @@ class CreateCalendars < ActiveRecord::Migration
       t.string :foreground_color
       t.boolean :selected
       t.string :access_role
-      t.boolean :active
+      t.boolean :skip, :default => false
 
       t.timestamps
     end

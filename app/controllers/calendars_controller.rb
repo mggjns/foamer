@@ -2,6 +2,7 @@ class CalendarsController < ApplicationController
   helper_method :get_user_timezone
   helper_method :get_calendars
 
+  # TODO: some reason this doesn't work in this controller
   before_filter :authenticate_user!
 
   def calendar_review
@@ -138,7 +139,7 @@ class CalendarsController < ApplicationController
             calendar_hash[:foreground_color] = item["foreground_color"]
             calendar_hash[:selected] = item["selected"]
             calendar_hash[:access_role] = item["access_role"]
-            calendar_hash[:active] = item["active"]
+            calendar_hash[:skip] = item["active"]
 
             calendar = current_user.calendars.new(calendar_hash)
             calendar.save
