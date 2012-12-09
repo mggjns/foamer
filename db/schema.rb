@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206232850) do
+ActiveRecord::Schema.define(:version => 20121208231310) do
 
   create_table "calendars", :force => true do |t|
     t.string   "kind"
@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(:version => 20121206232850) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "description"
     t.integer  "calendar_id"
     t.string   "recurringEventId"
+    t.boolean  "skip",             :default => false
   end
 
   create_table "places", :force => true do |t|
@@ -63,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20121206232850) do
   add_index "places", ["user_id"], :name => "user_id_ix"
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20121206232850) do
     t.time     "token_expires_at"
     t.string   "refresh_token"
     t.string   "timezone"
+    t.string   "travel_mode",      :default => "DRIVING"
   end
 
 end

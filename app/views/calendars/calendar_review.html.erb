@@ -15,11 +15,11 @@
             <h2>We've found these calendars: </h2>
             <ul>
             <% @calendars.each do |calendar| %>
-            	<li><%= calendar.summary %> - <em><%= calendar.description %></em>
+            	<li><a style="color: <%= calendar.foreground_color %>; background-color: <%= calendar.background_color %>"><%= calendar.summary %></a></li>
           	<% end %>
           	</ul>
-	          <h2>Hope that looks good. Ready?<p>
-              <%= link_to "Let's Trip!", home_path, :class => "zocial google" %></p></h2>
+	          <h2>Hope that looks good. <p>
+              <%= link_to "Next", event_review_path, :class => "zocial google" %></p></h2>
 		        
         </div>
 

@@ -1,27 +1,29 @@
 Foamer::Application.routes.draw do
 
+  resources :calendars
+
   root :to => 'events#home'
   
   get "/default" => 'events#default', :as => :default
   get "/home" => "events#home", :as => :home
-  get "/welcome" => "welcome#initial_page", :as => :welcome
+  match "/refresh" => "events#refresh", :as => :refresh_events
+  get "/got_nothing" => "events#got_nothing", :as => :got_nothing
+  get "/event_review" => "events#event_review", :as => :event_review
+  get "/travelmode" => "events#travel_mode", :as => :travelmode
 
   resources :events
   resources :places
   resources :users
 
-  match '/get_calendars' => 'welcome#get_calendars', :as => :get_calendars
-  match '/calendars' => 'welcome#calendars', :as => :calendars
-  match "/refresh" => "events#refresh", :as => :refresh_events
-  match "/got_nothing" => "events#got_nothing", :as => :got_nothing
-
-
-
+  get "/welcome" => "welcome#greeting", :as => :welcome
+  get '/calendar_review' => 'calendars#calendar_review', :as => :calendar_review
+  
   match '/auth/failure' => 'sessions#failure'
   match '/signout' => 'sessions#destroy', :as => :signout
   match '/signin' => 'sessions#new', :as => :signin
   match '/auth/:provider/callback' => 'sessions#create'
 
+  # pagination for stepping through events
   get "/home/:page" => "events#home"
 
 

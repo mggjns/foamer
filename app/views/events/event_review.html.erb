@@ -1,0 +1,27 @@
+<div class="wrapper">
+    
+        
+        <div class="hero-unit">
+        <ul>
+          <% @events_no_address.each do |event| %>
+          <li class="edit_li"><%= event.summary %>
+            <%= form_for(event, :remote => true) do |f| %>
+              <div class="field">
+                <%= f.text_field :location %>
+              </div>
+              <div class="field">
+                <%= f.check_box :skip, :class => 'submittable' %> 
+                <%= f.label "Skip this trip" %>
+              </div>
+              <div class="actions">
+                <%= f.submit %>
+              </div>
+            <% end %></li>
+          <% end %>
+          </ul>
+	          <h2>Entered your addresses? Let's Trip!<p>
+              <%= link_to "Go", home_path, :class => "zocial google" %></p></h2>
+		        
+        </div>
+
+</div><!--/wrapper-->
