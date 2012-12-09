@@ -210,7 +210,6 @@ class EventsController < ApplicationController
         end 
       end
       # TODO: we might add more of the same events to the database. Need a check.
-      binding.pry
       @events_today = current_user.events.where("start >= ?", Date.today)
     end
 
