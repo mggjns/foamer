@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="stylesheets/test.css">
+	<title>DayTrippr</title>	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	
+<div class="wrapper">
+ 
+	
+ 
+
+	<div class="content">
+
+		<div class="daynav">
+				<img src="images/logo.png">
+				
+		</div>
+		<p class="introtext">Select your main mode of transportation today.</p>
+
+	<div class="modes">
+		<ul class="modes">
+			<li>Dec. <span>7</span></li>
+			<li class="train"></li>
+			<li class="bike"></li>
+			<li class="car"></li>
+			<li class="walk"></li>
+		</ul>
+	</div>
+
+		<p class="introtext">Enter event locations.</p>
+
+
+	<div class="agendaview">	
+			<ul>
+				<li>	
+						
+						<div class="time">9:00am</div>
+						<div class="eventTitle">Workshop</div>
+						<button id="skip" onclick="getGeoLocation();"></button>
+						<button id="geo-location" onclick="getGeoLocation();"></button>
+						<input class="event-location" name="event_location" type="text" value="Event Location">
+				</li>
+
+
+
+				<li>	
+						
+						<div class="time">2:00pm</div>
+						<div class="eventTitle">Coffe & Sketching</div>
+				</li>
+
+				<li>	
+						
+						<div class="time">9:00pm</div>
+						<div class="eventTitle">Skype with parents</div>
+				</li>
+
+				
+
+	</div>
+
+
+
+
+	</div>
+
+	
+ 
+	
+ 
+
+</div>
+	
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="routemyday.js"></script>
+</html>
