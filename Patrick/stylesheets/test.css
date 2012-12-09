@@ -321,6 +321,34 @@ margin-top: -4px;
 	margin: 0 0 0 2px;
 }
 
+a.skip {
+text-decoration: none;
+border-radius: 2px;
+font-family: 'Lato', sans-serif;
+text-transform: uppercase;
+color: red;
+height: 15px;
+background: rgb(24,0,33); 
+text-align: center;
+padding: 2px;
+text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+ }
+
+
+a.skip:active {
+background: rgb(24,0,33); 
+
+}
+
+
+a.skip:visited {
+background: rgb(24,0,33); 
+}
+
+
+#geo-location {
+	background-image: url('images/geolocation.png');
+}
 
 
 /* agenda view - item and map */
