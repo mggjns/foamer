@@ -48,7 +48,7 @@ class EventsController < ApplicationController
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
         @events_today = current_user.events.where("start >= ? AND events.skip = ?", Date.today, false)
-        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false)
+        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now, false)
         # session[:event] = @events[0]
 
         @places = current_user.places
@@ -140,7 +140,7 @@ class EventsController < ApplicationController
 
   def refresh
     # TODO: Instead of destroying all, compare events at Google to what we grabbed and if changed, update
-    current_user.events.destroy_all
+    current_user.calendars.map {|x| x.events.destroy_all}
     get_events
 
     redirect_to event_review_path, :notice => 'Events refreshed from Google Calendar!'
@@ -154,8 +154,8 @@ class EventsController < ApplicationController
 
       if current_user.events.size == 0
 
-        today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
-        today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
+        today_start = DateTime.now.at_beginning_of_day.rfc3339
+        today_end = DateTime.now.end_of_day.rfc3339
 
         current_user.calendars.where("skip IS NOT ?", true).each do |calendar|
 
