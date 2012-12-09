@@ -28,6 +28,7 @@ test:
 #         adapter: postgresql
 #         database: foamer
 #         host: localhost
+#         username: foamer
 production:
         adapter: postgresql
         database: foamer
