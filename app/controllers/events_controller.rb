@@ -53,7 +53,7 @@ class EventsController < ApplicationController
       # TODO: What if a user doesn't have any events today in their Google Calendar?
 
       if current_user.events.where("start >= ?", Date.today).size == 0
-        google_query
+        redirect_to got_nothing_url
       end
       
       # TODO: Hack alert! Redirect if we still didn't get any events
