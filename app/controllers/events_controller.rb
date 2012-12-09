@@ -43,12 +43,12 @@ class EventsController < ApplicationController
       end
 
       # If no events found in our database, show got_nothing page where user can try refreshing from Google.
-      if current_user.events.where("start >= ?", Date.today).size == 0
+      if current_user.events.where("start >= ? AND skip = ?", Date.today, false).size == 0
         redirect_to got_nothing_url
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
-        @events_today = current_user.events.where("start >= ?", Date.today)
-        @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+        @events_today = current_user.events.where("start >= ? AND skip = ?", Date.today, false)
+        @events = current_user.events.where("start >= ? AND skip = ?", Time.now.in_time_zone(current_user.timezone), false)
         # session[:event] = @events[0]
 
         @places = current_user.places
