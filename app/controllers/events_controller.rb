@@ -15,9 +15,15 @@ class EventsController < ApplicationController
     event_check
   end
 
-  def travel_mode
-    
-  end
+    def travel_mode
+
+      if current_user.travel_mode.nil? 
+        render "travel_mode"
+      else
+        redirect_to home_path
+      # if mode it's not nil redirect to events
+      end
+    end
 
   # root url
   def home
@@ -43,7 +49,7 @@ class EventsController < ApplicationController
       end
 
       # If no events found in our database, show got_nothing page where user can try refreshing from Google.
-      if current_user.events.where("start >= ? AND events.skip = ?", Date.today, false).size == 0
+      if current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false).size == 0
         redirect_to got_nothing_url
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
@@ -217,12 +223,16 @@ class EventsController < ApplicationController
     def event_check
       # events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
       # Cycle through events and see if lat/long are missing, which means we don't have an address.
-      @events_no_address = []
-      @events_today.each do |event|
-        if event.latitude.nil? || event.longitude.nil?
-          @events_no_address.push(event)
+      if current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false).size == 0
+        redirect_to got_nothing_url
+      else
+        @events_no_address = []
+        @events_today.each do |event|
+          if event.latitude.nil? || event.longitude.nil?
+            @events_no_address.push(event)
+          end
+          # TODO: If we have any missing addresses, redirect to page to provide/skip
         end
-        # TODO: If we have any missing addresses, redirect to page to provide/skip
       end
     end
 
