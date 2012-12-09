@@ -140,7 +140,7 @@ class EventsController < ApplicationController
 
   def refresh
     # TODO: Instead of destroying all, compare events at Google to what we grabbed and if changed, update
-    current_user.events.destroy_all
+    current_user.calendars.map {|x| x.events.destroy_all}
     get_events
 
     redirect_to event_review_path, :notice => 'Events refreshed from Google Calendar!'
