@@ -203,12 +203,14 @@ class EventsController < ApplicationController
               event_hash[:start] = item["start"]["date"]
               event_hash[:end] = item["end"]["date"]
             end
-            event = current_user.events.new(event_hash)
+            event = calendar.events.new(event_hash)
             event.save 
           end
+
         end 
       end
       # TODO: we might add more of the same events to the database. Need a check.
+      binding.pry
       @events_today = current_user.events.where("start >= ?", Date.today)
     end
 
