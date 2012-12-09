@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :provider, :refresh_token, :token, :token_expires_at, :uid, :timezone, :travel_mode
   has_many :places
-  has_many :events
   has_many :calendars
+
+  has_many :events, :through => :calendars
 
   def self.create_with_omniauth(auth)
     create! do |user|

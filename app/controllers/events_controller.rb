@@ -43,12 +43,12 @@ class EventsController < ApplicationController
       end
 
       # If no events found in our database, show got_nothing page where user can try refreshing from Google.
-      if current_user.events.where("start >= ?", Date.today).size == 0
+      if current_user.events.where("start >= ? AND events.skip = ?", Date.today, false).size == 0
         redirect_to got_nothing_url
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
-        @events_today = current_user.events.where("start >= ?", Date.today)
-        @events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
+        @events_today = current_user.events.where("start >= ? AND events.skip = ?", Date.today, false)
+        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false)
         # session[:event] = @events[0]
 
         @places = current_user.places
@@ -157,7 +157,7 @@ class EventsController < ApplicationController
         today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
         today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
 
-        current_user.calendars.each do |calendar|
+        current_user.calendars.where("skip IS NOT ?", true).each do |calendar|
 
           client =  ClientBuilder.get_client(current_user)
           service = client.discovered_api('calendar', 'v3')
@@ -203,9 +203,10 @@ class EventsController < ApplicationController
               event_hash[:start] = item["start"]["date"]
               event_hash[:end] = item["end"]["date"]
             end
-            event = current_user.events.new(event_hash)
+            event = calendar.events.new(event_hash)
             event.save 
           end
+
         end 
       end
       # TODO: we might add more of the same events to the database. Need a check.

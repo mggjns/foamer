@@ -13,8 +13,8 @@
     <th>Timezone</th>
     <th>Latitude</th>
     <th>Longitude</th>
-    <th>User</th>
-    <th>Skip?</th>
+    <th>Calendar</th>
+    <th>Active?</th>
     <th></th>
     <th></th>
     <th></th>
@@ -33,8 +33,8 @@
     <td><%= event.timezone %></td>
     <td><%= event.latitude %></td>
     <td><%= event.longitude %></td>
-    <td><%= event.user_id %></td>
-    <td><%= event.skip %></td>
+    <td><%= event.calendar_id %></td>
+    <td><%= event.active %></td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
