@@ -1,6 +1,13 @@
 <!-- <%# TODO: Allow From: to be current location, manual, or from saved place %>  -->
 <!-- <%# TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form %> -->
 
+<script type="text/javascript">
+      function setUserTravelMode() {
+      $('#travelMode_<%= session[:travel_mode] %>').attr('checked',true)
+      .parents('form:first').submit();
+      }
+</script>
+
 <%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
             
             <%#= label_tag(:routeStart, "Starting Place:") %>
@@ -27,3 +34,8 @@
             <%= label_tag(:travelModeWalking, "Walking", :style => "display:inline") %>
 
 <% end %>
+
+<script type="text/javascript">
+      $(setUserTravelMode());
+</script>
+

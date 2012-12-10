@@ -8,6 +8,8 @@ gem 'rails', '3.2.8'
 
 # for deployment on Heroku
 group :development, :test do
+	gem 'rspec-rails'
+	gem 'capybara'
   # gem 'redgreen'
 end
 
