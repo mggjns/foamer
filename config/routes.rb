@@ -2,9 +2,11 @@ Foamer::Application.routes.draw do
 
   resources :calendars
 
-  root :to => 'events#home'
+  root :to => "static_pages#signin"
   
-  get "/default" => 'events#default', :as => :default
+  get "/signin" => "static_pages#signin", :as => :signin
+  get "/welcome" => "static_pages#welcome", :as => :welcome
+
   get "/home" => "events#home", :as => :home
   match "/refresh" => "events#refresh", :as => :refresh_events
   get "/got_nothing" => "events#got_nothing", :as => :got_nothing
@@ -15,12 +17,11 @@ Foamer::Application.routes.draw do
   resources :places
   resources :users
 
-  get "/welcome" => "welcome#greeting", :as => :welcome
   get '/calendar_review' => 'calendars#calendar_review', :as => :calendar_review
   
   match '/auth/failure' => 'sessions#failure'
   match '/signout' => 'sessions#destroy', :as => :signout
-  match '/signin' => 'sessions#new', :as => :signin
+  match '/authenticate' => 'sessions#new', :as => :authenticate
   match '/auth/:provider/callback' => 'sessions#create'
 
   # pagination for stepping through events
