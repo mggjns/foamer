@@ -8,8 +8,9 @@ gem 'rails', '3.2.8'
 
 # for deployment on Heroku
 group :development, :test do
-  gem 'sqlite3'
+  gem 'redgreen'
 end
+
 group :production do
   gem 'pg'
 end
