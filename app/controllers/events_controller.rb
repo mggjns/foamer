@@ -170,7 +170,7 @@ class EventsController < ApplicationController
         today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
         today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
 
-        current_user.calendars.where("skip = ?", false).each do |calendar|
+        current_user.calendars.where("active = ?", true).each do |calendar|
 
           client =  ClientBuilder.get_client(current_user)
           service = client.discovered_api('calendar', 'v3')
