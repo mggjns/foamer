@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 20121209005041) do
     t.string   "foreground_color"
     t.boolean  "selected"
     t.string   "access_role"
-    t.boolean  "skip",             :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.boolean  "active",           :default => true
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "user_id"
   end
 

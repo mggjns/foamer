@@ -10,8 +10,8 @@ describe User do
 	end
   it "is invalid without a unique UID" do
   	# user = FactoryGirl.(:user)
-  	FactoryGirl.create(:user, uid: "112266")
-  	FactoryGirl.build(:user, uid: "112266").should_not be_valid
+  	FactoryGirl.create(:user, uid: "112280")
+  	FactoryGirl.build(:user, uid: "112280").should_not be_valid
   end
   it "returns a user's calendars" do
   	user = FactoryGirl.create(:user)
@@ -21,10 +21,10 @@ describe User do
   	user = FactoryGirl.create(:user)
   	user.events
   end
-  # it "returns a user's 5 calendars" do
-  # 	user = FactoryGirl.create(:user)
-  # 	5.times { FactoryGirl.create(:calendar, user_id: user) }
+  it "returns a user's 5 calendars" do
+  	user = FactoryGirl.create(:user, uid: "112280")
+  	5.times { FactoryGirl.create(:calendar, user_id: user) }
   	
-  # 	user.calendars.size.should eq(5)
-  # end
+  	user.calendars.size.should == "5"
+  end
 end
