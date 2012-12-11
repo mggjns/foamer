@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :provider, :refresh_token, :token, :token_expires_at, :uid, :timezone, :travel_mode
+
+  validates :name, :presence => true
+  validates :email, :uid, :uniqueness => true
   has_many :places
   has_many :calendars
 
