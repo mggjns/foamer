@@ -1,4 +1,7 @@
 class CalendarsController < ApplicationController
+  require 'google/api_client'
+  require 'client_builder'
+
   helper_method :get_user_timezone
   helper_method :get_calendars
 
