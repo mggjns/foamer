@@ -9,8 +9,18 @@ gem 'rails', '3.2.8'
 # for deployment on Heroku
 group :development, :test do
 	gem 'rspec-rails'
-	gem 'capybara'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'spork'
+  gem 'spork-rails'
 end
+
+group :test do
+  gem 'capybara'
+  gem 'rb-fsevent', :require => false
+  # gem 'growl'
+  gem 'terminal-notifier-guard'
+end 
 
 group :production do
   gem 'pg'
