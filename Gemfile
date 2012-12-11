@@ -13,13 +13,15 @@ group :development, :test do
   gem 'guard-spork'
   gem 'spork'
   gem 'spork-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'rb-fsevent', :require => false
-  # gem 'growl'
   gem 'terminal-notifier-guard'
+  gem 'faker'
+  gem 'launchy'
 end 
 
 group :production do

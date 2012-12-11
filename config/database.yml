@@ -26,14 +26,13 @@
 
 development:
         adapter: postgresql
-        database: foamer
+        database: daytrippr_dev
         host: localhost
-        username: foamer
 production:
         adapter: postgresql
-        database: foamer
+        database: daytrippr
         host: localhost
 test:
         adapter: postgresql
-        database: foamer
+        database: daytrippr_test
         host: localhost

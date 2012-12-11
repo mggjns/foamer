@@ -63,6 +63,13 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     extlib (0.9.15)
+    factory_girl (4.1.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.1.0)
+      factory_girl (~> 4.1.0)
+      railties (>= 3.0.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     faraday (0.8.4)
       multipart-post (~> 1.1)
     ffi (1.2.0)
@@ -238,6 +245,8 @@ DEPENDENCIES
   capybara
   chosen-rails
   coffee-rails (~> 3.2.1)
+  factory_girl_rails
+  faker
   gcal4ruby
   geocoder
   gon
@@ -246,6 +255,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   jquery-rails
+  launchy
   omniauth (>= 1.0.3)
   omniauth-google-oauth2
   pg
