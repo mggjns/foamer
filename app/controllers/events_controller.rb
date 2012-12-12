@@ -46,7 +46,6 @@ class EventsController < ApplicationController
         redirect_to got_nothing_url
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
-        @events_today = current_user.events.where("start >= ? AND events.skip = ?", Date.today, false)
         @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false)
         
         # set travel_mode to be used in forms to user's saved preference
@@ -56,7 +55,7 @@ class EventsController < ApplicationController
         else 
           session[:travel_mode] = "DRIVING"
         end
-
+        # Get list of user's saved places, not meaningfully used yet
         @places = current_user.places
       end
   end
@@ -145,10 +144,7 @@ class EventsController < ApplicationController
   end
 
   def refresh
-    # TODO: Instead of destroying all, compare events at Google to what we grabbed and if changed, update
-    current_user.calendars.map {|x| x.events.destroy_all}
     get_events
-
     redirect_to event_review_path, :notice => 'Events refreshed from Google Calendar!'
   end
 
@@ -158,57 +154,58 @@ class EventsController < ApplicationController
       # TODO: refactor this into general purpose API query method where we can pass which google API/resources/params
     def get_events
 
-      if current_user.events.size == 0
+      # Delete all current events, we're going to query google and grab a fresh list
+      # TODO: Instead of destroying all, compare events at Google to what we grabbed and if changed, update
+      current_user.calendars.map {|x| x.events.destroy_all}
 
-        today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
-        today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
+      today_start = DateTime.now.in_time_zone(current_user.timezone).to_datetime.at_beginning_of_day.rfc3339
+      today_end = DateTime.now.in_time_zone(current_user.timezone).to_datetime.end_of_day.rfc3339
 
-        current_user.calendars.where("active = ?", true).each do |calendar|
+      current_user.calendars.where("active = ?", true).each do |calendar|
 
-          client =  ClientBuilder.get_client(current_user)
-          service = client.discovered_api('calendar', 'v3')
-          resource = client.execute(:api_method => service.events.list, 
-                                    :parameters => {
-                                      'calendarId' => calendar.google_id, 
-                                      'orderBy' => 'startTime', 
-                                      'singleEvents' => 'true',
-                                      # 'timeMin' => '2012-11-05T00:00:00-06:00',
-                                      # 'timeMax' => '2012-11-05T23:59:59-06:00'
-                                      'timeMin' => today_start,
-                                      'timeMax' => today_end
-                                      }) 
-          @api_data = resource.data
-        
-          resource.data.items.each do |item|
-            event_hash = Hash.new
-            event_hash[:summary] = item["summary"]
-            event_hash[:google_id] = item["id"]
-            event_hash[:g_created] = item["created"]
-            event_hash[:g_updated] = item["updated"]
-            # event_hash[:timezone] = timezone
-            if item["recurringEventId"].present?
-              event_hash[:recurringEventId] = item["recurringEventId"]
-            end
-            if item["location"].present?
-              event_hash[:location] = item["location"]
-            end
-            if item["description"].present?
-              event_hash[:description] = item["description"]
-            end
-            if item["start"]["dateTime"].present?
-              event_hash[:start] = item["start"]["dateTime"]
-              event_hash[:end] = item["end"]["dateTime"]
-            else
-              event_hash[:start] = item["start"]["date"]
-              event_hash[:end] = item["end"]["date"]
-            end
-            event_hash[:skip] = false
-            event = calendar.events.new(event_hash)
-            event.save 
+        client =  ClientBuilder.get_client(current_user)
+        service = client.discovered_api('calendar', 'v3')
+        resource = client.execute(:api_method => service.events.list, 
+                                  :parameters => {
+                                    'calendarId' => calendar.google_id, 
+                                    'orderBy' => 'startTime', 
+                                    'singleEvents' => 'true',
+                                    # 'timeMin' => '2012-11-05T00:00:00-06:00',
+                                    # 'timeMax' => '2012-11-05T23:59:59-06:00'
+                                    'timeMin' => today_start,
+                                    'timeMax' => today_end
+                                    }) 
+        @api_data = resource.data
+      
+        resource.data.items.each do |item|
+          event_hash = Hash.new
+          event_hash[:summary] = item["summary"]
+          event_hash[:google_id] = item["id"]
+          event_hash[:g_created] = item["created"]
+          event_hash[:g_updated] = item["updated"]
+          # event_hash[:timezone] = timezone
+          if item["recurringEventId"].present?
+            event_hash[:recurringEventId] = item["recurringEventId"]
           end
+          if item["location"].present?
+            event_hash[:location] = item["location"]
+          end
+          if item["description"].present?
+            event_hash[:description] = item["description"]
+          end
+          if item["start"]["dateTime"].present?
+            event_hash[:start] = item["start"]["dateTime"]
+            event_hash[:end] = item["end"]["dateTime"]
+          else
+            event_hash[:start] = item["start"]["date"]
+            event_hash[:end] = item["end"]["date"]
+          end
+          event_hash[:skip] = false
+          event = calendar.events.new(event_hash)
+          event.save 
+        end
 
-        end 
-      end
+      end 
       # TODO: we might add more of the same events to the database. Need a check.
       @events_today = current_user.events.where("start >= ?", Date.today)
     end
@@ -223,7 +220,6 @@ class EventsController < ApplicationController
           if event.latitude.nil? || event.longitude.nil?
             @events_no_address.push(event)
           end
-          # TODO: If we have any missing addresses, redirect to page to provide/skip
         end
       end
     end
