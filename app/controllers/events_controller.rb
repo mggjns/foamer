@@ -185,13 +185,6 @@ class EventsController < ApplicationController
                                       'timeMax' => today_end
                                       }) 
           @api_data = resource.data
-          # fake google data for debugging
-          # items = [
-          #   {"summary"=>"San Diego"}, 
-          #   {"location"=>"San Diego"}, 
-          #   {"start"=> {"dateTime" => "2012-11-21T00:00:00-06:00"}}, 
-          #   {"end" => {"dateTime" => (Date.today.next.to_time - 1.second).to_datetime.rfc3339}}
-          # ]
         
           resource.data.items.each do |item|
             event_hash = Hash.new
@@ -228,9 +221,8 @@ class EventsController < ApplicationController
     end
 
     def event_check
-      # events = current_user.events.where("start >= ?", Time.now.in_time_zone(current_user.timezone))
       # Cycle through events and see if lat/long are missing, which means we don't have an address.
-      if current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false).size == 0
+      if @events_today.where(:skip => false).size == 0
         redirect_to got_nothing_url
       else
         @events_no_address = []

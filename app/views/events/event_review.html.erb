@@ -8,9 +8,10 @@
 
         <% if @events_no_address.size > 0 %>
           <h1>We need addresses for these events. If you want, you can skip them.</h1>
-          <ul>
+          <ul style="list-style: none;">
             <% @events_no_address.each do |event| %>
-            <li class="edit_li"><%= event.summary %>
+            <li class="edit_li">
+              <%= event[:start].strftime("%l:%M%P") %>: <%= event.summary %>
               <%= form_for(event, :remote => true) do |f| %>
                 <div class="field">
                   <%= f.text_field :location %>
