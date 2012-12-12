@@ -16,13 +16,6 @@ class EventsController < ApplicationController
   end
 
     def travel_mode
-
-      if current_user.travel_mode.nil? 
-        render "travel_mode"
-      else
-        redirect_to home_path
-      # if mode it's not nil redirect to events
-      end
     end
 
   # root url
