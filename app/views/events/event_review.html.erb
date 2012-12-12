@@ -30,18 +30,7 @@
             <p><h2>You have addresses for your events. Thanks for that.</h2></p>
           <% end %>
           <h2>How do you want to get around today?</h2>
-          <h2><%= form_for(@current_user, :remote => true) do |f| %>
-                     <div class="field">
-                       <%= f.radio_button("travel_mode", "DRIVING", :class => 'submittable') %> 
-                       <%=label_tag(:travel_mode, "Driving")%>
-                       <%= f.radio_button("travel_mode", "BICYCLING", :class => 'submittable') %>
-                        <%= label_tag(:travel_mode, "Bicycling") %>
-                       <%= f.radio_button("travel_mode", "TRANSIT", :class => 'submittable') %>
-                        <%= label_tag(:travel_mode, "Public Transportation") %>
-                       <%= f.radio_button("travel_mode", "WALKING", :class => 'submittable') %>
-                        <%= label_tag(:travel_mode, "Walking") %>
-                     </div>
-               <% end %></h2>
+          <h2><%= render 'travel_mode_form' %>  </h2>
           <p><h2><%= link_to "Map 'em!", home_path, :class => "zocial google" %></h2></p>           
         </div>
 

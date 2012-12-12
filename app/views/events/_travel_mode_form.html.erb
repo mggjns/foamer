@@ -1,0 +1,12 @@
+<%= form_for(@current_user, :remote => true) do |f| %>
+      <div class="field">
+        <%= f.radio_button("travel_mode", "DRIVING", :checked => true, :class => 'submittable') %> 
+        <%=label_tag(:travel_mode, "Driving")%>
+        <%= f.radio_button("travel_mode", "BICYCLING", :class => 'submittable') %>
+         <%= label_tag(:travel_mode, "Bicycling") %>
+        <%= f.radio_button("travel_mode", "TRANSIT", :class => 'submittable') %>
+         <%= label_tag(:travel_mode, "Public Transportation") %>
+        <%= f.radio_button("travel_mode", "WALKING", :class => 'submittable') %>
+         <%= label_tag(:travel_mode, "Walking") %>
+      </div>
+<% end %>
