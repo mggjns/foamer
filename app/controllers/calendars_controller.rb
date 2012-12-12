@@ -33,7 +33,7 @@ class CalendarsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @calendar }
+      format.js { render json: @calendar }
     end
   end
 
@@ -77,10 +77,10 @@ class CalendarsController < ApplicationController
     respond_to do |format|
       if @calendar.update_attributes(params[:calendar])
         format.html { redirect_to @calendar, notice: 'Calendar was successfully updated.' }
-        format.json { head :no_content }
+        format.js { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
+        format.js { render json: @calendar.errors, status: :unprocessable_entity }
       end
     end
   end
