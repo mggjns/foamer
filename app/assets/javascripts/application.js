@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require chosen-jquery
+//= require jquery.ui.all
 //= require_tree .
 
 $('.submittable').live('change', function() {
