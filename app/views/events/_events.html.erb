@@ -67,10 +67,7 @@
   <div class="tofrom">
     <ul>
         <% if params[:page].nil? %>
-          <li><span>from</span><br><%=  %>
-            <%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
-              <%= text_field_tag 'from', nil, :class => 'from' %>
-              <% end %></li>
+          <li><span>from</span><br>Current Location</li>
         <% else %>
           <li><span>from</span><br><%= @events[params[:page].to_i - 1][:summary] %></li>
         <% end %>
@@ -80,10 +77,6 @@
 
   </div>
 
-<script type="text/javascript">
-  $(function(){
-    $(".from").autocomplete({ source: <%= raw current_user.places.collect {|x| x.name } %> })
-  });
-</script>
+
 
 
