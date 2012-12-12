@@ -22,8 +22,8 @@
         <%= render 'events', :events => @events %>
 
 <% content_for :page_scripts do %>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <%= render 'calcroute_setup', :format => [:js], :events => @events %>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <%= render 'calcroute_setup', :format => [:js], :events => @events %>
 <% end -%>
         
         <%= render 'mapform' %>
