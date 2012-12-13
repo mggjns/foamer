@@ -154,9 +154,13 @@ function calcRoute() {
     });
 }
 
+$('.submittable').live('change', function() {
+  $(this).parents('form:first').submit();
+});
 
 
 $(document).ready(function() {
-    $(initialize());
-    $(calcRoute());
+    $(initialize(), function() {
+    	$(calcRoute());
+    });
 });
