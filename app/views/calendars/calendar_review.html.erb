@@ -1,26 +1,24 @@
 <div class="wrapper">
-    
-        
-        <div class="hero-unit">
-            <h2>We've found these calendars: </h2>
-            <ul>
-              <% @calendars.each do |calendar| %>
-                <li><a style="color: <%= calendar.foreground_color %>; background-color: <%= calendar.background_color %>"><%= calendar.summary %></a>
-                  <%= form_for(calendar, :remote => true) do |f| %>
-                    <div class="field">
-                      <%= f.check_box :active, :class => 'submittable' %> 
-                      <%#= f.label "Use calendar" %>
-                    </div>
-                    <!-- <div class="actions">
-                      <%#= f.submit %>
-                    </div> -->
-                  <% end %></li>
-              <% end %>
-          	</ul>
-	          <h2>Let's get your events!<p>
-              <%= link_to "Next", event_review_path, :class => "zocial google" %></p></h2>
-		        
-        </div>
+  <div class="hero-unit">
+    <h2>We've found these calendars: </h2>
+    <ul>
+      <% @calendars.each do |calendar| %>
+        <li><a style="color: <%= calendar.foreground_color %>; background-color: <%= calendar.background_color %>"><%= calendar.summary %></a>
+        <%= form_for(calendar, :remote => true) do |f| %>
+          <div class="field">
+            <%= f.check_box :active, :class => 'submittable' %> 
+            <%#= f.label "Use calendar" %>
+          </div>
+          <!-- <div class="actions">
+            <%#= f.submit %>
+          </div> -->
+        <% end %></li>
+      <% end %>
+    </ul>
+    <h2>Let's get your events!<p>
+      <%= link_to "Next", event_review_path, :class => "zocial google" %></p></h2>
+      
+  </div>
 
 </div><!--/wrapper-->
 
