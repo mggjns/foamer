@@ -70,8 +70,6 @@ gem "google-api-client"
 gem "gcal4ruby"
 gem 'pry'
 gem "rails-pry"
-gem "chosen-rails"
-gem "gon"
 # Use Thin webserver instead of Webrick. 
 gem 'thin'
 gem 'geocoder' 
