@@ -1,31 +1,4 @@
 
-  <style>
-    /* This only works with JavaScript, 
-       if it's not present, don't show loader */
-    .no-js #loader { display: none;  }
-    .js #loader { display: block; position: absolute; left: 50px; top: 500; }
-  </style>
-  
-  
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-  
-  
-  <script src="http://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script>
-  <script>
-    // Wait for window load
-    $(window).load(function() {
-      // Animate loader off screen
-      $("#loader").fadeOut({
-        top: -500
-      }, 1500);
-    });
-  </script> 
-</head>
-
-<body>
-    
-  
-  <img style="height:200px" src="/assets/spinner.gif" id="loader">
     
 
 

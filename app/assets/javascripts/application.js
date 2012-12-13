@@ -156,7 +156,9 @@ $('.submittable').live('change', function() {
 
 
 $(document).ready(function() {
-    $(initialize(), function() {
-    	$(calcRoute());
-    });
+    // $(initialize(), function() {
+    // 	$(calcRoute());
+    // });
+  initialize();
+  calcRoute();
 });
