@@ -384,9 +384,8 @@ input[type="checkbox"]:checked:after {
 	position: relative;
 }
 
-.modes .clickable {
+.modes li.clickable {
 background: rgb(142,216,248);
-
 }
 
 
@@ -395,12 +394,10 @@ background: rgb(142,216,248);
 	margin: auto;
 	position:absolute;
 	top:0;bottom:0;left:0;right:0;
-
 }
 
 .modes li:nth-child(1) {
 	font-size:15px;
-	font-family: 'Lato', sans-serif;
 
 	text-align: center;
 		width: 36px;
@@ -413,6 +410,20 @@ background: rgb(142,216,248);
 	margin: 0 0 0 2px;
 }
 
+.edit_user {
+font-family: 'Open Sans', sans-serif;
+margin: 0 0 0 45px;
+}
+
+.edit_event {
+	margin: 0;
+}
+
+input[type="radio"]{
+	margin: 0 21px;	
+	padding: 0;
+	border: 0;
+}
 
 a.skip {
 text-decoration: none;
@@ -440,7 +451,7 @@ background: red;
 
 
 .geo-location {
-	background-image: url('images/geolocation.png');
+	background-image: url('/assets/geolocation.png');
 	position: absolute;
 	left: 155px;
 	width: 15px;
@@ -459,7 +470,7 @@ background: red;
 }
 
 .geo-location-home {
-	background-image: url('images/geolocation.png');
+	background-image: url('/assets/geolocation.png');
 	position: absolute;
 	left: 135px;
 	width: 15px;
@@ -622,7 +633,7 @@ margin: 0 0 0 5px;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
    font-size: 8px;
-   float: left;
+   float: right;
    }
 .skipit:hover {
    border-top-color: #28597a;
@@ -832,9 +843,3 @@ background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.0
 	background-image: linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
 
 }
-
-
-
-
-
-

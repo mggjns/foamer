@@ -1,0 +1,13 @@
+<li>
+  <div class="time"><%= event[:start].strftime("%l:%M%P") %></div>
+  <div class="eventTitle"><%= event.summary %></div>
+  <div class="buttons">
+    <button class="geo-location" onclick="getGeoLocation();"></button>
+
+		<%= form_for(event, :remote => true) do |f| %>
+		    <%= f.text_field :location, :placeholder => 'Add an Address', :class => 'event-location' %>
+		    <%= f.check_box :skip, :class => 'submittable skipit' %> 
+		    <%= f.label "Skip It" %>
+		<% end %>
+	</div>
+</li>

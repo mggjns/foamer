@@ -1,12 +1,20 @@
+<div class="modes">
+    <ul class="modes">
+        <li>Your Ride</span></li>
+        <li id="user_travel_mode_transit"><img src="/assets/train.png"><a href="www.google.com"></a></li>
+        <li id="user_travel_mode_bicycling"><img src="/assets/bike.png"><a href="www.google.com"></a></li>
+        <li id="user_travel_mode_driving"><img src="/assets/car.png"><a href="www.google.com"></a></li>
+        <li id="user_travel_mode_walking"><img src="/assets/walking.png"><a href="www.google.com"></a></li>
+    </ul>
+</div>
+
 <%= form_for(@current_user, :remote => true) do |f| %>
       <div class="field">
-        <%= f.radio_button("travel_mode", "DRIVING", :checked => true, :class => 'submittable') %> 
-        <%=label_tag(:travel_mode, "Driving")%>
-        <%= f.radio_button("travel_mode", "BICYCLING", :class => 'submittable') %>
-         <%= label_tag(:travel_mode, "Bicycling") %>
         <%= f.radio_button("travel_mode", "TRANSIT", :class => 'submittable') %>
-         <%= label_tag(:travel_mode, "Public Transportation") %>
+        <%= f.radio_button("travel_mode", "BICYCLING", :class => 'submittable') %>
+        <%= f.radio_button("travel_mode", "DRIVING", :checked => true, :class => 'submittable') %> 
         <%= f.radio_button("travel_mode", "WALKING", :class => 'submittable') %>
-         <%= label_tag(:travel_mode, "Walking") %>
       </div>
+
+
 <% end %>
