@@ -1,20 +1,18 @@
 <div class="modes">
-    <ul class="modes">
-        <li>Your Ride</span></li>
-        <li id="user_travel_mode_transit"><img src="/assets/train.png"><a href="www.google.com"></a></li>
-        <li id="user_travel_mode_bicycling"><img src="/assets/bike.png"><a href="www.google.com"></a></li>
-        <li id="user_travel_mode_driving"><img src="/assets/car.png"><a href="www.google.com"></a></li>
-        <li id="user_travel_mode_walking"><img src="/assets/walking.png"><a href="www.google.com"></a></li>
-    </ul>
+  <ul class="modes">
+    <li>Your Ride</span></li>
+    <li id="user_travel_mode_transit"><img src="/assets/train.png"><a href="www.google.com"></a></li>
+    <li id="user_travel_mode_bicycling"><img src="/assets/bike.png"><a href="www.google.com"></a></li>
+    <li id="user_travel_mode_driving"><img src="/assets/car.png"><a href="www.google.com"></a></li>
+    <li id="user_travel_mode_walking"><img src="/assets/walking.png"><a href="www.google.com"></a></li>
+  </ul>
 </div>
 
 <%= form_for(@current_user, :html => { :class => "travel_mode_form" }, :remote => true) do |f| %>
-      <div class="field">
-        <%= f.radio_button("travel_mode", "TRANSIT", :class => 'submittable') %>
-        <%= f.radio_button("travel_mode", "BICYCLING", :class => 'submittable') %>
-        <%= f.radio_button("travel_mode", "DRIVING", :checked => true, :class => 'submittable') %> 
-        <%= f.radio_button("travel_mode", "WALKING", :class => 'submittable') %>
-      </div>
-
-
+  <div class="field">
+    <%= f.radio_button("travel_mode", "TRANSIT", :class => 'submittable') %>
+    <%= f.radio_button("travel_mode", "BICYCLING", :class => 'submittable') %>
+    <%= f.radio_button("travel_mode", "DRIVING", :checked => true, :class => 'submittable') %> 
+    <%= f.radio_button("travel_mode", "WALKING", :class => 'submittable') %>
+  </div>
 <% end %>
