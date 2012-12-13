@@ -3,9 +3,9 @@
 class EventsController < ApplicationController
   require 'google/api_client'
   require 'client_builder'
-
+  
   before_filter :authenticate_user!
-
+  
 
   def got_nothing
   end

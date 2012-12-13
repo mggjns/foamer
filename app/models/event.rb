@@ -3,5 +3,10 @@ class Event < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode, :if => :location_changed?
   belongs_to :calendar
-
+  # validates_presence_of :location
+  # validates_presence_of :location, :skip  
+# if skip = true
 end
+
+  
+

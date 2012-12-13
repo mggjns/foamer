@@ -5,7 +5,7 @@
     <button class="geo-location" onclick="getGeoLocation();"></button>
 
 		<%= form_for(event, :remote => true) do |f| %>
-      <%= f.text_field :location, :placeholder => 'Add an Address', :class => 'event-location' %>
+      <%= f.text_field :location, :placeholder => 'Add an Address', :class => 'submittable location' %>
 	    <%= f.check_box :skip, :class => 'submittable skipit' %> 
 	    <%= f.label "Skip It" %>
 		<% end %>
