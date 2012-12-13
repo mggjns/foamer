@@ -2,32 +2,23 @@ $(document).ready(function(){
 
 
 $('.submittable').on('click', function() {
+			$(".clickable").removeClass("clickable");	
 	    	console.log("workin on it");
-	    	var buttonid = $('#travelMode_TRANSIT').attr('id');
-	    	$('li').attr("id", buttonid).addClass("clickable");
-	    	// $('modes.li').attr((this)'id').addClass("clickable");
-	       
+	    	var buttonid = $(this).attr('id');
+	    	$('#' + buttonid).addClass("clickable");	       
 	    });
 	
 
 /*
-$('.submittablebike').each(function(index, clickable) {
-	    console.log("clickable is: %o", $(clickable));
-	    $(clickable).on('click', function() {
-	    	console.log("hi");
-	    	$('li.clickablebike').addClass("clickable");
-	       
-	    });
-	});
 
-$('.submittablecar').each(function(index, clickable) {
-	    console.log("clickable is: %o", $(clickable));
-	    $(clickable).on('click', function() {
-	    	console.log("hi");
-	    	$('li.clickablecar').addClass("clickable");
-	       
-	    });
-	});
+	    	$('li').attr('id', 'buttonid').addClass("clickable");
+
+
+
+$('li "#buttonid"'')
+
+$('li')
+
 
 $('.submittablewalk').each(function(index, clickable) {
 	    console.log("clickable is: %o", $(clickable));
