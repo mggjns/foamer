@@ -1,53 +1,37 @@
-
-    
-
-
-
-<!-- the same below -->
-
 <div class="daynav">
-          <img src="/assets/logo.png">
-         <ul>
-          <%= link_to refresh_events_path do %>
-            <li is "refreshbutton"><img src="/assets/refresh.png" id="refresh"></li> 
-          <% end %>
-        </ul>
+  <img src="/assets/logo.png">
+ <ul>
+    <%= link_to refresh_events_path do %>
+      <li is "refreshbutton"><img src="/assets/refresh.png" id="refresh"></li> 
+    <% end %>
+  </ul>
 
-    </div>
+</div>
 
-      <div class="progress">
-        
-      </div>
+<div class="progress">
+</div>
 
 <div class="agendaview">  
   <ul>
       <li>
-            <% if params[:page].nil? %>
-              <div class="time"><%= @events[0][:start].strftime("%l:%M%P") %></div>
-              <div class="eventTitle"><%= @events[0][:summary] %></div>   
-            <% else %>
-              <div class="time"><%= @events[params[:page].to_i][:start].strftime("%l:%M%P") %></div>
-              <div class="eventTitle"><%= @events[params[:page].to_i][:summary] %></div>   
-            <% end %>
-                 
-
+      <% if params[:page].nil? %>
+        <div class="time"><%= @events[0][:start].strftime("%l:%M%P") %></div>
+        <div class="eventTitle"><%= @events[0][:summary] %></div>   
+      <% else %>
+        <div class="time"><%= @events[params[:page].to_i][:start].strftime("%l:%M%P") %></div>
+        <div class="eventTitle"><%= @events[params[:page].to_i][:summary] %></div> 
+      <% end %>
       </li>
   </ul>
 </div><!--/agendaview-->
 
-  <div class="tofrom">
-    <ul>
-        <% if params[:page].nil? %>
-          <li><span>from</span><br>Current Location</li>
-        <% else %>
-          <li><span>from</span><br><%= @events[params[:page].to_i - 1][:summary] %></li>
-        <% end %>
-          <li><span>to</span><br><%= @events[params[:page].to_i][:location] %></li>
-    </ul>
-
-
-  </div>
-
-
-
-
+<div class="tofrom">
+  <ul>
+  <% if params[:page].nil? %>
+    <li><span>from</span><br>Current Location</li>
+  <% else %>
+    <li><span>from</span><br><%= @events[params[:page].to_i - 1][:summary] %></li>
+  <% end %>
+    <li><span>to</span><br><%= @events[params[:page].to_i][:location] %></li>
+  </ul>
+</div><!--/tofrom-->
