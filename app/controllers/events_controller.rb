@@ -207,7 +207,7 @@ class EventsController < ApplicationController
 
       end 
       # TODO: we might add more of the same events to the database. Need a check.
-      @events_today = current_user.events.where("start >= ?", Date.today)
+      @events_today = current_user.events.where("start >= ?", Date.today).order("start ASC")
     end
 
     def event_check
