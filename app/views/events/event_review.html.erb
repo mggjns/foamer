@@ -21,15 +21,8 @@
             <% @events_no_address.each do |event| %>
             <li class="edit_li">
               <%= event[:start].strftime("%l:%M%P") %>: <%= event.summary %>
-              <%= form_for(event, :remote => true) do |f| %>
-                <div class="field">
-                  <%= f.text_field :location %>
-                </div>
-                <div class="field">
-                  <%= f.check_box :skip, :class => 'submittable' %> 
-                  <%= f.label "Skip this trip" %>
-                </div>
-              <% end %></li>
+              <%= render 'event_review_form', :event => event %>
+            </li>
             <% end %>
             </ul>
           <% else %>
