@@ -9,37 +9,37 @@
 
 
 <div class="modes">
-    <ul class="modes">
-        <li>Your Ride</span></li>
-        <li id="travelMode_TRANSIT"><img src="/assets/train.png"><a href="www.google.com"></a></li>
-        <li id="travelMode_BICYCLING"><img src="/assets/bike.png"><a href="www.google.com"></a></li>
-        <li id="travelMode_DRIVING"><img src="/assets/car.png"><a href="www.google.com"></a></li>
-        <li id="travelMode_WALKING"><img src="/assets/walking.png"><a href="www.google.com"></a></li>
-    </ul>
-</div>
+  <ul class="modes">
+    <li>Your Ride</span></li>
+    <li id="travelMode_TRANSIT"><img src="/assets/train.png"><a href="www.google.com"></a></li>
+    <li id="travelMode_BICYCLING"><img src="/assets/bike.png"><a href="www.google.com"></a></li>
+    <li id="travelMode_DRIVING"><img src="/assets/car.png"><a href="www.google.com"></a></li>
+    <li id="travelMode_WALKING"><img src="/assets/walking.png"><a href="www.google.com"></a></li>
+  </ul>
+</div><!--/modes-->
 
 <%= form_tag("/calcroute", :id => "routeForm", :class => "travel_mode_form", :onSubmit => "calcRoute();return false;") do %>
             
-            <%#= label_tag(:routeStart, "Starting Place:") %>
-            <%#= collection_select :routeStart, :place, current_user.places, :address, :name %>
+  <%#= label_tag(:routeStart, "Starting Place:") %>
+  <%#= collection_select :routeStart, :place, current_user.places, :address, :name %>
 
-            <!-- <%# TODO: We're not using waypoints. We have to build our own. Saving here as reference %> -->
-            <%#= label_tag(:routeVia, "Waypoint: ") %>
-            <%#= text_field_tag :routeVia, nil, :placeholder => "Addresses in between" %>
-            <!-- <br><br> -->
-            <%#= label_tag(:routeEnd, "Final Destination:") %>
-            <%#= text_field_tag :routeEnd, nil, :placeholder => "Where you'll end the day..." %>
-            <!-- Add in the arrive by time
-            <%#= text_field_tag :routeEnd, @events.first.location %>   -->
+  <!-- <%# TODO: We're not using waypoints. We have to build our own. Saving here as reference %> -->
+  <%#= label_tag(:routeVia, "Waypoint: ") %>
+  <%#= text_field_tag :routeVia, nil, :placeholder => "Addresses in between" %>
+  <!-- <br><br> -->
+  <%#= label_tag(:routeEnd, "Final Destination:") %>
+  <%#= text_field_tag :routeEnd, nil, :placeholder => "Where you'll end the day..." %>
+  <!-- Add in the arrive by time
+  <%#= text_field_tag :routeEnd, @events.first.location %>   -->
 
-            <%= radio_button_tag(:travelMode, "TRANSIT", false, :class => 'submittable') %>
-            <%= radio_button_tag(:travelMode, "BICYCLING", false, :class => 'submittable') %>
-            <%= radio_button_tag(:travelMode, "DRIVING", true, :class => 'submittable') %>
-            <%= radio_button_tag(:travelMode, "WALKING", false, :class => 'submittable') %>
+  <%= radio_button_tag(:travelMode, "TRANSIT", false, :class => 'submittable') %>
+  <%= radio_button_tag(:travelMode, "BICYCLING", false, :class => 'submittable') %>
+  <%= radio_button_tag(:travelMode, "DRIVING", true, :class => 'submittable') %>
+  <%= radio_button_tag(:travelMode, "WALKING", false, :class => 'submittable') %>
 
 <% end %>
 
 <script type="text/javascript">
-      $(setUserTravelMode());
+  $(setUserTravelMode());
 </script>
 
