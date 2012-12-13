@@ -1,5 +1,4 @@
 <!-- <%# TODO: Allow From: to be current location, manual, or from saved place %>  -->
-<!-- <%# TODO: Align the radio buttons and labels on same axis. Enclosing in divs breaks form %> -->
 
 <script type="text/javascript">
       function setUserTravelMode() {
@@ -8,7 +7,18 @@
       }
 </script>
 
-<%= form_tag("/calcroute", :id => "routeForm", :onSubmit => "calcRoute();return false;") do %>
+
+<div class="modes">
+    <ul class="modes">
+        <li>Your Ride</span></li>
+        <li id="travelMode_TRANSIT"><img src="/assets/train.png"><a href="www.google.com"></a></li>
+        <li id="travelMode_BICYCLING"><img src="/assets/bike.png"><a href="www.google.com"></a></li>
+        <li id="travelMode_DRIVING"><img src="/assets/car.png"><a href="www.google.com"></a></li>
+        <li id="travelMode_WALKING"><img src="/assets/walking.png"><a href="www.google.com"></a></li>
+    </ul>
+</div>
+
+<%= form_tag("/calcroute", :id => "routeForm", :class => "travel_mode_form", :onSubmit => "calcRoute();return false;") do %>
             
             <%#= label_tag(:routeStart, "Starting Place:") %>
             <%#= collection_select :routeStart, :place, current_user.places, :address, :name %>
@@ -22,16 +32,10 @@
             <!-- Add in the arrive by time
             <%#= text_field_tag :routeEnd, @events.first.location %>   -->
 
-
-            <%= label_tag("Travel Mode:") %>
-            <%= radio_button_tag(:travelMode, "DRIVING", false, :class => 'submittable') %>
-            <%= label_tag(:travelModeDriving, "Driving", :style => "display:inline") %>
-            <%= radio_button_tag(:travelMode, "BICYCLING", false, :class => 'submittable') %>
-            <%= label_tag(:travelModeBicycle, "Bicycling", :style => "display:inline") %>
             <%= radio_button_tag(:travelMode, "TRANSIT", false, :class => 'submittable') %>
-            <%= label_tag(:travelModeTransit, "Public Transit", :style => "display:inline") %>
+            <%= radio_button_tag(:travelMode, "BICYCLING", false, :class => 'submittable') %>
+            <%= radio_button_tag(:travelMode, "DRIVING", true, :class => 'submittable') %>
             <%= radio_button_tag(:travelMode, "WALKING", false, :class => 'submittable') %>
-            <%= label_tag(:travelModeWalking, "Walking", :style => "display:inline") %>
 
 <% end %>
 

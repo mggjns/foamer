@@ -398,7 +398,7 @@ background: rgb(142,216,248);
 
 .modes li:nth-child(1) {
 	font-size:15px;
-
+	color: white;
 	text-align: center;
 		width: 36px;
 	margin: 0 2px 0 0;
@@ -410,7 +410,7 @@ background: rgb(142,216,248);
 	margin: 0 0 0 2px;
 }
 
-.edit_user {
+.travel_mode_form {
 font-family: 'Open Sans', sans-serif;
 margin: 0 0 0 45px;
 }
