@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
   function setUserTravelMode() {
-  $('#travelMode_<%= session[:travel_mode] %>').attr('checked',true)
+  $('input#travelMode_<%= session[:travel_mode] %>').attr('checked',true)
   .parents('form:first').submit();
   }
 </script>
