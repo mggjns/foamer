@@ -46,7 +46,7 @@ class EventsController < ApplicationController
         redirect_to got_nothing_url
       else
         # TODO: Every time we load the page, we have a database hit to load the events. Decouple this from the view generation.
-        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false)
+        @events = current_user.events.where("start >= ? AND events.skip = ?", Time.now.in_time_zone(current_user.timezone), false).order("start ASC")
         
         # set travel_mode to be used in forms to user's saved preference
         # TODO: set this once per session and not hit database every time
