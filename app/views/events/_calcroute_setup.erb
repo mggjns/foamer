@@ -1,13 +1,11 @@
-
 <script type="text/javascript">
 
-  <% if params[:page].nil? %>
-	// <%# TODO: Use latlng cookie instead of DB %>
-  var start = "<%= current_location.address %>";
+	<% if params[:page].nil? %>
+		// <%# TODO: Use latlng cookie instead of DB %>
+	  var start = "<%= current_location.address %>";
   <% else %>
-  var start = "<%= @events[params[:page].to_i - 1][:location] %>";
+	  var start = "<%= @events[params[:page].to_i - 1][:location] %>";
   <% end %>
-  var end = "<%= @events[params[:page].to_i][:location] %>";
-  var arrive = <%= @events[params[:page].to_i][:start].to_f * 1000 %>;
-
+	  var end = "<%= @events[params[:page].to_i][:location] %>";
+	  var arrive = <%= @events[params[:page].to_i][:start].to_f * 1000 %>;
 </script>
