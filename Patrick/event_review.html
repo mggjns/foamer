@@ -22,17 +22,30 @@
 				<img src="images/logo.png">
 				
 		</div>
-		<p class="introtext">Select your main mode of transportation today.</p>
+		<p class="introtext">We need some info and addresses to map your day.</p>
 
 	<div class="modes">
-		<ul class="modes clickables">
-			<li>Dec. <span>7</span></li>
-			<li><img src="images/train.png"><a href="www.google.com"></a></li>
-			<li><img src="images/bike.png"><a href="www.google.com"></a></li>
-			<li><img src="images/car.png"><a href="www.google.com"></a></li>
-			<li><img src="images/walking.png"><a href="www.google.com"></a></li>
+		<ul class="modes clickable">
+			<li>Your Ride</span></li>
+			<li class="clickabletrain" id="travelMode_TRANSIT"><img src="images/train.png"><a href="www.google.com"></a></li>
+			<li class="clickablebike"><img src="images/bike.png"><a href="www.google.com"></a></li>
+			<li class="clickablecar"><img src="images/car.png"><a href="www.google.com"></a></li>
+			<li class="clickablewalk"><img src="images/walking.png"><a href="www.google.com"></a></li>
 		</ul>
 	</div>
+
+	<form>
+
+            <input checked="checked" class="submittable" id="travelMode_TRANSIT" name="travelMode" type="radio" value="TRANSIT">
+            <label for="travelModeTransit" style="display:inline"></label>
+			 <input class="submittable" id="travelMode_BICYCLING" name="travelMode" type="radio" value="BICYCLING">
+            <label for="travelModeBicycle" style="display:inline"></label>
+            <input class="submittablecar" id="travelMode_DRIVING" name="travelMode" type="radio" value="DRIVING">
+            <label for="travelModeDriving" style="display:inline"></label>
+            <input class="submittablewalk" id="travelMode_WALKING" name="travelMode" type="radio" value="WALKING">
+            <label for="travelModeWalking" style="display:inline"></label>
+
+</form>
 
 		<p class="introtext">Enter event locations.</p>
 
@@ -57,8 +70,7 @@
 							<div class="buttons">
 						<button class="geo-location" onclick="getGeoLocation();"></button>
 						<img class="geo-locationimage" src="images/geolocation.png">
-						<input class="event-location" name="event_location" type="text" placeholder="Event Location" required>
-						<div class="mapit"><a href="#">Map It</a></div>
+						<input class="event-location" name="event_location" type="text" placeholder="Add an Address" required>
 						<div class="skipit"><a href="#">Skip This Trip</a></div>
 						
 						
@@ -72,8 +84,7 @@
 							<div class="buttons">
 						<button class="geo-location" onclick="getGeoLocation();"></button>
 						<img class="geo-locationimage" src="images/geolocation.png">
-						<input class="event-location" name="event_location" type="text" placeholder="Event Location" required>
-						<div class="mapit"><a href="#">Map It</a></div>
+						<input class="event-location" name="event_location" type="text" placeholder="Add an Address" required>
 						<div class="skipit"><a href="#">Skip This Trip</a></div>
 						
 						

@@ -1,14 +1,43 @@
 $(document).ready(function(){
-	$('.clickables li').each(function(index, clickable) {
+
+
+$('.submittable').on('click', function() {
+	    	console.log("workin on it");
+	    	var buttonid = $('#travelMode_TRANSIT').attr('id');
+	    	$('li').attr("id", buttonid).addClass("clickable");
+	    	// $('modes.li').attr((this)'id').addClass("clickable");
+	       
+	    });
+	
+
+/*
+$('.submittablebike').each(function(index, clickable) {
 	    console.log("clickable is: %o", $(clickable));
 	    $(clickable).on('click', function() {
 	    	console.log("hi");
-	    	$(this).addClass("clickable");
-	       // var link = this.getElement('a');
-	        // if(this.getFirst('a')) {
-	           // window.location = link
-	        // }
+	    	$('li.clickablebike').addClass("clickable");
+	       
 	    });
 	});
+
+$('.submittablecar').each(function(index, clickable) {
+	    console.log("clickable is: %o", $(clickable));
+	    $(clickable).on('click', function() {
+	    	console.log("hi");
+	    	$('li.clickablecar').addClass("clickable");
+	       
+	    });
+	});
+
+$('.submittablewalk').each(function(index, clickable) {
+	    console.log("clickable is: %o", $(clickable));
+	    $(clickable).on('click', function() {
+	    	console.log("hi");
+	    	$('li.clickablewalk').addClass("clickable");
+	       
+	    });
+	});
+
+*/
 
 });

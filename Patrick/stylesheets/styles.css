@@ -384,9 +384,8 @@ input[type="checkbox"]:checked:after {
 	position: relative;
 }
 
-.modes .clickable {
+.modes li.clickable {
 background: rgb(142,216,248);
-
 }
 
 
@@ -395,12 +394,10 @@ background: rgb(142,216,248);
 	margin: auto;
 	position:absolute;
 	top:0;bottom:0;left:0;right:0;
-
 }
 
 .modes li:nth-child(1) {
 	font-size:15px;
-	font-family: 'Lato', sans-serif;
 
 	text-align: center;
 		width: 36px;
@@ -413,6 +410,16 @@ background: rgb(142,216,248);
 	margin: 0 0 0 2px;
 }
 
+form {
+font-family: 'Open Sans', sans-serif;
+margin: 0 0 0 45px;
+}
+
+input[type="radio"]{
+	margin: 0 21px;	
+	padding: 0;
+	border: 0;
+}
 
 a.skip {
 text-decoration: none;
@@ -622,7 +629,7 @@ margin: 0 0 0 5px;
    text-shadow: rgba(0,0,0,.4) 0 1px 0;
    color: white;
    font-size: 8px;
-   float: left;
+   float: right;
    }
 .skipit:hover {
    border-top-color: #28597a;
