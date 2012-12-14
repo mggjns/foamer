@@ -16,69 +16,52 @@
 <div class="wrapper">
  
 	<div class="arrowleft"><img src="images/arrow_left.png"></div>
- 
-
 	<div class="content">
-
 		<div class="daynav">
 				<img src="images/logo.png">
 				<ul>
 				<li><img src="images/refresh.png"></li>
 				</ul>
+		</div><!--/daynav-->
+
+		<div class="progress">
 		</div>
 
-	<div class="progress">
+		<!-- _events.html.erb -->
+		<div class="agendaview">	
+				<ul>
+					<li>	
+							<div class="icon"><img src="images/train.gif"></div> 
+							<div class="time">9:00am</div>
+							<div class="eventTitle">Workshop</div>
+							<div class="eventAddress">1321 N. Ashland</div>
+					</li>
 
+		</div><!--/agendaview-->
 
-	</div>
-
-	
-
-
-	<div class="agendaview">	
+		<div class="tofrom">
 			<ul>
-				<li>	
-						<div class="icon"><img src="images/train.gif"></div> 
-						<div class="time">9:00am</div>
-						<div class="eventTitle">Workshop</div>
-						<div class="eventAddress">1321 N. Ashland</div>
-				</li>
+						<li><span>from</span><br>Home</li>
+						<button class="geo-location-home" onclick="getGeoLocation();"></button>
+							<img class="geo-locationimage-home" src="images/geolocation.png">
+						<li><span>to</span><br>Starbucks</li>
+			</ul>
+		</div><!--/tofrom-->
+		<!-- /events.html.erb partial -->
 
-	</div>
+		<div class="map">
+			<img src="images/direction.png">
+		</div><!--/map-->	
 
-	<div class="tofrom">
-		<ul>
-					<li><span>from</span><br>Home</li>
-					<button class="geo-location-home" onclick="getGeoLocation();"></button>
-						<img class="geo-locationimage-home" src="images/geolocation.png">
-					<li><span>to</span><br>Starbucks</li>
-		</ul>
-
-
-	</div>
-
-	<div class="map">
-
-		
-						<img src="images/direction.png">
-				 
-	</div>		
-
-
-
-	<div class="directions">
-			<ol>
-				<li>Turn Left out of the Merchandise Mart.</li>
-				<li>Turn Left out of the Merchandise Mart.</li>
-				<li>Take the train two stops South to Quincy. Then skip down the street.</li>
-			</ol>
-
-		</div>
- 
-	<div class="arrowright"><img src="images/arrow_right.png"></div>
- 
-
-</div>
+		<div class="directions">
+				<ol>
+					<li>Turn Left out of the Merchandise Mart.</li>
+					<li>Turn Left out of the Merchandise Mart.</li>
+					<li>Take the train two stops South to Quincy. Then skip down the street.</li>
+				</ol>
+		</div><!--/directions-->
+		<div class="arrowright"><img src="images/arrow_right.png"></div>
+	</div><!--/content-->
 	
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

@@ -12,7 +12,6 @@
 <% end -%>
 
 <div class="wrapper">
-    
   <% if params[:page].to_i + - 1 >= 1 %>
     <a href="/home/<%= params[:page].to_i - 1 %>"><div class="arrowleft"><img src="/assets/arrowleft.png"></div></a>
   <% end %>
@@ -21,15 +20,20 @@
   <% end %>
   <div class="content">
 
+    <div class="daynav">
+      <img src="/assets/logo.png">
+        <ul>
+          <%= link_to refresh_events_path do %>
+            <li is "refreshbutton"><img src="/assets/refresh.png" id="refresh"></li> 
+          <% end %>
+        </ul>
+    </div><!--/daynav-->
+    <div class="progress"></div>
     <%= render 'events', :events => @events %>
     <%= render 'mapform' %>
     <br>
-    <div class="map" id="mapContainer">
-    </div><!--/fullday-->
-    
-    <div id="directionsPanel">
-    </div>
-
+    <div class="map" id="mapContainer"></div>
+    <div id="directionsPanel"></div>
   </div><!--/content-->
 
   <% if params[:page].to_i + 1 <= @events.length.to_i - 1 %>
