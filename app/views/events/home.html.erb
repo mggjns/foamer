@@ -12,6 +12,14 @@
 <% end -%>
 
 <div class="wrapper">
+  
+
+  <% if params[:page].to_i >= 1 %>
+    <div class="arrowleft"><a href="/home/<%= params[:page].to_i - 1 %>"><img src="/assets/arrowleft.png"></a></div>
+  <% end %>
+    
+
+
   <div class="content">
     <div class="daynav">
       <img src="/assets/logo.png">
@@ -29,7 +37,9 @@
     <div class="map" id="mapContainer"></div>
     <div id="directionsPanel"></div>
   </div><!--/content-->
-    
+    <% if params[:page].to_i + 1 <= @events.length.to_i - 1 %>
+        <div class="arrowright"><a href="/home/<%= params[:page].to_i + 1 %>"><img src="/assets/arrow.png"></a></div>
+      <% end %>
 </div><!--/wrapper-->
 
 <%#= debug event %>

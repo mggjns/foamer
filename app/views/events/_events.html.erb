@@ -11,16 +11,16 @@
       </li>
   </ul>
 </div><!--/agendaview-->
-<div class="arrowbox">
-  <ul>
-    <% if params[:page].to_i >= 1 %>
-      <li><a href="/home/<%= params[:page].to_i - 1 %>"><img src="/assets/arrowleft.png"></a>
-    <% end %>
-    <% if params[:page].to_i + 1 <= @events.length.to_i - 1 %>
-        <li><a href="/home/<%= params[:page].to_i + 1 %>"><img src="/assets/arrow.png"></a>
-      <% end %>
-    </ul>
-</div><!--/arrowbox-->
+<!-- <div class="arrowbox"> -->
+  <!-- <ul> -->
+    <%# if params[:page].to_i >= 1 %>
+      <!-- <li><a href="/home/<%#= params[:page].to_i - 1 %>"><img src="/assets/arrowleft.png"></a> -->
+    <%# end %>
+    <%# if params[:page].to_i + 1 <#= @events.length.to_i - 1 %>
+        <!-- <li><a href="/home/<%#= params[:page].to_i + 1 %>"><img src="/assets/arrow.png"></a> -->
+      <%# end %>
+    <!-- </ul> -->
+<!-- </div> --><!--/arrowbox-->
 <div class="tofrom">
   <ul>
   <% if params[:page].nil? %>
