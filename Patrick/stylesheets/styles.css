@@ -150,6 +150,30 @@ box-shadow: 2px 2px 3px #888;
 
 } 
 
+.arrowbox {
+  height:26px;
+  width: 280px;
+} 
+
+.arrowbox ul {
+list-style: none;
+margin: 0 auto;
+padding: 0;
+height: 26px;
+float: left;
+}
+
+.arrowbox li {
+height: 26px;
+width: 136px;
+font-size: 12px;
+display: inline-block;
+font-weight: 400;
+font-family: 'Lato', sans-serif;
+overflow: hidden;
+vertical-align: text-top;
+}
+
 
 .tofrom ul {
 list-style: none;
@@ -160,7 +184,7 @@ float: left;
 }
 
 .tofrom li {
-height: 63px;
+height: 100px;
 width: 136px;
 font-size: 12px;
 display: inline-block;

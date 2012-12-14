@@ -12,14 +12,7 @@
 <% end -%>
 
 <div class="wrapper">
-  <% if params[:page].to_i + - 1 >= 1 %>
-    <a href="/home/<%= params[:page].to_i - 1 %>"><div class="arrowleft"><img src="/assets/arrowleft.png"></div></a>
-  <% end %>
-  <% if params[:page].to_i + - 1 == 0 %>
-    <a href="/home/"><div class="arrowleft"></div></a>
-  <% end %>
   <div class="content">
-
     <div class="daynav">
       <img src="/assets/logo.png">
         <ul>
@@ -30,15 +23,12 @@
     </div><!--/daynav-->
     <div class="progress"></div>
     <%= render 'events', :events => @events %>
+    </br>
     <%= render 'mapform' %>
     <br>
     <div class="map" id="mapContainer"></div>
     <div id="directionsPanel"></div>
   </div><!--/content-->
-
-  <% if params[:page].to_i + 1 <= @events.length.to_i - 1 %>
-    <a href="/home/<%= params[:page].to_i + 1 %>"><div class="arrowright"></div><img src="/assets/arrow.png"></a>
-  <% end %>
     
 </div><!--/wrapper-->
 
@@ -46,6 +36,6 @@
 <%#= binding.pry %>
 <%#= debug @api_data %>
 <%#= debug current_user.timezone if current_user %>
-<%#= debug params[:page] %>
+<%= debug params[:page] %>
 <%# binding.pry %>
 <%#= debug session %>
