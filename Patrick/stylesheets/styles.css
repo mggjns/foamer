@@ -1,7 +1,3 @@
-
-
-
-
 /* General Site CSS */
 
 body {
@@ -10,31 +6,31 @@ font-family: 'Open Sans', sans-serif;
 }
 
 .wrapper {
-	width: 318px;
-	margin: 0 auto;
-	min-height: 400px;
-	background: white;
-	border-radius: 10px;
-	border: 1px solid #d0d2d5;
-	position: relative;
+  width: 318px;
+  margin: 0 auto;
+  min-height: 400px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid #d0d2d5;
+  position: relative;
 }
 
 .content {
-	width: 280px;
-	min-height: 400px;
-	margin: 0 auto;
-	/* overflow-y: scroll;
-	overflow-x: none; */
+  width: 280px;
+  min-height: 400px;
+  margin: 0 auto;
+  /* overflow-y: scroll;
+  overflow-x: none; */
 }
 
 h1 {
-	
-	font-weight: 100;
-	text-transform: uppercase;
-	font-size: 24px;
-	font-style: inherit;
-	text-align: center;
-	line-height: 1em;
+  
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-style: inherit;
+  text-align: center;
+  line-height: 1em;
 }
 
 h2 {
@@ -60,18 +56,18 @@ position: absolute;
 padding: 3px;
 top: 135.5px;
 right: -2px;
-	position: absolute;
+  position: absolute;
 }
 
 .arrowevent {
-	width: 0; 
-	height: 0; 
-	border-top: 13px solid transparent;
-	border-bottom: 13px solid transparent;
-	border-left: 13px solid red;
-	top: 15px;
-	right: 3px;	
-	position: absolute;
+  width: 0; 
+  height: 0; 
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 13px solid red;
+  top: 15px;
+  right: 3px; 
+  position: absolute;
 }
 
 
@@ -130,27 +126,27 @@ box-shadow: 2px 2px 3px #888;
 }
 
 .daynav a {
-	text-decoration: none;
-	color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .navarrow {
-	width: 0; 
-	height: 0; 
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-left: 10px solid white;
-	margin: 0 auto;
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid white;
+  margin: 0 auto;
 }
 
 .progress {
-	height:20px;
-	width: 280px;
+  height:20px;
+  width: 280px;
 } 
 
 .tofrom {
-	height:68px;
-	width: 280px;
+  height:68px;
+  width: 280px;
 
 } 
 
@@ -175,15 +171,15 @@ vertical-align: text-top;
 }
 
 .tofrom li span {
-	text-transform: capitalize;
-	font-weight: normal;
-	font-size: 12px;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 12px;
 }
 
 
 
 .progressbar {
-	width: 75%;
+  width: 75%;
     height: 15px;
     background-color: #eee;
     padding: 2px;
@@ -240,7 +236,7 @@ background: #4e6cf7; /*-- Color of the bar --*/
 }
 
 .loading {
-	line-height: 30px;
+  line-height: 30px;
 }
 
 .googlelogo {
@@ -262,18 +258,18 @@ font-size: 20px;
 }
 
 input[type="checkbox"] {
-	appearance: none;
+  appearance: none;
 -webkit-appearance: none;
     background-color: #fafafa;
     border: 1px solid #cacece;
     box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
     padding: 0;
     border-radius: 3px;
-	width: 20px;
-	height: 20px;
-	margin: 0 5px 0 0;
-	position: relative;
-	vertical-align: baseline;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px 0 0;
+  position: relative;
+  vertical-align: baseline;
  }
 
 .firstcal:checked {
@@ -331,7 +327,7 @@ input[type="checkbox"]:checked:after {
    float: right;
    }
 .next img{
-	vertical-align:middle;
+  vertical-align:middle;
 }
 
 .next:hover {
@@ -348,28 +344,28 @@ input[type="checkbox"]:checked:after {
 
 /* modes */
 .modes ul {
-	list-style: none;
-	padding: 0;
-	width: 280px;
-	height: 56px;
-	margin: 5px 0 0 0;
-	font-size: 0;
+  list-style: none;
+  padding: 0;
+  width: 280px;
+  height: 56px;
+  margin: 5px 0 0 0;
+  font-size: 0;
     text-align:center;
     vertical-align: middle;
 }
 
 .modes span {
-	font-weight: bolder;
+  font-weight: bolder;
 }
 
 .modes li {
-	float: left;
+  float: left;
 
-	background: gray;
-	width: 57px;
-	height: 56px;
-	margin: 0 1px;
-	position: relative;
+  background: gray;
+  width: 57px;
+  height: 56px;
+  margin: 0 1px;
+  position: relative;
 }
 
 .modes li.clickable {
@@ -379,24 +375,24 @@ background: rgb(142,216,248);
 
 
 .modes img {
-	margin: auto;
-	position:absolute;
-	top:0;bottom:0;left:0;right:0;
+  margin: auto;
+  position:absolute;
+  top:0;bottom:0;left:0;right:0;
 }
 
 .modes li:nth-child(1) {
-	font-size:15px;
+  font-size:15px;
 color: white;
 margin-top:26px;
-	text-align: center;
-		width: 36px;
-	margin: 0 2px 0 0;
-	padding: 2px;
-	height: 52px;
+  text-align: center;
+    width: 36px;
+  margin: 0 2px 0 0;
+  padding: 2px;
+  height: 52px;
 }
 
 .modes li:nth-child(5) {
-	margin: 0 0 0 2px;
+  margin: 0 0 0 2px;
 }
 
 form {
@@ -405,9 +401,9 @@ margin: 0 0 0 45px;
 }
 
 input[type="radio"]{
-	margin: 0 21px;	
-	padding: 0;
-	border: 0;
+  margin: 0 21px; 
+  padding: 0;
+  border: 0;
 }
 
 a.skip {
@@ -436,41 +432,41 @@ background: red;
 
 
 .geo-location {
-	background-image: url('images/geolocation.png');
-	position: absolute;
-	left: 155px;
-	width: 15px;
-	height: 15px;
-	border-radius: 10px;
-	padding: 1px;
-	border: none;
-	background-color: transparent;
-	color: white;
-	float: left;
+  background-image: url('images/geolocation.png');
+  position: absolute;
+  left: 155px;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  padding: 1px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  float: left;
 }
 
 .geo-locationimage {
-	position: absolute;
-	left: 155px;
+  position: absolute;
+  left: 155px;
 }
 
 .geo-location-home {
-	background-image: url('images/geolocation.png');
-	position: absolute;
-	left: 135px;
-	width: 15px;
-	height: 15px;
-	border-radius: 10px;
-	padding: 1px;
-	border: none;
-	background-color: transparent;
-	color: white;
-	float: left;
+  background-image: url('images/geolocation.png');
+  position: absolute;
+  left: 135px;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  padding: 1px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  float: left;
 }
 
 .geo-locationimage-home {
-	position: absolute;
-	left: 135px;
+  position: absolute;
+  left: 135px;
 }
 
 
@@ -478,35 +474,35 @@ background: red;
 
 
 .buttons {
-	height: 25px;
-	width: 280px;
-	margin: 0;
-	padding: 0;
-	position: relative;
-	overflow-y: hidden; 
+  height: 25px;
+  width: 280px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow-y: hidden; 
 }
 
 
 /* agenda view - item and map */
 
 .agendaview  ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 auto;
-	width: 280px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 280px;
 } 
 
 .agendaview  li {
-	height: 50px;
-	text-transform: uppercase;
-	width: 280px;
-	
-	margin: 2.5px 0 2.5px 0;
-	position: relative;
-	text-decoration: none;
-	
+  height: 50px;
+  text-transform: uppercase;
+  width: 280px;
+  
+  margin: 2.5px 0 2.5px 0;
+  position: relative;
+  text-decoration: none;
+  
 
- 	
+  
 
 /* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top, #FFFFFF 0%, #C9D9C8 100%);
@@ -561,13 +557,13 @@ margin: 0 0 0 5px;
 }
 
 .event-location  {
-	height: 15px;
-	padding: 1px;
-	width: 165px;
-	float: left;
-	border: none;
-	border-radius: 6px;
-	margin: 0 0 0 5px;
+  height: 15px;
+  padding: 1px;
+  width: 165px;
+  float: left;
+  border: none;
+  border-radius: 6px;
+  margin: 0 0 0 5px;
 }
 
 .mapit {
@@ -628,17 +624,17 @@ margin: 0 0 0 5px;
    }
 .skipit:active {
    border-top-color: #1b435e;
-   background:  	rgb(128,0,0) ;
+   background:    rgb(128,0,0) ;
    }
 .buttons a {
-	text-decoration: none;
-	color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .seeevent {
-	position: absolute;
-	right: 5px;
-	top: 10px;
+  position: absolute;
+  right: 5px;
+  top: 10px;
 }
 
 
@@ -646,8 +642,8 @@ margin: 0 0 0 5px;
  
 
 .map img {
-	width: 280px;
-	height: 280px;
+  width: 280px;
+  height: 280px;
 }
 
 .map {
@@ -657,17 +653,17 @@ height: 280px;
 /* directions */
 
 .directions ol {
-	padding: 0;
-	margin: 0 auto;
-	width: 280px;
+  padding: 0;
+  margin: 0 auto;
+  width: 280px;
 }
 
 .directions li {
-	list-style: decimal inside;
-	border-bottom: 1px solid red;   
-	font-family: 'Lato', sans-serif;
-	padding: 5px 0 5px 0;
-	margin: 5px 0 5px 0;
+  list-style: decimal inside;
+  border-bottom: 1px solid red;   
+  font-family: 'Lato', sans-serif;
+  padding: 5px 0 5px 0;
+  margin: 5px 0 5px 0;
 }
 
 li::first-word {
@@ -678,8 +674,8 @@ font-weight: bold;
 /* intro login page */
 
 .intro {
-	width: 280px;
-	
+  width: 280px;
+  
 }
 
 .introtext {
@@ -695,9 +691,9 @@ color: red;
 }
 
 .demo {
-	width: 200px;
-	height: 200px;
-	margin: 20px 40px 0 40px;
+  width: 200px;
+  height: 200px;
+  margin: 20px 40px 0 40px;
 }
 
 .login {
@@ -711,19 +707,19 @@ text-align: center;
 
 
 .agendaviewoverview  ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 auto;
-	width: 280px;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 280px;
 } 
 
 
 .agendaviewoverview  li {
-	height: 45px;
-	text-transform: uppercase;
-	width: 280px;
-	margin: 2.5px 0 2.5px 0;
-	position: relative;
+  height: 45px;
+  text-transform: uppercase;
+  width: 280px;
+  margin: 2.5px 0 2.5px 0;
+  position: relative;
 
 /* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top, #C7EAFB 0%, #8ED8FF 100%);
@@ -813,25 +809,19 @@ outline: none; /* outline is visible on :focus */
 .zocial.google:before {content: "G";}
 .zocial.google {background-color: #4e6cf7;
 background-image: -moz-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
-	background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
-	background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.1)), color-stop(49%, rgba(255,255,255,.05)), color-stop(51%, rgba(0,0,0,.05)), to(rgba(0,0,0,.1)));
-	background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
-	background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
-	}
+  background-image: -ms-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: -o-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.1)), color-stop(49%, rgba(255,255,255,.05)), color-stop(51%, rgba(0,0,0,.05)), to(rgba(0,0,0,.1)));
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  background-image: linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.05) 49%, rgba(0,0,0,.05) 51%, rgba(0,0,0,.1));
+  }
 
 .zocial.google:hover{
-	background-image: -moz-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
-	background-image: -ms-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
-	background-image: -o-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
-	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.15)), color-stop(49%, rgba(255,255,255,.15)), color-stop(51%, rgba(0,0,0,.1)), to(rgba(0,0,0,.15)));
-	background-image: -webkit-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
-	background-image: linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+  background-image: -moz-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+  background-image: -ms-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+  background-image: -o-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,.15)), color-stop(49%, rgba(255,255,255,.15)), color-stop(51%, rgba(0,0,0,.1)), to(rgba(0,0,0,.15)));
+  background-image: -webkit-linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
+  background-image: linear-gradient(rgba(255,255,255,.15) 49%, rgba(0,0,0,.1) 51%, rgba(0,0,0,.15));
 
 }
-
-
-
-
-
-

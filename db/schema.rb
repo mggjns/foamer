@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121209005041) do
+ActiveRecord::Schema.define(:version => 20121214191314) do
 
   create_table "calendars", :force => true do |t|
     t.string   "kind"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20121209005041) do
     t.float    "longitude"
     t.datetime "created_at",                         :null => false
     t.datetime "updated_at",                         :null => false
-    t.string   "description"
+    t.text     "description"
     t.integer  "calendar_id"
     t.string   "recurringEventId"
     t.boolean  "skip",             :default => true

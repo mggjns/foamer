@@ -13,7 +13,12 @@
 <div class="wrapper">
   <div class="content">
     <% if @events_no_address.size > 0 %>
-      <h1>We need addresses for these events. If you want, you can skip them.</h1>
+      <div class="daynav">
+        <img src="/assets/logo.png">
+      </div><!-- /daynav-->
+      <p class="introtext">We need some info and addresses to map your day.</p>
+      <%= render 'travel_mode_form' %>  
+      <p class="introtext">Enter event locations.</p>
       <div class="agendaview">
         <ul>
           <% @events_no_address.each do |event| %>
@@ -25,10 +30,8 @@
       <p><h2>You have addresses for your events. Thanks for that.</h2></p>
     <% end %>
 
-    <h2>How do you want to get around today?</h2>
-    <%= render 'travel_mode_form' %>  
     <p><h2><%= link_to "Map 'em!", home_path, :class => "zocial google" %></h2></p>           
   </div><!--/content-->
 </div><!--/wrapper-->
 
-<%= render 'submittable.js' %>
+<%= render 'submittable', :formats => [:js] %>

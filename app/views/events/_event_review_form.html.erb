@@ -2,12 +2,13 @@
 	<div class="time"><%= event[:start].strftime("%l:%M%P") %></div>
   <div class="eventTitle"><%= event.summary %></div>
   <div class="buttons">
-    <button class="geo-location" onclick="getGeoLocation();"></button>
-
+    <!-- <button class="geo-location" onclick="getGeoLocation();"></button> -->
+    <!-- <img class="geo-locationimage" src="/assets/geolocation.png"> -->
 		<%= form_for(event, :remote => true) do |f| %>
       <%= f.text_field :location, :placeholder => 'Add an Address', :class => 'submittable location' %>
-	    <%= f.check_box :skip, :class => 'submittable skipit' %> 
+      <div class="skipit"><a href="#">Skip This Trip</a></div>
+	    <%= f.check_box :skip, :class => 'submittable' %> 
 	    <%= f.label "Skip It" %>
 		<% end %>
-	</div>
+	</div><!--/buttons-->
 </li>

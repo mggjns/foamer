@@ -28,6 +28,17 @@ var directionsService = new google.maps.DirectionsService();
 var rendererOptions = { draggable: true };
 var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 
+function getGeoLocation() {
+  navigator.geolocation.getCurrentPosition(setGeoCookie);
+}
+
+function setGeoCookie(position) {
+  var latitude = position.coords.latitude; 
+  var longitude =  position.coords.longitude;
+  document.cookie = "lat=" + escape(latitude);
+  document.cookie = "long=" + escape(longitude);
+
+}
 
 function initialize() {
     "use strict";
