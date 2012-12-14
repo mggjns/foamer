@@ -25,12 +25,12 @@
 		<p class="introtext">We need some info and addresses to map your day.</p>
 
 	<div class="modes">
-		<ul class="modes clickable">
+		<ul class="modes ">
 			<li>Your Ride</span></li>
-			<li class="clickabletrain" id="travelMode_TRANSIT"><img src="images/train.png"><a href="www.google.com"></a></li>
-			<li class="clickablebike" id="travelMode_BICYCLING"><img src="images/bike.png"><a href="www.google.com"></a></li>
-			<li class="clickablecar" id="travelMode_DRIVING"><img src="images/car.png"><a href="www.google.com"></a></li>
-			<li class="clickablewalk" id="travelMode_WALKING"><img src="images/walking.png"><a href="www.google.com"></a></li>
+			<li id="travelMode_TRANSIT"><img src="images/train.png"><a href="www.google.com"></a></li>
+			<li id="travelMode_BICYCLING"><img src="images/bike.png"><a href="www.google.com"></a></li>
+			<li  id="travelMode_DRIVING"><img src="images/car.png"><a href="www.google.com"></a></li>
+			<li id="travelMode_WALKING"><img src="images/walking.png"><a href="www.google.com"></a></li>
 		</ul>
 	</div>
 
@@ -72,7 +72,9 @@
 						<img class="geo-locationimage" src="images/geolocation.png">
 						<input class="event-location" name="event_location" type="text" placeholder="Add an Address" required>
 						<div class="skipit"><a href="#">Skip This Trip</a></div>
-						
+						<input class="submittable" id="event_skip" type="checkbox" label="Skip It"></input> 
+
+
 						
 							</div>
 				</li>
@@ -90,7 +92,7 @@
 						
 							</div>
 				</li>
-
+			</ul>	
 				
 
 	</div>
@@ -110,4 +112,5 @@
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="javascript/styles.js"></script>
+<script src="javascript/geolocate.js"></script>
 </html>

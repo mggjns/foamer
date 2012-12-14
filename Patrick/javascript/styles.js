@@ -9,26 +9,5 @@ $('.submittable').on('click', function() {
 	    });
 	
 
-/*
-
-	    	$('li').attr('id', 'buttonid').addClass("clickable");
-
-
-
-$('li "#buttonid"'')
-
-$('li')
-
-
-$('.submittablewalk').each(function(index, clickable) {
-	    console.log("clickable is: %o", $(clickable));
-	    $(clickable).on('click', function() {
-	    	console.log("hi");
-	    	$('li.clickablewalk').addClass("clickable");
-	       
-	    });
-	});
-
-*/
 
 });
