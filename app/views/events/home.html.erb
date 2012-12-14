@@ -41,6 +41,7 @@
         <div class="arrowright"><a href="/home/<%= params[:page].to_i + 1 %>"><img src="/assets/arrow.png"></a></div>
       <% end %>
 </div><!--/wrapper-->
+<%= render 'submittable', :formats => [:js] %>
 
 <%#= debug event %>
 <%#= binding.pry %>

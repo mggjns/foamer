@@ -4,6 +4,7 @@
   function setUserTravelMode() {
   $('input#travelMode_<%= session[:travel_mode] %>').attr('checked',true)
   .parents('form:first').submit();
+  $('li#travelMode_<%= session[:travel_mode] %>').addClass('clickable');
   }
 </script>
 
